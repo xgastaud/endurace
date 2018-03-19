@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319124358) do
+ActiveRecord::Schema.define(version: 20180319175242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "participations", force: :cascade do |t|
+    t.bigint "race_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["race_id"], name: "index_participations_on_race_id"
+    t.index ["user_id"], name: "index_participations_on_user_id"
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string "name"
+    t.string "sport"
+    t.string "format"
+    t.datetime "starts_at"
+    t.string "address"
+    t.string "year"
+    t.string "description"
+    t.string "url"
+    t.string "registration_url"
+    t.string "available_slots"
+    t.float "distance_swim"
+    t.float "distance_bike"
+    t.float "distance_run"
+    t.float "vertical_ascent_bike"
+    t.float "vertical_ascent_run"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,4 +61,6 @@ ActiveRecord::Schema.define(version: 20180319124358) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "participations", "races"
+  add_foreign_key "participations", "users"
 end
