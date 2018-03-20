@@ -26,6 +26,8 @@ body {
 }
 
 .container {
+  display: flex;
+  align-items: center;
  h1 {
     font-size: 24px;
   }
@@ -45,4 +47,10 @@ body {
   flex: 0 0 auto;
   margin-right: 10px;
   text-align: center;
+}
+
+.description {
+  width: 400px;
+  height: 120px;
+  overflow: hidden;
 }
