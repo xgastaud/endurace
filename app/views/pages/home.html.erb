@@ -1,3 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "Index", races_path %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://acm-sport.com/wp-content/uploads/2017/05/picture1-ok-.jpg');">
+  <div class="banner-content">
+    <h1>Endurace</h1>
+    <p>Find my new race</p>
+
+    <form action="/races" method="get" class="searchbar">
+      <!-- <div class="searchbar"> -->
+        <i class="fas fa-map-marker-alt"></i>
+        <input type="text" name="address" placeholder="Where?" class="search-address autocomplete">
+        <select name="distance" class="search-criteria">
+          <option value="" disabled selected hidden>Distance?</option>
+          <option value=5>-- any --</option>
+          <option value=5>within 5 km (default)</option>
+          <option value=50>within 50 km</option>
+          <option value=500>within 500 km</option>
+        </select>
+        <select name="category" class="search-criteria">
+          <option value="" disabled selected hidden>Category?</option>
+          <option value="">-- any --</option>
+          <option value="triathlon">Skis</option>
+          <option value="running">Snowboard</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="submit" class="btn-searchbar">
+      <!-- </div> -->
+    </form>
+
+    <div class="index-searchbar">
+      <%= link_to "See all adds", races_path %>
+    </div>
+  </div>
+</div>
