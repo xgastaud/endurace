@@ -8,3 +8,40 @@
   </li>
   <% end %>
 </ul>
+
+<div class="index-container">
+
+    <div class="card-container">
+      <!-- <h1>Select your equipment</h1> -->
+      <% @races.each do |race| %>
+        <div class="col-xs-12 col-sm-6">
+          <div class="card">
+          <%= link_to "", race_path(race), class: "card-link"%>
+            <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path race.photo %>);">
+              <div class="card-price">
+                <%= race.name %>€
+              </div>
+              <div class="card-location">
+                <%= race.address %>
+              </div>
+              <div class="card-category">
+                <%= race.format %>
+              </div>
+            </div>
+            <div class="card-description" style="border-color: <%= Race::CATEGORY_COLORS[race.format]; %>">
+              <div class="card-title"><%= race.description %></div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <hr />
+      <div class="pages">
+        <%#= paginate @races %>
+        <%#= page_entries_info @races %>
+      </div>
+    </div>
+    <div class="map-container">
+      <div id="map" data-markers="<%= @markers.to_json %>"></div>
+    </div>
+
+  </div>
