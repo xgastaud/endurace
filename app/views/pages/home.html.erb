@@ -13,13 +13,20 @@
           <option value="Triathlon">Triathlon</option>
           <option value="cyclisme">Cyclisme</option>
         </select>
-        <input type="text" name="address" placeholder="Where?" class="search-address autocomplete">
+        <input type="text" id="address" name="address" placeholder="Un lieu de course" class="search-address autocomplete">
+        <select name="range" class="search-criteria">
+          <option value="" disabled selected hidden>Prêt à me déplacer de</option>
+          <option value=20>-- any --</option>
+          <option value=20>20 km max</option>
+          <option value=50>50 km max</option>
+          <option value=500>500 km max</option>
+        </select>
         <select name="format" class="search-criteria">
-          <option value="" disabled selected hidden>Distance from loc?</option>
-          <option value=5>-- any --</option>
-          <option value=5>within 5 km (default)</option>
-          <option value=50>within 50 km</option>
-          <option value=500>within 500 km</option>
+          <option value="" disabled selected hidden>Format de la course</option>
+          <option value="">-- any --</option>
+          <option value="Triathlon Courte Distance">Triathlon Courte Distance</option>
+          <option value="Triathlon Longue Distance">Triathlon Longue Distance</option>
+          <option value="Triathlon Kids">Triathlon Kids</option>
         </select>
         <input type="submit" class="btn-searchbar">
       <!-- </div> -->

@@ -7,8 +7,8 @@ Geocoder.configure(
   # [...]
   units: :km,
   lookup:    :google,
-  api_key:   ENV['AIzaSyCEy5-2KoIg6mdGF_5vlXv32zyelw-zBtA'],
-  use_https: true,
+  api_key:   ENV['GOOGLE_API_SERVER_KEY'],
+  use_https: true
   # [...]
   # [...]
 # use_https: false,           # use HTTPS for lookup requests? (if supported)
