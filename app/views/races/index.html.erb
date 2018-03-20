@@ -1,10 +1,16 @@
-<h1>Races#index</h1>
-<p>Find me in app/views/races/index.html.erb</p>
-<%= link_to "Back", href="javascript:history.back()" %>
-<ul>
-  <% @races.each do |race| %>
-  <li>
-    <%= link_to race.name, race_path(race) %>
-  </li>
-  <% end %>
-</ul>
+<div>
+  <h1>Races#index</h1>
+  <p>Find me in app/views/races/index.html.erb</p>
+  <%= link_to "Back", href="javascript:history.back()" %>
+  <ul>
+    <% @races.each do |race| %>
+    <li>
+      <%= link_to race.name, race_path(race) %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>">
+
+</div>
