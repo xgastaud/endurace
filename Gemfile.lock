@@ -64,6 +64,7 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.7)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
@@ -193,6 +194,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass (~> 4.7)
+  geocoder
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   nokogiri

@@ -1,25 +1,25 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://acm-sport.com/wp-content/uploads/2017/05/picture1-ok-.jpg');">
   <div class="banner-content">
     <h1>Endurace</h1>
-    <p>Find my new race</p>
+    <p>Find your next race</p>
 
     <form action="/races" method="get" class="searchbar">
       <!-- <div class="searchbar"> -->
         <i class="fas fa-map-marker-alt"></i>
+        <select name="sport" class="search-criteria">
+          <option value="" disabled selected hidden>Ton sport</option>
+          <option value="">-- any --</option>
+          <option value="course">Course à pied</option>
+          <option value="Triathlon">Triathlon</option>
+          <option value="cyclisme">Cyclisme</option>
+        </select>
         <input type="text" name="address" placeholder="Where?" class="search-address autocomplete">
-        <select name="distance" class="search-criteria">
-          <option value="" disabled selected hidden>Distance?</option>
+        <select name="format" class="search-criteria">
+          <option value="" disabled selected hidden>Distance from loc?</option>
           <option value=5>-- any --</option>
           <option value=5>within 5 km (default)</option>
           <option value=50>within 50 km</option>
           <option value=500>within 500 km</option>
-        </select>
-        <select name="category" class="search-criteria">
-          <option value="" disabled selected hidden>Category?</option>
-          <option value="">-- any --</option>
-          <option value="triathlon">Skis</option>
-          <option value="running">Snowboard</option>
-          <option value="other">Other</option>
         </select>
         <input type="submit" class="btn-searchbar">
       <!-- </div> -->
