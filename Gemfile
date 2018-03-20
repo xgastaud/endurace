@@ -10,6 +10,7 @@ gem 'rails', '5.1.5'
 gem 'redis'
 gem 'pundit'
 gem 'nokogiri'
+gem 'open-uri'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
