@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 20180320225219) do
     t.float "vertical_ascent_run"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.float "latitude"
     t.float "longitude"
+    t.string "photo"
   end
 
   create_table "users", force: :cascade do |t|
