@@ -18,12 +18,13 @@ registration_url = ["https://www.njuko.net/tid2018/select_competition"]
 available_slots = [1000]
 distance_swim = [1.9]
 distance_bike = [90]
+price = (10..100).to_a
 distance_run = [21.1]
 vertical_ascent_bike = [1500]
 vertical_ascent_run = [100]
 
 10.times do |race|
-  race = Race.new(name:"#{sport.sample} de #{address.sample}", sport: sport.sample, format:format.sample, starts_at: starts_at.sample, address: address.sample, year: year.sample, description: description.sample, url: url.sample, registration_url: registration_url.sample, available_slots: 1000, distance_swim: 1.9, distance_bike: 90, distance_run: 21.1, vertical_ascent_bike: 1500, vertical_ascent_run: 100)
+  race = Race.new(name:"#{sport.sample} de #{address.sample}", sport: sport.sample, format: format.sample, price: price.sample, starts_at: starts_at.sample, address: address.sample, year: year.sample, description: description.sample, url: url.sample, registration_url: registration_url.sample, available_slots: 1000, distance_swim: 1.9, distance_bike: 90, distance_run: 21.1, vertical_ascent_bike: 1500, vertical_ascent_run: 100)
   race.save
   puts "Saving #{race.name}"
 end

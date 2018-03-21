@@ -9,15 +9,32 @@
     <h2>
       <%= @race.sport %>
     </h2>
+    <h3>
+      <%= @race.format %>
+    </h3>
+  </div>
+  <div class="banner-show-btn-container">
+    <div class="banner-show-btn">
+      <i class="far fa-heart"></i>
+      <p>Ma liste</p>
+    </div>
+    <div class="banner-show-btn">
+      <i class="far fa-share-square"></i>
+      <p>Partager</p>
+    </div>
+    <div class="banner-show-btn">
+      <i class="far fa-arrow-alt-circle-right"></i>
+      <p>M'inscrire</p>
+    </div>
   </div>
 </div>
-<div class="container">
+<div class="container-show">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="column-container">
-        <div class="metrics">
+        <div class="metrics-show">
           <h2>
-            Metrics
+            Chiffres clés
           </h2>
             <div class="metrics-container">
               <div class="metrics-logo-container">
@@ -34,28 +51,43 @@
               </div>
             </div>
         </div>
-        <div class="description">
+        <div class="description-show">
           <h2>
             Description
           </h2>
           <p>
-            <%= @race.description %>
+            <%= truncate(@race.description, length: 350, separator: ' ', omission: ' (...)') %>
           </p>
         </div>
+        <%= link_to @race.url %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="col">
-        <div class="map">
-          <h2>
-            Location
-          </h2>
-          <div class="map-container">
-            <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=8&size=400x200&sensor=false&maptype=roadmap&markers=color:red|#{@race.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+      <div class="col-xs-12 col-sm-6">
+        <div class="column-container">
+          <div class="map-show">
+            <h2>
+              Location
+            </h2>
+            <div class="map-show-container">
+              <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=8&size=575x250&sensor=false&maptype=roadmap&markers=color:red|#{@race.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", id: "map-pic" %>
+            </div>
           </div>
         </div>
+      </div>
+    <div class="col-xs-12 col-sm-12">
+      <div class="section-container">
+        <h2>
+          Topographie
+        </h2>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12">
+      <div class="section-container">
+        <h2>
+          Commentaires
+        </h2>
       </div>
     </div>
   </div>
 </div>
-<%= link_to "Back", href="javascript:history.back()" %>
+<%#= link_to "Back", href="javascript:history.back()", class: "navbar-wagon-item navbar-wagon-link" %>
