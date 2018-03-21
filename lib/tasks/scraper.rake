@@ -6,7 +6,7 @@ namespace :scraper do
     # categories.each do |category|
     # end
 
-    JoggingPlusScraperService.new("marathons/france").scrape
+    JoggingPlusScraperService.new('marathons/france').scrape
   end
 
 end
