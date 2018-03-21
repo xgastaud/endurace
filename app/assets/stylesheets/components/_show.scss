@@ -1,0 +1,56 @@
+body {
+  background-color: white;
+}
+
+.banner-show {
+  height: calc(80vh - 70px);
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.banner-show-title-box {
+  background: rgba(0,0,0,.6);
+  min-height: 100px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 20px 50px;
+  margin-left: 10%;
+  margin-right: 10%;
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+ h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.metrics-container {
+  display: flex;
+}
+
+.metrics-logo-container {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.description {
+  width: 400px;
+  height: 120px;
+  overflow: hidden;
+}
