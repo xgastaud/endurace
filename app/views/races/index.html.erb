@@ -24,13 +24,19 @@
           <div class="card">
           <%= link_to "", race_path(race), class: "card-link"%>
             <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path race.photo %>);">
-              <div class="card-name">
+              <div>
                 <strong><%= race.name %></strong>
               </div>
-              <div class="card-location">
+              <div>
                 <%= race.address %>
               </div>
-              <div class="card-category">
+              <div>
+                <%= race.starts_at %>
+              </div>
+              <div>
+                <%= race.sport %>
+              </div>
+              <div>
                 <%= race.format %>
               </div>
             </div>
