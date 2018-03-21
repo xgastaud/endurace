@@ -1,7 +1,7 @@
 class RacePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      scope.all
     end
   end
 end

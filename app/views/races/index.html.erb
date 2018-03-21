@@ -1,16 +1,56 @@
-<div>
-  <h1>Races#index</h1>
-  <p>Find me in app/views/races/index.html.erb</p>
-  <%= link_to "Back", href="javascript:history.back()" %>
-  <ul>
-    <% @races.each do |race| %>
-    <li>
-      <%= link_to race.name, race_path(race) %>
-    </li>
-    <% end %>
-  </ul>
-</div>
+<%= link_to "Back", href="javascript:history.back()" %>
 
-<div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>">
+<div class="filters">
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Sports
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+      <li><a href="#">Running</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+  </div>
+</div>
+<div class="index-container">
+
+  <div class="container card-container">
+    <div class="row">
+      <!-- <h1>Select your equipment</h1> -->
+      <% @races.each do |race| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+          <%= link_to "", race_path(race), class: "card-link"%>
+            <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path race.photo %>);">
+              <div class="card-name">
+                <strong><%= race.name %></strong>
+              </div>
+              <div class="card-location">
+                <%= race.address %>
+              </div>
+              <div class="card-category">
+                <%= race.format %>
+              </div>
+            </div>
+            <!-- <div class="card-description" style="border-color: <%#= Race::CATEGORY_COLORS[race.format]; %>">
+              <div class="card-title"><%= race.description %></div>
+            </div> -->
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <hr />
+    <div class="pages">
+      <%#= paginate @races %>
+      <%#= page_entries_info @races %>
+    </div>
+  </div>
+  <div class="map-container">
+    <div id="map" data-markers="<%= @markers.to_json %>"></div>
+    <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>">
+  </div>
 
 </div>
