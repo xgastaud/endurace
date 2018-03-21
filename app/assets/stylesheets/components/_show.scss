@@ -30,7 +30,9 @@ body {
     font-size: 24px;
   }
   h3 {
-    font-size: 18px;
+    font-size: 20px;
+    color: rgb(195, 65, 59);
+    font-weight: 800;
   }
 }
 
@@ -72,8 +74,15 @@ body {
   }
 }
 
+.section-container {
+  margin-top: 20px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: gray;
+}
+
 .column-container{
-    a {
+  a {
     font-size: 14px;
   }
 }
