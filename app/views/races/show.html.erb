@@ -1,5 +1,61 @@
-<h1>Races#show</h1>
+<!-- <h1>Races#show</h1>
 <p>Find me in app/views/races/show.html.erb</p>
+<br> -->
+<div class="banner-show" style="background-image: url('http://res.cloudinary.com/dpthh89hv/image/upload/v1521554873/endurace/banner_bike.jpg');">
+  <div class="banner-show-title-box">
+    <h1>
+      <%= @race.name %>
+    </h1>
+    <h2>
+      <%= @race.sport %>
+    </h2>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="column-container">
+        <div class="metrics">
+          <h2>
+            Metrics
+          </h2>
+            <div class="metrics-container">
+              <div class="metrics-logo-container">
+                <%= image_tag('swim-logo.png', class: "avatar-show") %>
+                <p><%= @race.distance_swim %> km</p>
+              </div>
+              <div class="metrics-logo-container">
+                <%= image_tag('bike-logo.png', class: "avatar-show") %>
+                <p><%= @race.distance_bike %> km</p>
+              </div>
+              <div class="metrics-logo-container">
+                <%= image_tag('run-logo.png', class: "avatar-show") %>
+                <p><%= @race.distance_run %> km</p>
+              </div>
+            </div>
+        </div>
+        <div class="description">
+          <h2>
+            Description
+          </h2>
+          <p>
+            <%= @race.description %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="col">
+        <div class="map">
+          <h2>
+            Location
+          </h2>
+          <div class="map-container">
+            <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=8&size=400x200&sensor=false&maptype=roadmap&markers=color:red|#{@race.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <%= link_to "Back", href="javascript:history.back()" %>
-<br>
-<%= @race.name %>

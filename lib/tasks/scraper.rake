@@ -8,5 +8,3 @@ namespace :scraper do
 
     JoggingPlusScraperService.new('marathons/france').scrape
   end
-
-end
