@@ -33,8 +33,7 @@ class JoggingPlusScraperService
 
       link_inscription = html_doc_show.search("#bloc-gauche3 .lienorange")
       url_organizer =  link_inscription.attribute('href').value unless link_inscription.empty?
-      "url orga: #{url_organizer}"
-      "url registration: #{url_registration}"
+
       html_doc_show.search("#bloc-gauche2 #bloc-info-label").each do |element|
         bloc << element
       end
