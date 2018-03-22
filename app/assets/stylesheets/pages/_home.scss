@@ -6,23 +6,47 @@
   height: 100vh;
   align-items: center;
   padding: 10px;
+  letter-spacing: 10px;
 }
 
 .banner h1 {
-  font-size: 75px;
+  font-size: 150px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin: 20px 0px;
+}
+
+.banner h2 {
+  font-size: 45px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: rgb(195, 65, 59);
+  margin: 0px 0px;
+}
+
+.banner h3 {
+  font-size: 35px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.banner h4 {
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: white;
 }
 
 .banner p {
   font-size: 25px;
   font-weight: lighter;
   color: rgb(255, 255, 255);
-  opacity: 0.6;
+  // opacity: 0.6;
 }
 
 .banner-content {
-  width: 40%;
+  width: 100%;
 }
 
 .form-inputs {
@@ -34,11 +58,23 @@
   justify-content: space-between;
 }
 
+.btn-go {
+  font-size: 30px;
+  font-weight: bold;
+  width: 300px;
+  background-color: rgb(195, 65, 59);
+  color: white;
+  border-radius: 4px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+}
+
 .btn {
   margin-bottom: 30px;
   flex: 0 0 auto;
   width: 380px;
-  background-color: #FDA403;
+  background-color: rgb(195, 65, 59);
   color: white;
   border-radius: 4px;
   margin-right: 5px;
@@ -49,11 +85,11 @@
   margin-bottom: 5px;
   flex: 0 0 auto;
   width: 190px;
-  background-color: white;
-  color: black;
+  // background-color: white;
+  color: rgb(195, 65, 59);
   border-radius: 4px;
   margin-right: 5px;
-  height: 30px;
+  height: 50px;
   border: none;
 }
 
