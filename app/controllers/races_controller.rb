@@ -1,37 +1,20 @@
 class RacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @races = policy_scope(Race.all)
-    if params[:sport].present? && params[:format].present? && params[:address].present? && params[:range].present?
-      @races = Race.where(sport: params[:sport]).where(format: params[:format]).near(params[:address],params[:range])
 
-    elsif params[:sport].present? && params[:address].present? && params[:range].present?
-      @races = Race.where(sport: params[:sport]).near(params[:address],params[:range])
+    filters = {}
+    filters[:sport] = params[:sport] if params[:sport].present?
+    filters[:format] = params[:format] if params[:format].present?
+    @races = @races.where(filters)
 
-    elsif params[:sport].present? && params[:address].present? && params[:format].present?
-      @races = Race.where(sport: params[:sport]).where(format: params[:format]).near(params[:address],20)
+    @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
+    @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
 
-    elsif params[:format].present? && params[:address].present? && params[:range].present?
-      @races = Race.where(format: params[:format]).near(params[:address],params[:range])
+    @races = @races.near(params[:address], params[:range] || 20) if params[:address].present?
 
-    elsif params[:address].present? && params[:sport].present?
-      @races = Race.where(sport: params[:sport]).near(params[:address],params[:range])
 
-    elsif params[:address].present? && params[:format].present?
-      @races = Race.where(format: params[:format]).near(params[:address],params[:range])
-
-    elsif params[:address].present? && params[:range].present?
-      @races = Race.near(params[:address],params[:range])
-
-    elsif params[:address].present?
-      @races = Race.near(params[:address],20)
-
-    elsif params[:sport].present?
-      @races = Race.where(sport: params[:sport])
-
-    else
-      @races = Race.all
-    end
 
     @markers = @races.map do |race|
       next if race.latitude.nil?

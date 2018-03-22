@@ -18,12 +18,13 @@ registration_url = ["https://www.njuko.net/tid2018/select_competition"]
 available_slots = [1000]
 distance_swim = [1.9]
 distance_bike = [90]
+price = (10..100).to_a
 distance_run = [21.1]
 vertical_ascent_bike = [1500]
 vertical_ascent_run = [100]
 
 10.times do |race|
-  race = Race.new(name:"#{sport.sample} de #{address.sample}", sport: sport.sample, format:format.sample, starts_at: starts_at.sample, address: address.sample, year: year.sample, description: description.sample, url: url.sample, registration_url: registration_url.sample, available_slots: 1000, distance_swim: 1.9, distance_bike: 90, distance_run: 21.1, vertical_ascent_bike: 1500, vertical_ascent_run: 100)
+  race = Race.new(name:"#{sport.sample} de #{address.sample}", sport: sport.sample, format: format.sample, price: price.sample, starts_at: starts_at.sample, address: address.sample, year: year.sample, description: description.sample, url: url.sample, registration_url: registration_url.sample, available_slots: 1000, distance_swim: 1.9, distance_bike: 90, distance_run: 21.1, vertical_ascent_bike: 1500, vertical_ascent_run: 100)
   race.save
   puts "Saving #{race.name}"
 end
@@ -44,11 +45,11 @@ UNE EPREUVE SUR LES MYTHIQUES PLANCHES DE DEAUVILLE
 Constitué de 4 boucles de 5,250 km, le parcours de course à pied amène les triathlètes sur les légendaires Planches de Deauville qui seront parcourues dans leur globalité. L’arrivée se fera sur l’avenue Lucien Barrière tel des stars !', url:"https://triathlondeauville.com/", registration_url:"https://www.njuko.net/tid2018/select_competition", available_slots:1000, distance_swim:1.9, distance_bike:90, distance_run:21.1, vertical_ascent_bike:1500, vertical_ascent_run:100)
 race1.save
 
-race2 = Race.new(name:"Triathlon de Paris", sport:"Triathlon", format:"Triathlon Courte Distance", starts_at:"Sat, 18 Mar 2018 12:00:00 UTC +00:00", address:"Tour Eiffel", year:"2018", description:"Triathlon de Deauville Description", url:"https://triathlondeauville.com/", registration_url:"https://www.njuko.net/tid2018/select_competition", available_slots:1000, distance_swim:1.9, distance_bike:90, distance_run:21.1, vertical_ascent_bike:1500, vertical_ascent_run:100)
+race2 = Race.new(name:"Triathlon de Paris", sport:"Triathlon", format:"Triathlon Courte Distance", starts_at: DateTime.current, address:"Tour Eiffel", year:"2018", description:"Triathlon de Deauville Description", url:"https://triathlondeauville.com/", registration_url:"https://www.njuko.net/tid2018/select_competition", available_slots:1000, distance_swim:1.9, distance_bike:90, distance_run:21.1, vertical_ascent_bike:1500, vertical_ascent_run:100)
 race2.save
 
-race3 = Race.new(name:"Triathlon de Bourge", sport:"Triathlon", format:"Triathlon Longue Distance", starts_at:"Sat, 19 Mar 2018 12:00:00 UTC +00:00", address:"Bourges", year:"2018", description:"Triathlon de Deauville Description", url:"https://triathlondeauville.com/", registration_url:"https://www.njuko.net/tid2018/select_competition", available_slots:1000, distance_swim:1.9, distance_bike:90, distance_run:21.1, vertical_ascent_bike:1500, vertical_ascent_run:100)
+race3 = Race.new(name:"Triathlon de Bourge", sport:"Triathlon", format:"Triathlon Longue Distance", starts_at: DateTime.current, address:"Bourges", year:"2018", description:"Triathlon de Deauville Description", url:"https://triathlondeauville.com/", registration_url:"https://www.njuko.net/tid2018/select_competition", available_slots:1000, distance_swim:1.9, distance_bike:90, distance_run:21.1, vertical_ascent_bike:1500, vertical_ascent_run:100)
 race3.save
 
-race4 = Race.new(name:"Triathlon de Rennes", sport:"Triathlon", format:"Triathlon Kids", starts_at:"Sat, 20 Mar 2018 12:00:00 UTC +00:00", address:"Rennes", year:"2018", description:"Triathlon de Deauville Description", url:"https://triathlondeauville.com/", registration_url:"https://www.njuko.net/tid2018/select_competition", available_slots:1000, distance_swim:1.9, distance_bike:90, distance_run:21.1, vertical_ascent_bike:1500, vertical_ascent_run:100)
+race4 = Race.new(name:"Triathlon de Rennes", sport:"Triathlon", format:"Triathlon Kids", starts_at: DateTime.current, address:"Rennes", year:"2018", description:"Triathlon de Deauville Description", url:"https://triathlondeauville.com/", registration_url:"https://www.njuko.net/tid2018/select_competition", available_slots:1000, distance_swim:1.9, distance_bike:90, distance_run:21.1, vertical_ascent_bike:1500, vertical_ascent_run:100)
 race4.save

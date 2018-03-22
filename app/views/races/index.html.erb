@@ -1,54 +1,96 @@
 <%= link_to "Back", href="javascript:history.back()" %>
 
-<div class="filters">
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Sports
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
-      <li><a href="#">Running</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-    </ul>
-  </div>
-</div>
-<div class="index-container">
-  <div class="card-container">
-    <div class="row">
-      <!-- <h1>Select your equipment</h1> -->
-      <% @races.each do |race| %>
-        <div class="col-xs-12 col-sm-8">
+<div class="container-fluid">
+  <div class="index-container">
+
+    <div class="left-container">
+      <div class="filters">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Sports
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+            <li><a href="#">Running</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Distance
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+            <li><a href="#">Running</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Date
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+            <li><a href="#">Running</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Location
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+            <li><a href="#">Running</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-container">
+        <% @races.each do |race| %>
           <div class="card">
-          <%= link_to "", race_path(race), class: "card-link"%>
-            <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path race.photo %>);">
-              <div class="card-name">
-                <strong><%= race.name %></strong>
+            <%= link_to "", race_path(race), class: "card-link"%>
+            <div class="card-picture" style="background-image: linear-gradient(360deg, rgba(0,0,0,0.7), rgba(0,0,0,0)), url(<%= image_path race.photo %>);">
+              <div class="card-format">
+                <span><%= race.format %></span>
+                <span><%= race.available_slots %></span>
               </div>
-              <div class="card-location">
-                <%= race.address %>
-              </div>
-              <div class="card-category">
-                <%= race.format %>
+              <div class="card-bottom">
+                <div class="card-name">
+                  <strong><%= race.name %></strong>
+                  <span class="card-location"><%= race.starts_at.strftime("%b %d") %> • <%= race.address %></span>
+                </div>
+                <div class="card-wishlist">
+                  <%= cl_image_tag 'wishlist', width:20 %>
+                    <%# link_to wishlist_path do %>
+                    <%# end %>
+                </div>
               </div>
             </div>
-            <!-- <div class="card-description" style="border-color: <%#= Race::CATEGORY_COLORS[race.format]; %>">
-              <div class="card-title"><%= race.description %></div>
-            </div> -->
+            <div class="card-description">
+              <div class="card-price"> <%= race.price %> €</div>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-    <hr />
-    <div class="pages">
-      <%#= paginate @races %>
-      <%#= page_entries_info @races %>
-    </div>
+    <!--   <hr />
+      <div class="pages">
+        <%#= paginate @races %>
+        <%#= page_entries_info @races %>
+      </div> -->
+    <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>"></div>
   </div>
-  <div class="map-container">
-    <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>">
-  </div>
-
 </div>

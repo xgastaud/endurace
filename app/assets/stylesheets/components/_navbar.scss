@@ -8,11 +8,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: rgb(195, 65, 59);
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+  border-radius: 5px;
 }
 
 /* User Avatar */
