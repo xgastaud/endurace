@@ -1,12 +1,16 @@
+.banner-absolute-container {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
 .banner {
   color: black;
   text-align: center;
   height: 100vh;
   height: calc(100vh - 70px);
   background-size: cover !important;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .banner-content {
   position: absolute;
