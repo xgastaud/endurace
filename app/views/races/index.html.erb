@@ -1,72 +1,89 @@
-<%= link_to "Back", href="javascript:history.back()" %>
-
 <div class="container-fluid">
   <div class="index-container">
 
     <div class="left-container">
-      <div class="filters">
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Sports
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
-            <li><a href="#">Running</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Distance
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
-            <li><a href="#">Running</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Date
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
-            <li><a href="#">Running</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Location
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
-            <li><a href="#">Running</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </div>
-      </div>
+
+
       <div class="card-container">
+        <div class="filters">
+
+          <div class="dropdown">
+            <button class="plusdefiltre btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Sport
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+              <li><%= link_to "Running", races_path(sport: "Running") %></li>
+              <li><%= link_to "Cyclisme", races_path(sport: "Cyclisme") %></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <button class="plusdefiltre btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Format
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><%= link_to "Court", races_path(format: "Triathlon Courte Distance") %></li>
+              <li><%= link_to "Long", races_path(format: "Triathlon Longue Distance") %></li>
+              <li><%= link_to "Kids", races_path(format: "Triathlon Kids") %></li>
+              <li><%= link_to "5km", races_path(format: "5km") %></li>
+              <li><%= link_to "10km", races_path(format: "10km") %></li>
+              <li><%= link_to "20km", races_path(format: "20km") %></li>
+              <li><%= link_to "50km", races_path(format: "50km") %></li>
+              <li><%= link_to "100km", races_path(format: "100km") %></li>
+            </ul>
+          </div>
+
+          <div class="plusdefiltre" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Plus de filtres
+          </div>
+          <div class="collapse" id="collapseExample">
+            <div class="well">
+              <div class="dropdown">
+                <button class="plusdefiltre btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Sport
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+                  <li><%= link_to "Running", races_path(sport: "Running") %></li>
+                  <li><%= link_to "Cyclisme", races_path(sport: "Cyclisme") %></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <button class="plusdefiltre btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Sport
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+                  <li><%= link_to "Running", races_path(sport: "Running") %></li>
+                  <li><%= link_to "Cyclisme", races_path(sport: "Cyclisme") %></li>
+                </ul>
+              </div>
+              <div class="dropdown">
+                <button class="plusdefiltre btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  Sport
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
+                  <li><%= link_to "Running", races_path(sport: "Running") %></li>
+                  <li><%= link_to "Cyclisme", races_path(sport: "Cyclisme") %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
         <% @races.each do |race| %>
           <div class="card">
             <%= link_to "", race_path(race), class: "card-link"%>
             <div class="card-picture" style="background-image: linear-gradient(360deg, rgba(0,0,0,0.7), rgba(0,0,0,0)), url(<%= image_path race.photo %>);">
 
               <div class="card-format">
-                <span><%= race.format %></span>
-                <span><%= race.available_slots %></span>
               </div>
 
               <div class="card-bottom">
@@ -85,11 +102,13 @@
             </div>
 
             <div class="card-description">
-              <div class="card-price"> <%= race.price %> €</div>
+              <div class="card-price"> <%= race.format.upcase %> </div>
             </div>
           </div>
         <% end %>
       </div>
+
+
     </div>
     <!--   <hr />
       <div class="pages">
@@ -97,5 +116,11 @@
         <%#= page_entries_info @races %>
       </div> -->
     <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>"></div>
+
   </div>
 </div>
+
+
+
+
+
