@@ -1,0 +1,23 @@
+<div class="card">
+  <%= link_to "", race_path(race), class: "card-link"%>
+  <div class="card-picture" style="background-image: linear-gradient(360deg, rgba(0,0,0,0.7), rgba(0,0,0,0)), url(<%= image_path race.photo %>);">
+    <div class="card-format">
+      <span><%= race.format %></span>
+      <span><%= race.available_slots %></span>
+    </div>
+    <div class="card-bottom">
+      <div class="card-name">
+        <strong><%= race.name %></strong>
+        <span class="card-location"><%= race.starts_at.strftime("%b %d") %> • <%= race.address %></span>
+      </div>
+      <div class="card-wishlist">
+        <%= link_to race_like_path(race) do %>
+          <i class="<%= current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="card-description">
+    <div class="card-price"> <%= race.price %> €</div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <span class="dashboard-title"> Marked as interested</span>
+  <span> You (<%= current_user.find_voted_items.count %>) </span>
+  <div class="card-container">
+    <% current_user.find_voted_items.each do |race| %>
+      <%= render "races/card", race: race %>
+    <% end %>
+  </div>
+</div>
+

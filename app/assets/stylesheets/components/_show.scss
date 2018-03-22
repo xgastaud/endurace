@@ -36,6 +36,12 @@ body {
   }
 }
 
+.heart-color-link {
+  color: white;
+  &:hover {
+    color: black;
+  }
+}
 
 .banner-show-btn-container {
   display: flex;
