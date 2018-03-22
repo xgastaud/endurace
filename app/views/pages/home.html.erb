@@ -1,30 +1,42 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://acm-sport.com/wp-content/uploads/2017/05/picture1-ok-.jpg');">
-  <div class="banner-content">
-    <h1>Endurace</h1>
-    <p>Find your race</p>
 
-    <%= form_tag(races_path, method: :get) do %>
-      <div class="form-inputs">
-        <%= text_field_tag :from, Date.today, id: "range_start", class: "datepicker" %>
-        <%= text_field_tag :to, Date.today + 2.months, id: "range_end", class: "datepicker" %>
-      </div>
-      <div class="form-inputs">
-        <%= select_tag :sport, options_for_select([["Triathlon", "Triathlon"], ["Running", "Running"], ["Cyclisme", "Cyclisme"]]), {:prompt => 'Sport recherché', :class => 'drop'}%>
-        <%= select_tag :format, options_for_select([["Triathlon Court", "Triathlon Courte Distance"], ["Triathlon Long", "Triathlon Longue Distance"], ["Triathlon Kids", "Triathlon Kids"], ["5km", "5km"], ["10km", "10km"], ["20km", "20km"], ["50km", "50km"], ["100km", "100km"]]), {:prompt => 'Format de la course', :class => 'drop'}%>
-      </div>
-      <div class="form-inputs">
-        <%= text_field_tag :address %>
-        <%= select_tag :range, options_for_select([["20km", "20"], ["50km", "50"], ["500km", "500"]]), {:prompt => 'Je me deplace', :class => 'drop'}%>
-      </div>
-      <div class="form-inputs">
-        <%= submit_tag "Trouve ta course", name: nil, class: 'btn' %>
-      </div>
-
-    <% end %>
-
-    <div class="index-searchbar">
-      <%= link_to "See all adds", races_path %>
+<div class="homepage-hero-module">
+  <div class="video-container">
+    <div class="filter"></div>
+    <video autoplay loop class="fillWidth">
+        <source src='<%= video_path "Keep_Running.mp4"%>' type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+        <source src='<%= video_path "Keep_Running.webm"%>' type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+    <div class="poster hidden">
+        <img src='<%= video_path "Keep_Running.jpg"%>' alt="">
     </div>
+  </div>
+</div>
+<div class="banner-absolute-container">
+  <div class="banner">
+    <div class="banner-content">
+      <h1>Endurace</h1>
+      <p>Find your race</p>
 
+      <%= form_tag(races_path, method: :get) do %>
+        <div class="form-inputs">
+          <%= text_field_tag :from, Date.today, id: "range_start", class: "datepicker" %>
+          <%= text_field_tag :to, Date.today + 2.months, id: "range_end", class: "datepicker" %>
+        </div>
+        <div class="form-inputs">
+          <%= select_tag :sport, options_for_select([["Triathlon", "Triathlon"], ["Running", "Running"], ["Cyclisme", "Cyclisme"]]), {:prompt => 'Sport recherché', :class => 'drop'}%>
+          <%= select_tag :format, options_for_select([["Triathlon Court", "Triathlon Courte Distance"], ["Triathlon Long", "Triathlon Longue Distance"], ["Triathlon Kids", "Triathlon Kids"], ["5km", "5km"], ["10km", "10km"], ["20km", "20km"], ["50km", "50km"], ["100km", "100km"]]), {:prompt => 'Format de la course', :class => 'drop'}%>
+        </div>
+        <div class="form-inputs">
+          <%= text_field_tag :address %>
+          <%= select_tag :range, options_for_select([["20km", "20"], ["50km", "50"], ["500km", "500"]]), {:prompt => 'Je me deplace', :class => 'drop'}%>
+        </div>
+        <div class="form-inputs">
+          <%= submit_tag "Trouve ta course", name: nil, class: 'btn' %>
+        </div>
+      <% end %>
+      <!-- <div class="index-searchbar">
+        <%= link_to "See all adds", races_path %>
+      </div> -->
+    </div>
   </div>
 </div>
