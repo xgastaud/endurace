@@ -87,6 +87,8 @@ race8 = Race.new(name:"Running de Tours", sport:"Running", format:"20km", starts
 
 UNE CARTE POSTALE DE LA NORMANDIE, ENTRE TERRE ET MER
 
+
+
 Notre parcours cycliste vous permettra de  découvrir les plus beaux paysages de la Normandie : chaumières en toit de chaume, haras, prairies verdoyantes, traversée de 9 villages augerons typiques, vues plongeantes sur la mer …
 
 Mais attention, notre parcours n’a rien d’une balade de santé. La boucle de 42,5km (à réaliser 2 fois) est très technique et tout en relance. La première difficulté arrive très vite après 2km de parcours avec la fameuse côte de Saint-Laurent (15% /de dénivelé sur 1km). La descente vers Saint-Arnoult est ensuite très technique. A peine le temps de récupérer que c’est la longue côte de Reux qui se profile, puis celle de Benerville-sur-Mer avant la plongée finale et le retour vers Deauville par l’hippodrome de Clairefontaine.
@@ -112,3 +114,25 @@ Notre parcours cycliste vous permettra de  découvrir les plus beaux paysages de
 Mais attention, notre parcours n’a rien d’une balade de santé. La boucle de 42,5km (à réaliser 2 fois) est très technique et tout en relance. La première difficulté arrive très vite après 2km de parcours avec la fameuse côte de Saint-Laurent (15% /de dénivelé sur 1km). La descente vers Saint-Arnoult est ensuite très technique. A peine le temps de récupérer que c’est la longue côte de Reux qui se profile, puis celle de Benerville-sur-Mer avant la plongée finale et le retour vers Deauville par l’hippodrome de Clairefontaine.
 ", url:"https://triathlondeauville.com/", registration_url:"https://www.njuko.net/tid2018/select_competition", available_slots:500, distance_swim:0, distance_bike:100, distance_run:0, vertical_ascent_bike:1500, vertical_ascent_run:0)
 race10.save
+
+# sport = ["Triathlon", "Running", "Road Cycling", "Obstacle", "Swimming", "Mountain Biking", "Duathlon", "SwimRun"] 
+# address = ["Paris", "Lyon", "Marseilles", "Bordeaux", "Deauville", "Lille"]  
+# format = ["Super Sprint", "Sprint", "Olympic", "Half Ironman", "Ironman"]  
+# starts_at = [DateTime.current, DateTime.current + 1.day, DateTime.current + 1.week, DateTime.current + 1.month]  
+# year = ["2018"]  
+# description = ["Triathlon de Deauville Description"] 
+# url = ["https://triathlondeauville.com/"]  
+# registration_url = ["https://www.njuko.net/tid2018/select_competition"]  
+# available_slots = [1000] 
+# distance_swim = [1.9]  
+# distance_bike = [90] 
+# price = (10..100).to_a 
+# distance_run = [21.1]  
+# vertical_ascent_bike = [1500]  
+# vertical_ascent_run = [100]  
+ 
+# 10.times do |race| 
+#   race = Race.new(name:"#{sport.sample} de #{address.sample}", sport: sport.sample, format: format.sample, price: price.sample, starts_at: starts_at.sample, address: address.sample, year: year.sample, description: description.sample, url: url.sample, registration_url: registration_url.sample, available_slots: 1000, distance_swim: 1.9, distance_bike: 90, distance_run: 21.1, vertical_ascent_bike: 1500, vertical_ascent_run: 100)  
+#   race.save  
+#   puts "Saving #{race.name}" 
+# end
