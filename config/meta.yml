@@ -2,6 +2,6 @@
 
 meta_product_name: "Endurace"
 meta_title: "Endurace - Trouve ta prochaine course"
-meta_description: "Choisis parmi plus de 10 000 courses d'endurance ton prochain challenge! Invite tes amis et vois à quelles courses ils sont inscrits!"
+meta_description: "Choisis ton prochain challenge parmi plus de 10 000 courses d'endurance: Triathlons, Swimrun, Cyclosportives, Marathons, Nage en eau libre, Courses d'obstacle! Invite tes amis et vois à quelles courses ils sont inscrits!"
 meta_image: "cover.png"                       # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
