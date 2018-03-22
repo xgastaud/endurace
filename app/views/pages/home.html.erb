@@ -1,25 +1,36 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://acm-sport.com/wp-content/uploads/2017/05/picture1-ok-.jpg');">
-  <div class="banner-content">
-    <h1>Endurace</h1>
-    <p>Find your next race</p>
+<div class="banner">
+  <div class="homepage-hero-module">
+    <div class="video-container">
+      <div class="banner-content">
+          <h1>Endurace</h1>
+          <p>Find your next race</p>
 
-    <%= form_tag("/races", method: "get") do %>
-      <div class="form-inputs">
-        <%= date_field_tag :from, as: :string, required: false, input_html: {id: "range_start", class: "race-date"} %>
-        <%= date_field_tag :to, as: :string, required: false, input_html: {id: "range_end", class: "race-date"} %>
+          <%= form_tag("/races", method: "get") do %>
+            <div class="form-inputs">
+              <%= date_field_tag :from, as: :string, required: false, input_html: {id: "range_start", class: "race-date"} %>
+              <%= date_field_tag :to, as: :string, required: false, input_html: {id: "range_end", class: "race-date"} %>
 
-        <%= select_tag :sport, options_for_select([["Triathlon", "Triathlon"], ["Course à Pied", "Course à Pied"], ["Cyclisme", "Cyclisme"]])%>
-        <%= text_field_tag :address %>
-        <%= select_tag :range, options_for_select([["20km", "20"], ["50km", "50"], ["500km", "500"]])%>
-        <%= select_tag :format, options_for_select([["", ""], ["Triathlon Court", "Triathlon Courte Distance"], ["Triathlon Long", "Triathlon Longue Distance"], ["Triathlon Kids", "Triathlon Kids"]])%>
-        <%= submit_tag "Trouve ta course", name: nil, class: 'btn' %>
+              <%= select_tag :sport, options_for_select([["Triathlon", "Triathlon"], ["Course à Pied", "Course à Pied"], ["Cyclisme", "Cyclisme"]])%>
+              <%= text_field_tag :address %>
+              <%= select_tag :range, options_for_select([["20km", "20"], ["50km", "50"], ["500km", "500"]])%>
+              <%= select_tag :format, options_for_select([["", ""], ["Triathlon Court", "Triathlon Courte Distance"], ["Triathlon Long", "Triathlon Longue Distance"], ["Triathlon Kids", "Triathlon Kids"]])%>
+              <%= submit_tag "Trouve ta course", name: nil, class: 'btn' %>
+            </div>
+          <% end %>
+
+          <div class="index-searchbar">
+            <%= link_to "See all adds", races_path %>
+          </div>
       </div>
-    <% end %>
-
-    <div class="index-searchbar">
-      <%= link_to "See all adds", races_path %>
+      <div class="filter"></div>
+      <video autoplay loop class="fillWidth">
+          <source src='<%= video_path "Keep_Running.mp4"%>' type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+          <source src='<%= video_path "Keep_Running.webm"%>' type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+      </video>
+      <div class="poster hidden">
+          <img src='<%= video_path "Keep_Running.jpg"%>' alt="">
+      </div>
     </div>
-
   </div>
 </div>
 
