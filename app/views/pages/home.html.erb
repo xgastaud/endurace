@@ -2,25 +2,29 @@
   <div class="homepage-hero-module">
     <div class="video-container">
       <div class="banner-content">
-          <h1>Endurace</h1>
-          <p>Find your next race</p>
+        <<h1>Endurace</h1>
+        <p>Find your race</p>
 
-          <%= form_tag("/races", method: "get") do %>
-            <div class="form-inputs">
-              <%= date_field_tag :from, as: :string, required: false, input_html: {id: "range_start", class: "race-date"} %>
-              <%= date_field_tag :to, as: :string, required: false, input_html: {id: "range_end", class: "race-date"} %>
-
-              <%= select_tag :sport, options_for_select([["Triathlon", "Triathlon"], ["Course à Pied", "Course à Pied"], ["Cyclisme", "Cyclisme"]])%>
-              <%= text_field_tag :address %>
-              <%= select_tag :range, options_for_select([["20km", "20"], ["50km", "50"], ["500km", "500"]])%>
-              <%= select_tag :format, options_for_select([["", ""], ["Triathlon Court", "Triathlon Courte Distance"], ["Triathlon Long", "Triathlon Longue Distance"], ["Triathlon Kids", "Triathlon Kids"]])%>
-              <%= submit_tag "Trouve ta course", name: nil, class: 'btn' %>
-            </div>
-          <% end %>
-
-          <div class="index-searchbar">
-            <%= link_to "See all adds", races_path %>
+        <%= form_tag(races_path, method: :get) do %>
+          <div class="form-inputs">
+            <%= text_field_tag :from, Date.today, id: "range_start", class: "datepicker" %>
+            <%= text_field_tag :to, Date.today + 2.months, id: "range_end", class: "datepicker" %>
           </div>
+          <div class="form-inputs">
+            <%= select_tag :sport, options_for_select([["Triathlon", "Triathlon"], ["Running", "Running"], ["Cyclisme", "Cyclisme"]]), {:prompt => 'Sport recherché', :class => 'drop'}%>
+            <%= select_tag :format, options_for_select([["Triathlon Court", "Triathlon Courte Distance"], ["Triathlon Long", "Triathlon Longue Distance"], ["Triathlon Kids", "Triathlon Kids"], ["5km", "5km"], ["10km", "10km"], ["20km", "20km"], ["50km", "50km"], ["100km", "100km"]]), {:prompt => 'Format de la course', :class => 'drop'}%>
+          </div>
+          <div class="form-inputs">
+            <%= text_field_tag :address %>
+            <%= select_tag :range, options_for_select([["20km", "20"], ["50km", "50"], ["500km", "500"]]), {:prompt => 'Je me deplace', :class => 'drop'}%>
+          </div>
+          <div class="form-inputs">
+            <%= submit_tag "Trouve ta course", name: nil, class: 'btn' %>
+          </div>
+        <% end %>
+        <div class="index-searchbar">
+          <%= link_to "See all adds", races_path %>
+        </div>
       </div>
       <div class="filter"></div>
       <video autoplay loop class="fillWidth">
@@ -33,26 +37,3 @@
     </div>
   </div>
 </div>
-
-        <!-- <select name="sport" class="search-criteria">
-          <option value="" disabled selected hidden>Ton sport</option>
-          <option value="">- any -</option>
-          <option value="course">Course à pied</option>
-          <option value="Triathlon">Triathlon</option>
-          <option value="cyclisme">Cyclisme</option>
-        </select> -->
-        <!-- <input type="text" id="address" name="address" placeholder="Un lieu de course" class="search-address autocomplete"> -->
-        <!-- <select name="range" class="search-criteria">
-          <option value="" disabled selected hidden>Prêt à me déplacer de</option>
-          <option value=20>- any -</option>
-          <option value=20>20 km max</option>
-          <option value=50>50 km max</option>
-          <option value=500>500 km max</option>
-        </select>
-        <select name="format" class="search-criteria">
-          <option value="" disabled selected hidden>Format de la course</option>
-          <option value="">- any -</option>
-          <option value="Triathlon Courte Distance">Triathlon Courte Distance</option>
-          <option value="Triathlon Longue Distance">Triathlon Longue Distance</option>
-          <option value="Triathlon Kids">Triathlon Kids</option>
-        </select> -->

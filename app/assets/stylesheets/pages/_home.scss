@@ -1,1 +1,72 @@
-// Specific CSS for your home-page
+.banner {
+  color: white;
+  text-align: center;
+  background-size: cover !important;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  padding: 10px;
+}
+
+.banner h1 {
+  font-size: 75px;
+  font-weight: bold;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.banner p {
+  font-size: 25px;
+  font-weight: lighter;
+  color: rgb(255, 255, 255);
+  opacity: 0.6;
+}
+
+.banner-content {
+  width: 40%;
+}
+
+.form-inputs {
+  margin: 10px;
+  padding: 10px;
+  color: black;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.btn {
+  margin-bottom: 30px;
+  flex: 0 0 auto;
+  width: 380px;
+  background-color: #FDA403;
+  color: white;
+  border-radius: 4px;
+  margin-right: 5px;
+  height: 40px;
+  border: none;
+}
+.drop {
+  margin-bottom: 5px;
+  flex: 0 0 auto;
+  width: 190px;
+  background-color: white;
+  color: black;
+  border-radius: 4px;
+  margin-right: 5px;
+  height: 30px;
+  border: none;
+}
+
+.search-address {
+  flex: 0 1 400px;
+  background-color: white;
+  color: darkslategray;
+  border-radius: 2px;
+  margin-right: 10px;
+  padding-left: 15px;
+  height: 60px;
+  width: 100px;
+}
+
+
+
