@@ -15,18 +15,35 @@
   // position: relative;
 
  }
- .card-container {
-  width: 60vw;
- }
- .card {
+
+.left-container {
+  width: calc(60% - 1px);
+  @media(max-width: 768px) {
+    width: 100%;
+  }
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
   color: black;
+  width: 330px;
   text-decoration: none;
   text-decoration-line: none;
-  flex: 0 0 360px;
   background-color: white;
   margin-bottom: 15px;
   margin-top: 15px;
   box-shadow: 1px 2px 2px #d5d6d8;
+  margin-right: 10px;
+  position: relative;
+  width: calc(33% - 10px);
+  @media(max-width: 1200px) {
+    width: calc(50% - 10px);
+  }
+  @media(max-width: 1050px) {
+    width: calc(100% - 10px);
+  }
 }
 .card-picture {
   // position: relative;
