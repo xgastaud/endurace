@@ -13,10 +13,12 @@ class RacesController < ApplicationController
     @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
 
     @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
+    # @races = @races.where("available_slots" )
+
 
     @markers = @races.map do |race|
       next if race.latitude.nil?
-      { lat: race.latitude, lng: race.longitude }
+      { lat: race.latitude, lng: race.longitude}
       # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
     end
     @markers = @markers.compact

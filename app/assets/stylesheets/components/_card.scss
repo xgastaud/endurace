@@ -1,9 +1,21 @@
+.slider-distance {
+  color: rgb(195, 65, 59);
+}
+
+.slider{
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  color: rgb(195, 65, 59);
+ }
+
  .filters {
   display: flex;
   flex-direction: row;
   width: 100%;
   flex-wrap: wrap;
   margin-top: 10px;
+  padding-right: 25px;
   }
 
 .well {
@@ -11,20 +23,20 @@
   flex-direction: row;
   width: 100%;
   flex-wrap: wrap;
-  margin: 20px;
-  padding: 20px;
 }
 
 .plusdefiltre {
   margin-bottom: 30px;
   flex: 0 0 auto;
   width: 200px;
-  background-color: #0B8457;
+  background-color: rgb(195, 65, 59);
   color: white;
   border-radius: 4px;
   margin-right: 5px;
-  height: 40px;
+  height: 50px;
   border: none;
+  text-align: center;
+  padding: 0px;
 }
 
 .collapse {
