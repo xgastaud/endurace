@@ -78,6 +78,11 @@
         <% @races.each do |race| %>
           <%= render "races/card", race: race %>
         <% end %>
+        <hr />
+        <div class="pages">
+          <%= paginate @races %>
+          <%= page_entries_info @races %>
+        </div>
       </div>
 
 

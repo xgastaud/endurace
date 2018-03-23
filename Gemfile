@@ -26,6 +26,8 @@ gem 'geocoder'
 gem 'momentjs-rails'
 gem 'omniauth-facebook'
 
+gem 'kaminari'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
