@@ -79,32 +79,7 @@
         </div>
 
         <% @races.each do |race| %>
-          <div class="card">
-            <%= link_to "", race_path(race), class: "card-link"%>
-            <div class="card-picture" style="background-image: linear-gradient(360deg, rgba(0,0,0,0.7), rgba(0,0,0,0)), url(<%= image_path race.photo %>);">
-
-              <div class="card-format">
-              </div>
-
-              <div class="card-bottom">
-                <div class="card-name">
-                  <strong><%= race.name %></strong>
-                  <span class="card-location"><%= race.starts_at.strftime("%b %d") %> • <%= race.address %></span>
-                </div>
-
-                <div class="card-wishlist">
-                  <%= cl_image_tag 'wishlist', width:20 %>
-                    <%# link_to wishlist_path do %>
-                    <%# end %>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="card-description">
-              <div class="card-price"> <%= race.format.upcase %> </div>
-            </div>
-          </div>
+          <%= render "races/card", race: race %>
         <% end %>
       </div>
 
@@ -116,7 +91,6 @@
         <%#= page_entries_info @races %>
       </div> -->
     <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>"></div>
-
   </div>
 </div>
 

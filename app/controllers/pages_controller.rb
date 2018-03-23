@@ -9,4 +9,8 @@ class PagesController < ApplicationController
 
   def tos
   end
+
+  def dashboard
+    @wishlist = current_user.find_voted_items
+  end
 end

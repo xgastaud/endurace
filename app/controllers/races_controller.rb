@@ -27,6 +27,12 @@ class RacesController < ApplicationController
     @race = policy_scope(Race.find(params[:id]))
   end
 
+  def like
+    @race = Race.find(params[:race_id])
+    authorize @race
+    @race.liked_by(current_user)
+    redirect_to request.referer
+  end
   # def create
   #   @race = Race.new(product_params)
   #   @race.user = current_user

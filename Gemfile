@@ -12,6 +12,8 @@ gem 'pundit'
 gem 'nokogiri'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'acts_as_votable', '~> 0.11.1'
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
