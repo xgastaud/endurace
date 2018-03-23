@@ -11,7 +11,10 @@
   font-size: 24px;
 }
 
-.card-container {
+.card-container-dashboard {
   margin-top: 50px;
   border-top: 0.5px solid #CBCBCB;
+  display: flex;
+  flex-wrap: wrap;
+
 }

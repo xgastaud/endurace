@@ -31,7 +31,7 @@
       <i class="far fa-share-square color-link"></i>
       <p>Partager</p>
     </div>
-    <%= link_to @race.url, class: "no-underline-link" do %>
+    <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url , class: "no-underline-link" do %>
       <div class="banner-show-btn">
         <i class="far fa-arrow-alt-circle-right color-link"></i>
         <p>M'inscrire</p>
