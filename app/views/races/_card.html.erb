@@ -10,11 +10,13 @@
         <strong><%= race.name %></strong>
         <span class="card-location"><%= race.starts_at.strftime("%b %d") %> • <%= race.address %></span>
       </div>
-      <div class="card-wishlist">
-        <%= link_to race_like_path(race) do %>
-          <i class="<%= current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
-        <% end %>
-      </div>
+      <%# if user_signed_in? %>
+      <%# end %>
+        <div class="card-wishlist">
+          <%= link_to race_like_path(race) do %>
+            <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+          <% end %>
+        </div>
     </div>
   </div>
   <div class="card-description">

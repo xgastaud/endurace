@@ -2,9 +2,9 @@ $( document ).ready(function() {
 
     scaleVideoContainer();
 
-    initBannerVideoSize('.video-container .poster img');
-    initBannerVideoSize('.video-container .filter');
-    initBannerVideoSize('.video-container video');
+    // initBannerVideoSize('.video-container .poster img');
+    // initBannerVideoSize('.video-container .filter');
+    // initBannerVideoSize('.video-container video');
 
     $(window).on('resize', function() {
         scaleVideoContainer();

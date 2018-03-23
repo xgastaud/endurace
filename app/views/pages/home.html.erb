@@ -2,7 +2,7 @@
 <div class="homepage-hero-module">
   <div class="video-container">
     <div class="filter"></div>
-    <video autoplay loop class="fillWidth">
+    <video autoplay loop>
         <source src='<%= video_path "Keep_Running.mp4"%>' type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
         <source src='<%= video_path "Keep_Running.webm"%>' type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
     </video>
@@ -23,7 +23,7 @@
             Je cherche un <%= select_tag :sport, options_for_select(Race::FORMATS_SPORTS.keys), {:prompt => 'Sport', :class => 'drop'}%> type <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), {prompt: 'Format', class: 'drop'}%>
           </h3>
           <h3>
-            à moins de <%= select_tag :range, options_for_select([["50km", "50"], ["20km", "20"]), {prompt: "500km", class: 'drop'}%> de <%= text_field_tag :address, '', class: "drop", placeholder: "Ville" %>
+            à moins de <%= select_tag :range, options_for_select([["500km", "500"], ["50km", "50"], ["20km", "20"]]), {class: 'drop'}%> de <%= text_field_tag :address, nil, class: "drop", placeholder: "Ville" %>
           </h3>
         </div>
         <div class="form-inputs">
