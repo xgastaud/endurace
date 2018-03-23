@@ -15,20 +15,28 @@
     </h3>
   </div>
   <div class="banner-show-btn-container">
+    <%= link_to race_like_path(@race), class: "color-link" do %>
+      <div class="banner-show-btn ">
+
+          <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
+            <%= button_tag type: "submit", class: "like-button-form" do %>
+              <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart"></i>
+            <% end %>
+          <% end %>
+
+    <% end %>
+        <p class="dont-wrap">Ma liste</p>
+      </div>
     <div class="banner-show-btn">
-      <%= link_to race_like_path(@race), class: "heart-color-link" do %>
-        <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart"></i>
-      <% end %>
-      <p>Ma liste</p>
-    </div>
-    <div class="banner-show-btn">
-      <i class="far fa-share-square"></i>
+      <i class="far fa-share-square color-link"></i>
       <p>Partager</p>
     </div>
-    <div class="banner-show-btn">
-      <i class="far fa-arrow-alt-circle-right"></i>
-      <p>M'inscrire</p>
-    </div>
+    <%= link_to @race.url, class: "no-underline-link" do %>
+      <div class="banner-show-btn">
+        <i class="far fa-arrow-alt-circle-right color-link"></i>
+        <p>M'inscrire</p>
+      </div>
+     <% end %>
   </div>
 </div>
 <div class="container-show">
