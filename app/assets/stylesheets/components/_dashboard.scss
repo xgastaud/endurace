@@ -1,8 +1,17 @@
 .dashboard-title {
-  font-size: 24px;
+  font-size: 32px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 50px 0px;
 
+}
+
+.dashboard-subtitle {
+  font-size: 24px;
+}
+
+.card-container {
+  margin-top: 50px;
+  border-top: 0.5px solid #CBCBCB;
 }

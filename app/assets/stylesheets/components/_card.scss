@@ -108,8 +108,9 @@
   height: 30px;
   width: 30px;
   }
-  a {
-  color: #C0413D;
+  button {
+    color: #C0413D;
+    display: flex;
   }
 }
 
@@ -180,3 +181,7 @@
   opacity: 0;
 }
 
+.like-button-form {
+  background: transparent;
+  border: none;
+}

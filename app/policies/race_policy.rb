@@ -8,4 +8,8 @@ class RacePolicy < ApplicationPolicy
   def like?
     true
   end
+
+  def show?
+    true
+  end
 end

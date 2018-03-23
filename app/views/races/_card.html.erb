@@ -13,9 +13,13 @@
       <%# if user_signed_in? %>
       <%# end %>
         <div class="card-wishlist">
-          <%= link_to race_like_path(race) do %>
-            <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+          <%= form_for race, url: race_like_path(race), method: :post do |f| %>
+            <%= button_tag type: "submit", class: "like-button-form" do %>
+              <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+            <% end %>
           <% end %>
+          <%# link_to race_like_path(race) do %>
+          <%# end %>
         </div>
     </div>
   </div>

@@ -36,11 +36,19 @@ body {
   }
 }
 
-.heart-color-link {
+.no-underline-link {
+  text-decoration: none !important;
+}
+
+.color-link {
   color: white;
   &:hover {
-    color: black;
+    color: black !important;
   }
+}
+
+.dont-wrap {
+  white-space:nowrap;
 }
 
 .banner-show-btn-container {
@@ -60,6 +68,7 @@ body {
   margin-right: 10px;
   border-radius: 5px;
   flex: 0 0 75px;
+  color: white;
   p {
     margin-bottom: 0px;
   }
