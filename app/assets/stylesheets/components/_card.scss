@@ -1,7 +1,35 @@
  .filters {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 10px;
   }
+
+.well {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 20px;
+  padding: 20px;
+}
+
+.plusdefiltre {
+  margin-bottom: 30px;
+  flex: 0 0 auto;
+  width: 200px;
+  background-color: #0B8457;
+  color: white;
+  border-radius: 4px;
+  margin-right: 5px;
+  height: 40px;
+  border: none;
+}
+
+.collapse {
+  width: 100%;
+}
 
   .dropdown {
   padding: 0px 5px;
