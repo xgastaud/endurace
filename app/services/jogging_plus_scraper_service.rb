@@ -72,18 +72,18 @@ class JoggingPlusScraperService
   end
 
   def categories
-    if @category == "/marathons/france"
+    if @category == "calendrier-triathlon-france"
+      {sport:"Triathlon",
+      format: "Autre"}
+    elsif @category == "/marathons/france"
       {sport: "Running",
        format: "Marathon"}
-    elsif @category == "calendrier-triathlon-france"
-      {sport:"Triathlon",
-      format: nil}
-    elsif @category == "courses-5-10-15-km/france"
-      {sport: "Running",
-       format: "5k"}
     elsif @category == "semi-marathons/france"
       {sport: "Running",
        format: "Semi-marathon"}
+    elsif @category == "courses-5-10-15-km/france"
+      {sport: "Running",
+       format: "15km et moins"}
     end
   end
 end

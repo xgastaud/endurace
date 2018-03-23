@@ -16,7 +16,7 @@
   <div class="banner-show-btn-container">
     <div class="banner-show-btn">
       <%= link_to race_like_path(@race), class: "heart-color-link" do %>
-        <i class="<%= current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart"></i>
+        <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart"></i>
       <% end %>
       <p>Ma liste</p>
     </div>
