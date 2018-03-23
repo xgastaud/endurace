@@ -18,7 +18,7 @@ class RacesController < ApplicationController
 
     @markers = @races.map do |race|
       next if race.latitude.nil?
-      { lat: race.latitude, lng: race.longitude }
+      { lat: race.latitude, lng: race.longitude}
       # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
     end
     @markers = @markers.compact
