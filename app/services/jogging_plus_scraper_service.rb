@@ -65,7 +65,7 @@ class JoggingPlusScraperService
         vertical_ascent_run: nil,
         image_race: photo,
       )
-      race1.year = race1.starts_at.year
+      race1.year = race1.starts_at.year unless date.empty?
       race1.save
       puts "#{race1.name} saved!"
     end

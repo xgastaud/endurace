@@ -1,7 +1,8 @@
 <!-- <h1>Races#show</h1>
 <p>Find me in app/views/races/show.html.erb</p>
 <br> -->
-<div class="banner-show" style="background-image: url('http://res.cloudinary.com/dpthh89hv/image/upload/v1521554873/endurace/banner_bike.jpg');">
+<div class="banner-show" style="background-image: url(<%= @race.image_race.nil? ? @race.photo : @race.image_race %>);">
+  <!-- 'http://res.cloudinary.com/dpthh89hv/image/upload/v1521554873/endurace/banner_bike.jpg' -->
   <div class="banner-show-title-box">
     <h1>
       <%= @race.name %>
