@@ -4,4 +4,8 @@ class RacePolicy < ApplicationPolicy
       scope
     end
   end
+
+  def like?
+    true
+  end
 end

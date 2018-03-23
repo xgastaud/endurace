@@ -19,4 +19,5 @@ class Race < ApplicationRecord
       errors.add(:format, "is not included in the list")
     end
   end
+  acts_as_votable
 end

@@ -1,7 +1,35 @@
  .filters {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 10px;
   }
+
+.well {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 20px;
+  padding: 20px;
+}
+
+.plusdefiltre {
+  margin-bottom: 30px;
+  flex: 0 0 auto;
+  width: 200px;
+  background-color: #0B8457;
+  color: white;
+  border-radius: 4px;
+  margin-right: 5px;
+  height: 40px;
+  border: none;
+}
+
+.collapse {
+  width: 100%;
+}
 
   .dropdown {
   padding: 0px 5px;
@@ -65,14 +93,26 @@
 
 .card-wishlist {
   color: rgba(200,200,200,0.6);
-  background-color: rgba(200,200,200 ,0.6);
+  background-color: rgba(200,200,200 ,0.4);
   padding-top: 2px;
   height: 30px;
   width: 30px;
   border-radius: 50%;
   color: white;
   text-align: center;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg:hover {
+  height: 30px;
+  width: 30px;
+  }
+  a {
+  color: #C0413D;
+  }
 }
+
 
 .card-name {
   // position: absolute;
@@ -95,8 +135,8 @@
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-
   text-transform: uppercase;
+  padding: 0px 3px;
 }
 
 .card-available_slots {
@@ -113,7 +153,7 @@
 
 .card-price {
   padding: 20px;
-  color: red;
+  color: #C0413D;
   text-align: right;
 }
 
