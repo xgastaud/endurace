@@ -7,6 +7,7 @@
   align-items: center;
   padding: 10px;
   letter-spacing: 10px;
+  padding-top: 80px;
 }
 
 .banner h1 {
@@ -75,11 +76,12 @@
   flex: 0 0 auto;
   width: 380px;
   background-color: rgb(195, 65, 59);
-  color: white;
+  color: white !important;
   border-radius: 4px;
   margin-right: 5px;
   height: 40px;
   border: none;
+  text-decoration: none;
 }
 .drop {
   margin-bottom: 5px;
