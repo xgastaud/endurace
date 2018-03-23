@@ -20,10 +20,10 @@
       <%= form_tag(races_path, method: :get) do %>
         <div class="form-inputs">
           <h3>
-            Je cherche un <%= select_tag :sport, options_for_select(Race::FORMATS_SPORTS.keys), {:prompt => 'Sport', :class => 'drop'}%> type <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values), {:prompt => 'Format', :class => 'drop'}%>
+            Je cherche un <%= select_tag :sport, options_for_select(Race::FORMATS_SPORTS.keys), {:prompt => 'Sport', :class => 'drop'}%> type <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), {prompt: 'Format', class: 'drop'}%>
           </h3>
           <h3>
-            à moins de <%= select_tag :range, options_for_select([["20km", "20"], ["50km", "50"], ["500km", "500"]]), {:prompt => '500km', :class => 'drop'}%> de <%= text_field_tag :address, '', class: "drop", placeholder: "Ville" %>
+            à moins de <%= select_tag :range, options_for_select([["50km", "50"], ["20km", "20"]), {prompt: "500km", class: 'drop'}%> de <%= text_field_tag :address, '', class: "drop", placeholder: "Ville" %>
           </h3>
         </div>
         <div class="form-inputs">
