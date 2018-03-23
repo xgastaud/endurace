@@ -1,7 +1,7 @@
 <div class="container">
-  <span class="dashboard-title"> Ma liste de courses </span>
+  <span class="dashboard-title"> <strong> Ma liste de courses </strong></span>
   <span class="dashboard-subtitle"> Mes courses (<%= current_user.find_voted_items.count %>) </span>
-  <div class="card-container">
+  <div class="card-container-dashboard">
     <% current_user.find_voted_items.each do |race| %>
       <%= render "races/card", race: race %>
     <% end %>
