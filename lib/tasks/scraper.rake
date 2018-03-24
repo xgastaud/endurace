@@ -8,13 +8,9 @@ namespace :scraper do
     end
     print ">"
     index = STDIN.gets.chomp.to_i
-    JoggingPlusScraperService.new(categories[index]).scrape
+    puts "max number? (enter '0' for all)"
+    print ">"
+    limit = STDIN.gets.chomp.to_i
+    JoggingPlusScraperService.new(categories[index], limit).scrape
   end
 end
-
-# task jogging_plus: :environment do
-#   categories = ["/marathons/france", "calendrier-triathlon-france", "courses-5-10-15-km/france", "semi-marathons/france"]
-#   categories.each do |category|
-#     JoggingPlusScraperService.new(category).scrape
-#   end
-# end

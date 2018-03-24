@@ -2,9 +2,10 @@ require 'open-uri'
 require 'nokogiri'
 
 class JoggingPlusScraperService
-  def initialize(category)
+  def initialize(category, limit)
     @category = category
     @base_url = "http://www.jogging-plus.com/calendrier/#{@category}/"
+    @limit = limit
   end
 
   def scrape
@@ -12,13 +13,21 @@ class JoggingPlusScraperService
     html_file = open(@base_url).read
     html_doc = Nokogiri::HTML(html_file)
     urls = []
+    i = 1
     html_doc.search('.tablo1 a').each do |element|
-     # puts element.search('.lienorange').text.strip
-      urls << element.attribute('href').value
+    # puts element.search('.lienorange').text.strip
+      if @limit == 0
+        urls << element.attribute('href').value
+      elsif i <= @limit
+        urls << element.attribute('href').value
+        i += 1
+        puts "+1"
+      end
     end
 
     urls.each do |url|
       # url = "http://www.jogging-plus.com/presentation-courses-trails/trail-atlantisport-environnement-loire-atlantique/"
+
       html_show = open(url).read
       html_doc_show = Nokogiri::HTML(html_show)
       bloc = []
@@ -86,4 +95,5 @@ class JoggingPlusScraperService
        format: "15km et moins"}
     end
   end
+
 end
