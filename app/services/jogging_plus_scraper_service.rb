@@ -21,7 +21,6 @@ class JoggingPlusScraperService
       elsif i <= @limit
         urls << element.attribute('href').value
         i += 1
-        puts "+1"
       end
     end
 
@@ -47,6 +46,7 @@ class JoggingPlusScraperService
         bloc << element
       end
       places_total = bloc[1].text
+
       name = html_doc_show.search(".td-post-title .entry-title").text.strip
       date = html_doc_show.search("#bloc-date-fiche").text.strip
       x = html_doc_show.search("#bloc-gauche2 #bloc-info-valeur").text.strip.split
