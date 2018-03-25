@@ -6,8 +6,8 @@ class Race < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   FORMATS_SPORTS = {
     "Triathlon" => ["Ironman", "Longue Distance - Half-Ironman", "Courte Distance - Olympique", "Sprint", "Super Sprint", "Autre"],
-    "Cyclisme" => ["Autre"],
     "Running" => ["Marathon", "Semi-marathon", "15km et moins", "Autre"]
+    # "Cyclisme" => ["Autre"],
     # "Swimrun" => "Long",
   }
 
