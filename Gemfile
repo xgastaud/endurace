@@ -27,6 +27,7 @@ gem 'momentjs-rails'
 gem 'omniauth-facebook'
 
 gem 'kaminari'
+gem 'forest_liana'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
