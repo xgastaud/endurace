@@ -67,10 +67,16 @@ body {
   text-align: right;
 }
 
-.color-link {
-  color: white;
+.color-link1 {
   &:hover {
-    color: black !important;
+    font-weight: 900;
+    color: white;
+  }
+}
+
+.color-link2 {
+  &:hover {
+    font-weight: 900;
   }
 }
 
@@ -79,38 +85,47 @@ body {
 }
 
 .banner-show-btn-container {
+  // width: 100%;
   display: flex;
   align-items: center;
+  // position: absolute;
   position: absolute;
-  // position: sticky !important;
   top: 50px;
   right: 50px;
   color: rgba(255, 255, 255, 1);
 }
 
 .banner-show-btn1 {
-  background-color: rgb(195, 65, 59);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-color: rgb(195, 65, 59);
+  border-style: solid;
+  border-width: 1px;
   text-align: center;
   font-size: 14px;
   padding: 5px 5px;
   margin-right: 10px;
   border-radius: 5px;
-  // flex: 0 0 150px;
+  // flex: 0 0 300px;
   width: 150px;
-  color: white;
+  color: rgb(195, 65, 59);
   p {
     margin-bottom: 0px;
   }
 }
+
 .banner-show-btn1:hover {
-  background-color: rgb(145, 15, 9);
+  background-color: rgba(195, 65, 59, 0.8);
+  color: white;
+  font-weight: 900;
 }
 
 .banner-show-btn2 {
   background-color: rgb(145, 15, 9);
+  border-color: rgb(145, 15, 9);
+  border-style: solid;
+  border-width: 2px;
   text-align: center;
   font-size: 14px;
-  font-weight: 900;
   padding: 5px 5px;
   margin-right: 10px;
   border-radius: 5px;
@@ -124,6 +139,7 @@ body {
 
 .banner-show-btn2:hover {
   background-color: rgb(95, 15, 9);
+  font-weight: 900;
 }
 
 .container-show {

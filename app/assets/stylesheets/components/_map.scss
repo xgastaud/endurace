@@ -1,7 +1,6 @@
 #map {
   width: 40%;
   height: 100vh;
-  position: absolute;
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 0 !important;
 }
