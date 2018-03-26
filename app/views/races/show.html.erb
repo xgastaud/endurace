@@ -27,20 +27,21 @@
       </div>
     </div>
   </div>
+
   <div class="banner-show-btn-container">
 
     <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
       <div class="banner-show-btn2">
-        <i class="far fa-arrow-alt-circle-right color-link"></i>
+        <i class="far fa-arrow-alt-circle-right color-link2"></i>
         <p class="dont-wrap">M'inscrire</p>
       </div>
     <% end %>
 
-    <%= link_to race_like_path(@race), class: "color-link" do %>
+    <%= link_to race_like_path(@race), class: "color-link1" do %>
       <div class="banner-show-btn1">
         <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
           <%= button_tag type: "submit", class: "like-button-form" do %>
-            <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart"></i>
+            <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
             <p class="dont-wrap">Ma liste</p>
           <% end %>
         <% end %>
@@ -49,7 +50,7 @@
 
     <%= link_to '#' do %>
       <div class="banner-show-btn1">
-        <i class="far fa-share-square color-link"></i>
+        <i class="far fa-share-square color-link1"></i>
         <p class="dont-wrap">Partager</p>
       </div>
 
