@@ -15,14 +15,15 @@
         <%= @race.format %>
       </h3>
       <div class="show-friends" >
-        <% @race.get_likes.map {|like| like.voter }.each do |user| %>
+        <% voters = @race.voters_excluding_self(current_user) %>
+          <% voters.each do |user| %>
           <% if user.facebook_picture_url %>
             <%= image_tag user.facebook_picture_url, class: "show-avatar" %>
           <% else %>
             <%= image_tag "runner.jpg", class: "show-avatar" %>
           <% end %>
         <% end %>
-       <p class="show-avatar-text"> <%= pluralize(@race.get_likes.map.count,"friend") %> </p>
+        <p class="show-avatar-text"> <%= pluralize(voters.size, "friend") %> </p>
       </div>
     </div>
   </div>
@@ -51,8 +52,8 @@
         <i class="far fa-share-square color-link"></i>
         <p class="dont-wrap">Partager</p>
       </div>
-    <% end %>
 
+    <% end %>
   </div>
 </div>
 <div class="container-show">
