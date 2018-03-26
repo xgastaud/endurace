@@ -10,9 +10,21 @@
     <h2>
       <%= @race.sport %>
     </h2>
-    <h3>
-      <%= @race.format %>
-    </h3>
+    <div class="banner-show-bottom">
+      <h3>
+        <%= @race.format %>
+      </h3>
+      <div class="show-friends" >
+        <% @race.get_likes.map {|like| like.voter }.each do |user| %>
+          <% if user.facebook_picture_url %>
+            <%= image_tag user.facebook_picture_url, class: "show-avatar" %>
+          <% else %>
+            <%= image_tag "runner.jpg", class: "show-avatar" %>
+          <% end %>
+        <% end %>
+       <p class="show-avatar-text"> <%= pluralize(@race.get_likes.map.count,"friend") %> </p>
+      </div>
+    </div>
   </div>
   <div class="banner-show-btn-container">
     <%= link_to race_like_path(@race), class: "color-link" do %>

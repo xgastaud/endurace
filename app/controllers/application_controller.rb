@@ -29,8 +29,7 @@ class ApplicationController < ActionController::Base
 
   def store_user_location!
     # :user is the scope we are authenticating
-    p request.fullpath
-    store_location_for(:user, request.fullpath)
+    store_location_for(:user, request.fullpath) unless request.fullpath.nil?
   end
 
   def skip_pundit?
