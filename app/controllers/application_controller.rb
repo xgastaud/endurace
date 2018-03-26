@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   before_action :store_user_location!, if: :storable_location?
+  before_action :unconnected_like!
   include Pundit
 
   # Pundit: white-list approach.
@@ -25,6 +26,14 @@ class ApplicationController < ActionController::Base
 
   def storable_location?
     request.get?  && !devise_controller? && !request.xhr? #&& is_navigational_format?
+  end
+
+  def unconnected_like!
+    # si session[:liked_race_id] alors on like
+    if session[:liked_race_id]
+      race = Race.find(session[:liked_race_id])
+      race.liked_by(current_user)
+    end
   end
 
   def store_user_location!

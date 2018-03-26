@@ -27,28 +27,32 @@
     </div>
   </div>
   <div class="banner-show-btn-container">
-    <%= link_to race_like_path(@race), class: "color-link" do %>
-      <div class="banner-show-btn ">
 
-          <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
-            <%= button_tag type: "submit", class: "like-button-form" do %>
-              <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart"></i>
-            <% end %>
-          <% end %>
-
-    <% end %>
-        <p class="dont-wrap">Ma liste</p>
-      </div>
-    <div class="banner-show-btn">
-      <i class="far fa-share-square color-link"></i>
-      <p>Partager</p>
-    </div>
     <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
-      <div class="banner-show-btn">
+      <div class="banner-show-btn2">
         <i class="far fa-arrow-alt-circle-right color-link"></i>
-        <p>M'inscrire</p>
+        <p class="dont-wrap">M'inscrire</p>
       </div>
-     <% end %>
+    <% end %>
+
+    <%= link_to race_like_path(@race), class: "color-link" do %>
+      <div class="banner-show-btn1">
+        <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
+          <%= button_tag type: "submit", class: "like-button-form" do %>
+            <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart"></i>
+            <p class="dont-wrap">Ma liste</p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= link_to '#' do %>
+      <div class="banner-show-btn1">
+        <i class="far fa-share-square color-link"></i>
+        <p class="dont-wrap">Partager</p>
+      </div>
+    <% end %>
+
   </div>
 </div>
 <div class="container-show">
@@ -102,6 +106,10 @@
         <h2>
           Topographie
         </h2>
+        <div class="topo-show-container">
+              <%#= image_tag "https://www.openrunner.com/route/8472387/embed/fr/6e2b354b474e4136736e35456666794254503373786b4c425749614247382f6738585045515763564775343d3a3a45fd8732a00a60ac88a3af11fc24631f", id: "map-pic" %>
+              <iframe width="500px" height="650px" src="https://www.openrunner.com/route/8472387/embed/fr/6e2b354b474e4136736e35456666794254503373786b4c425749614247382f6738585045515763564775343d3a3a45fd8732a00a60ac88a3af11fc24631f" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+            </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-12">
