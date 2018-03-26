@@ -1,28 +1,34 @@
 class RacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_policy_scoped, only: :index
 
   def index
-    @races = policy_scope(Race.all)
+    if params[:pg_search_documents].present?
+      PgSearch::Multisearch.rebuild(Race)
+      @races = PgSearch.multisearch(params[:pg_search_documents]).map { |doc| doc.searchable }
+    else
+      @races = policy_scope(Race.all)
 
-    filters = {}
-    filters[:sport] = params[:sport] if params[:sport].present?
-    filters[:format] = params[:format] if params[:format].present?
-    @races = @races.where(filters)
+      filters = {}
+      filters[:sport] = params[:sport] if params[:sport].present?
+      filters[:format] = params[:format] if params[:format].present?
+      @races = @races.where(filters)
 
-    @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
-    @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
+      @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
+      @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
 
-    @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
-    # @races = @races.where("available_slots" )
+      @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
+      # @races = @races.where("available_slots" )
 
-    @races = @races.page(params[:page] || 1)
-
-    @markers = @races.map do |race|
-      next if race.latitude.nil?
-      { lat: race.latitude, lng: race.longitude}
-      # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      #@races = @races.page(params[:page] || 1)
     end
-    @markers = @markers.compact
+
+      @markers = @races.map do |race|
+        next if race.latitude.nil?
+        { lat: race.latitude, lng: race.longitude}
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      end
+      @markers = @markers.compact
   end
 
   def show
