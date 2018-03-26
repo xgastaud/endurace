@@ -14,18 +14,18 @@
 
 
           <div class="dropdown">
-            <button class="plusdefiltre btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <button class="plusdefiltre btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <!-- id="dropdownMenu1" -->
               Sport
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
               <li><%= link_to "Running", races_path(sport: "Running") %></li>
-              <li><%= link_to "Cyclisme", races_path(sport: "Cyclisme") %></li>
             </ul>
           </div>
           <div class="dropdown">
-            <button class="plusdefiltre btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <button class="plusdefiltre btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               Format
               <span class="caret"></span>
             </button>
@@ -41,7 +41,7 @@
             </ul>
           </div>
 
-          <button class="plusdefiltre btn-default dropdown-toggle" id="dropdownMenu1" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+          <button class="plusdefiltre btn-default dropdown-toggle" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
             Plus de filtres
           </button>
           <div class="collapse" id="collapseExample">
@@ -64,7 +64,7 @@
               <%= select_tag :range, options_for_select([["500km", "500"], ["50km", "50"], ["20km", "20"]]), {class: 'drop'}%><%= text_field_tag :address, nil, class: "drop", placeholder: "Ville" %>
               </div>
               <div class="dropdown">
-                <button class="plusdefiltre btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <button class="plusdefiltre btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   Participants
                   <span class="caret"></span>
                 </button>

@@ -15,11 +15,15 @@ class Race < ApplicationRecord
 
   validates :sport, inclusion: { in: FORMATS_SPORTS.keys, allow_blank: false }
   validate :format_consistent_with_sport
+  acts_as_votable
 
   def format_consistent_with_sport
     if !(FORMATS_SPORTS[self.sport] || []).include?(self.format)
       errors.add(:format, "is not included in the list")
     end
   end
-  acts_as_votable
+
+  def voters_excluding_self(user)
+    get_likes.reject { |like| like.voter == user }.map {|like| like.voter }
+  end
 end
