@@ -158,14 +158,36 @@
 }
 
 .card-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: white;
   background-position: left;
   text-align: center;
   font-size: 16px;
 }
 
+.card-friends {
+  padding: 15px;
+  text-align: left;
+  color: #C0413D;
+  display: flex;
+}
+.card-avatar {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-left: -10px;
+}
+
+.card-avatar-text {
+  margin-left: 5px;
+  padding-top: 5px;
+}
+
 .card-price {
-  padding: 20px;
+  padding-top: 20px;
+  padding-right: 5px;
   color: #C0413D;
   text-align: right;
 }
