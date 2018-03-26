@@ -24,6 +24,17 @@
     </div>
   </div>
   <div class="card-description">
+    <div class="card-friends" >
+      <% voters = race.voters_excluding_self(current_user) %>
+      <% voters.each do |user| %>
+        <% if user.facebook_picture_url %>
+          <%= image_tag user.facebook_picture_url, class: "card-avatar" %>
+        <% else %>
+          <%= image_tag "runner.jpg", class: "card-avatar" %>
+        <% end %>
+      <% end %>
+     <p class="card-avatar-text"> <%= pluralize(voters.size, "friend") %> </p>
+    </div>
     <div class="card-price"> <%= race.format %> </div>
   </div>
 </div>
