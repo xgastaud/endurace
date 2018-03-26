@@ -8,7 +8,7 @@
     <div class="card-bottom">
       <div class="card-name">
         <strong><%= race.name %></strong>
-        <span class="card-location"><%= race.starts_at.strftime("%b %d") %> • <%= race.address %></span>
+        <span class="card-location"><%= race.starts_at.strftime("%b %d") if race.starts_at.nil? == false %> • <%= race.address %></span>
       </div>
       <%# if user_signed_in? %>
       <%# end %>

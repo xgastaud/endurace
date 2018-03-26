@@ -1,0 +1,4 @@
+// app/views/races/index.js.erb
+
+$('#cardspag').html('<%= escape_javascript render(@races) %>');
+$('#paginator').html('<%= escape_javascript(paginate(@races, remote: true).to_s) %>');
