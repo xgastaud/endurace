@@ -98,6 +98,6 @@
         <%#= paginate @races %>
         <%#= page_entries_info @races %>
       </div> -->
-    <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>"></div>
+    <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>" data-icon-path="<%= asset_path 'flag.png' %>"></div>
   </div>
 </div>
