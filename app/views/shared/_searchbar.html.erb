@@ -1,0 +1,6 @@
+<div class="searchbar" >
+  <%= form_tag(races_path, method: :get) do %>
+    <%= text_field_tag :pg_search_documents , nil, class: "drop-searchbar", placeholder: "Search" %>
+    <%= submit_tag "Go", name: nil, class: 'btn-go-searchbar' %>
+  <% end %>
+</div>

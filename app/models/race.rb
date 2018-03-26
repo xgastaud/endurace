@@ -1,4 +1,6 @@
 class Race < ApplicationRecord
+  include PgSearch
+  multisearchable against: [ :name, :sport, :format, :address ]
   has_many :participations, dependent: :destroy
   mount_uploader :photo, PhotoUploader
   validates :address, presence: true

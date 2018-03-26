@@ -1,4 +1,9 @@
 <div class="container-fluid">
+  <div class="searchbar">
+    <%= form_tag(races_path, method: :get) do %>
+    <%= text_field_tag :pg_search_documents , nil, class: "drop", placeholder: "Search" %>
+    <% end %>
+  </div>
   <div class="index-container">
 
     <div class="left-container">
@@ -6,6 +11,7 @@
 
       <div class="card-container">
         <div class="filters">
+
 
           <div class="dropdown">
             <button class="plusdefiltre btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -78,11 +84,11 @@
         <% @races.each do |race| %>
           <%= render "races/card", race: race %>
         <% end %>
-        <hr />
+        <!-- <hr />
         <div class="pages">
-          <%= paginate @races %>
-          <%= page_entries_info @races %>
-        </div>
+          <%#= paginate @races %>
+          <%#<%= submit_tag "My Button Text", class: "class" %>= page_entries_info @races %>
+        </div> -->
       </div>
 
 
@@ -92,6 +98,6 @@
         <%#= paginate @races %>
         <%#= page_entries_info @races %>
       </div> -->
-    <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>"></div>
+    <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>" data-icon-path="<%= asset_path 'flag.png' %>"></div>
   </div>
 </div>

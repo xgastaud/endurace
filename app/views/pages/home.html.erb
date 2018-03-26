@@ -33,6 +33,14 @@
           <%= submit_tag "Go", name: nil, class: 'btn-go' %>
         </div>
       <% end %>
+      <div class="searchbar">
+        <%= form_tag(races_path, method: :get) do %>
+        <%= text_field_tag :pg_search_documents , nil, class: "drop", placeholder: "Search" %>
+        <div class="form-inputs">
+          <%= submit_tag "Go", name: nil, class: 'btn-go' %>
+        </div>
+        <% end %>
+      </div>
       <!-- <div class="index-searchbar">
         <%= link_to "See all adds", races_path %>
       </div> -->
