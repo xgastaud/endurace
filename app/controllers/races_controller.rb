@@ -25,10 +25,7 @@ class RacesController < ApplicationController
         @races = @races.near("Bourges", 500)
       end
 
-      @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
-      # @races = @races.where("available_slots" )
-
-      #@races = @races.page(params[:page] || 1)
+      @races = @races.page(params[:page] || 1)
     end
 
     @markers = @races.map do |race|
