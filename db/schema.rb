@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20180326084452) do
     t.float "latitude"
     t.float "longitude"
     t.string "photo"
-    t.string "image_race"
     t.integer "price"
+    t.string "image_race"
   end
 
   create_table "users", force: :cascade do |t|

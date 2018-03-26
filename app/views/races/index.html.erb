@@ -81,23 +81,19 @@
 
         </div>
 
-        <% @races.each do |race| %>
-          <%= render "races/card", race: race %>
-        <% end %>
-        <!-- <hr />
-        <div class="pages">
-          <%#= paginate @races %>
-          <%#<%= submit_tag "My Button Text", class: "class" %>= page_entries_info @races %>
-        </div> -->
+          <!-- <div id="cardspag"> -->
+            <% @races.each do |race| %>
+              <%= render "races/card", race: race %>
+            <% end %>
+          <!-- </div> -->
+        <hr />
+        <div id="paginator" class="pages">
+          <%= paginate @races, remote: true %>
+          <%= page_entries_info @races %>
+        </div>
+
       </div>
-
-
     </div>
-    <!--   <hr />
-      <div class="pages">
-        <%#= paginate @races %>
-        <%#= page_entries_info @races %>
-      </div> -->
     <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>" data-icon-path="<%= asset_path 'flag.png' %>"></div>
   </div>
 </div>
