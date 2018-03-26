@@ -7,9 +7,9 @@ body {
   background-size: cover !important;
   background-repeat: no-repeat;
   display: flex;
-  align-items: flex-end;
   position: relative;
-  padding-bottom: 80px;
+  // align-items: flex-end;
+  // padding-bottom: 80px;
 }
 
 .banner-show-title-box {
@@ -22,6 +22,8 @@ body {
   padding-right: 50px;
   margin-left: 5%;
   margin-right: 10%;
+  position: absolute;
+  bottom: 80px;
   h1 {
     font-size: 54px;
     font-weight: 800;
@@ -79,9 +81,9 @@ body {
 .banner-show-btn-container {
   display: flex;
   align-items: center;
-  // position: absolute;
-  position: sticky !important;
-  top: 0 !important;
+  position: absolute;
+  // position: sticky !important;
+  top: 50px;
   right: 50px;
   color: rgba(255, 255, 255, 1);
 }
