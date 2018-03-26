@@ -1,5 +1,5 @@
 class RacesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :like]
 
   def index
     @races = policy_scope(Race.all)
@@ -12,8 +12,15 @@ class RacesController < ApplicationController
     @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
     @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
 
-    @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
-    # @races = @races.where("available_slots" )
+    # @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
+
+    if params[:address].present? && params[:range].present?
+      @races = @races.near(params[:address], params[:range])
+    elsif params[:address].present?
+      @races = @races.near(params[:address], 500)
+    else
+      @races = @races.near("Bourges", 500)
+    end
 
     @races = @races.page(params[:page] || 1)
 
@@ -32,16 +39,28 @@ class RacesController < ApplicationController
   end
 
   def like
+    # si pas connecté
+    if user_signed_in? == false
+    # stocker en session l'id de la race à liker
     @race = Race.find(params[:race_id])
     authorize @race
-    if current_user.voted_for?(@race)
-      @race.unliked_by current_user
-      p current_user.voted_for?(@race)
+    session[:liked_race_id] = @race.id
+    # loguer redirect_to new_user_session_path
+    redirect_to new_user_session_path
+    # sinon
     else
-      @race.liked_by(current_user)
+      @race = Race.find(params[:race_id])
+      authorize @race
+      if current_user.voted_for?(@race)
+        @race.unliked_by current_user
+        p current_user.voted_for?(@race)
+      else
+        @race.liked_by(current_user)
+      end
+      redirect_to stored_location_for(:user)
     end
-    redirect_to stored_location_for(:user)
   end
+
   # def create
   #   @race = Race.new(product_params)
   #   @race.user = current_user

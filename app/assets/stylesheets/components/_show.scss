@@ -54,24 +54,49 @@ body {
 .banner-show-btn-container {
   display: flex;
   align-items: center;
-  position: absolute;
-  bottom: 20px;
-  right: 100px;
+  // position: absolute;
+  position: sticky !important;
+  top: 0 !important;
+  right: 50px;
   color: rgba(255, 255, 255, 1);
 }
 
-.banner-show-btn {
+.banner-show-btn1 {
   background-color: rgb(195, 65, 59);
   text-align: center;
   font-size: 14px;
   padding: 5px 5px;
   margin-right: 10px;
   border-radius: 5px;
-  flex: 0 0 75px;
+  // flex: 0 0 150px;
+  width: 150px;
   color: white;
   p {
     margin-bottom: 0px;
   }
+}
+.banner-show-btn1:hover {
+  background-color: rgb(145, 15, 9);
+}
+
+.banner-show-btn2 {
+  background-color: rgb(145, 15, 9);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 5px 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  // flex: 0 0 300px;
+  width: 300px;
+  color: white;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.banner-show-btn2:hover {
+  background-color: rgb(95, 15, 9);
 }
 
 .container-show {
@@ -120,3 +145,11 @@ body {
 #map-pic {
   width: 100%;
 }
+
+.topo-show-container {
+}
+
+#topo-pic {
+  width: 100%;
+}
+
