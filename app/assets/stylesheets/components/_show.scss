@@ -33,11 +33,36 @@ body {
     font-size: 20px;
     color: rgb(195, 65, 59);
     font-weight: 800;
+    margin-top: 5px;
   }
+}
+
+.banner-show-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.show-avatar {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-left: -10px;
+}
+
+.show-avatar-text {
+  margin-left: 5px;
+  padding-top: 5px;
 }
 
 .no-underline-link {
   text-decoration: none !important;
+}
+
+.show-friends {
+  display: flex;
+  align-items: center;
+  text-align: right;
 }
 
 .color-link {
