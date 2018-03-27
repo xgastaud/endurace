@@ -43,14 +43,19 @@
               </div>
             </div>
           </div>
-
-        <% @races.each do |race| %>
-          <%= render "races/card", race: race %>
-        <% end %>
+        </div>
+        <div>
+          <p>
+            <%= ( @races.length > 1 || @races.length == 0 ) ? "#{@races.length} résultats" : "#{@races.length} résultats" %>
+          </p>
+        </div>
+        <div class="races">
+          <%= render "races", races: @races %>
+        </div>
         <hr />
       </div>
       <div class="pages">
-        <%= paginate @races %>
+        <%= paginate @races, remote: true %>
         <%= page_entries_info @races %>
       </div>
 

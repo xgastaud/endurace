@@ -47,6 +47,7 @@ class RacesController < ApplicationController
 
   def show
     # @race = policy_scope(Race.find(params[:id]))
+    @review = Review.new
     @race = Race.find(params[:id])
     authorize @race
   end

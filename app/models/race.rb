@@ -2,13 +2,14 @@ class Race < ApplicationRecord
   include PgSearch
   multisearchable against: [ :name, :sport, :format, :address ]
   has_many :participations, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   mount_uploader :photo, PhotoUploader
   validates :address, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   FORMATS_SPORTS = {
-    "Triathlon" => ["Ironman", "Longue Distance - Half-Ironman", "Courte Distance - Olympique", "Sprint", "Super Sprint", "Autre"],
-    "Running" => ["Marathon", "Semi-marathon", "15km et moins", "Autre"]
+    "Triathlon" => ["Triathlon"],
+    "Running" => ["Marathon", "Semi-marathon", "Course de 15km ou moins"]
     # "Cyclisme" => ["Autre"],
     # "Swimrun" => "Long",
   }
