@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  namespace :forest do
+    post '/actions/publish-all' => 'races#publish_all'
+  end
   mount ForestLiana::Engine => '/forest'
+
+
   devise_for :users,
       controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'

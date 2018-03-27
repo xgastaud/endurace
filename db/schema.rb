@@ -51,17 +51,15 @@ ActiveRecord::Schema.define(version: 20180327132845) do
     t.float "vertical_ascent_run"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.float "latitude"
     t.float "longitude"
+    t.string "photo"
     t.integer "price"
     t.string "image_race"
     t.string "swimming_gpx_url"
     t.string "biking_gpx_url"
     t.string "running_gpx_url"
-    t.text "review"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_races_on_user_id"
+    t.boolean "published", default: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -73,7 +71,6 @@ ActiveRecord::Schema.define(version: 20180327132845) do
     t.datetime "updated_at", null: false
     t.index ["race_id"], name: "index_reviews_on_race_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
-    t.boolean "published", default: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,7 +113,6 @@ ActiveRecord::Schema.define(version: 20180327132845) do
 
   add_foreign_key "participations", "races"
   add_foreign_key "participations", "users"
-  add_foreign_key "races", "users"
   add_foreign_key "reviews", "races"
   add_foreign_key "reviews", "users"
 end

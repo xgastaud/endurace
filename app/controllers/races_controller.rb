@@ -20,12 +20,15 @@ class RacesController < ApplicationController
       if params[:address].present? && params[:range].present?
         @races = @races.near(params[:address], params[:range])
       elsif params[:address].present?
-        @races = @races.near(params[:address], 500)
+        @races = @races.near(params[:address], 50)
       else
-        @races = @races.near("Bourges", 500)
+        @races = @races.near("Bourges", 1000)
         @races = @races.where("available_slots > ?", params[:distance].split.first.to_i) if params[:distance].present?
         @races = @races.where("available_slots < ?", params[:distance].split.last.to_i) if params[:distance].present?
       end
+      # @races = @races.where(published: true) # only show races that have been published
+      # @races = @races.where("starts_at >= ?", Date.today) # only show races in the future
+      @races = @races.order(starts_at: :asc)
       @races = @races.page(params[:page] || 1)
     end
 

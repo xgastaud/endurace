@@ -38,12 +38,12 @@
 
   <div class="banner-show-bottom">
     <div class="banner-show-title-box">
-      <h2>
-        <%= @race.format %>
-      </h2>
       <h3>
-        <%= @race.starts_at.strftime("%d-%b-%y") %>
+        <%= @race.format %>
       </h3>
+      <h2>
+        <%= @race.starts_at.strftime("%d-%b-%y") %>
+      </h2>
       <h1>
         <%= @race.name %>
       </h1>
@@ -75,7 +75,7 @@
             <div class="metrics-container">
               <div class="metrics-logo-container">
                 <%= image_tag('swim-logo.png', class: "metrics-logo") %>
-                <p><%= @race.distance_swim %>km</p>
+                <p><%= @race.distance_swim.nil? ? "n.c." : "{@race.distance_swim} km"%></p>
               </div>
               <div class="metrics-logo-container">
                 <%= image_tag('bike-logo.png', class: "metrics-logo") %>
@@ -122,15 +122,15 @@
         <div class="tabs">
           <a class="tab active" data-target="tab-swim">
             <h3>Natation</h3>
-            <p>1.9 km</p>
+            <p><%= @race.distance_swim.nil? ? "n.c." : "{@race.distance_swim} km"%></p>
           </a>
           <a class="tab" data-target="tab-running">
             <h3>Running</h3>
-            <p>83 km</p>
+            <p><%= @race.distance_bike.nil? ? "n.c." : "{@race.distance_bike} km"%></p>
           </a>
           <a class="tab" data-target="tab-biking">
             <h3>Velo</h3>
-            <p>21.1 km</p>
+            <p><%= @race.distance_run.nil? ? "n.c." : "{@race.distance_run} km"%></p>
           </a>
         </div>
         <div class="topo-sport-container">
