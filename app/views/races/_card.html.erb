@@ -1,26 +1,38 @@
 <div class="card">
   <%= link_to "", race_path(race), class: "card-link"%>
-  <div class="card-picture" style="background-image: linear-gradient(360deg, rgba(0,0,0,0.7), rgba(0,0,0,0)), url(<%= race.image_race.nil? ? race.photo : race.image_race %>);">
+  <div class="card-picture" style="background-image: linear-gradient(270deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= race.image_race.nil? ? race.photo : race.image_race %>);">
     <div class="card-format">
+        <div class="card-top">
+          <div class="card-date">
+            <%= race.format %>
+          </div>
+          <br>
+          <div class="card-sport">
+            <%= race.sport %>
+          </div>
+          <br>
+          <div class="card-date">
+            <%= race.starts_at.strftime("%d-%b-%y") %>
+          </div>
+        </div>
 
-      <span><%= race.available_slots %></span>
+      <div class="card-wishlist">
+        <%= form_for race, url: race_like_path(race), method: :post do |f| %>
+          <%= button_tag type: "submit", class: "like-button-form" do %>
+            <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+          <% end %>
+        <% end %>
+        <%# link_to race_like_path(race) do %>
+        <%# end %>
+      </div>
+
     </div>
     <div class="card-bottom">
       <div class="card-name">
         <strong><%= race.name %></strong>
-        <span class="card-location"><%= race.starts_at.strftime("%b %d") %> • <%= race.address %></span>
       </div>
       <%# if user_signed_in? %>
       <%# end %>
-        <div class="card-wishlist">
-          <%= form_for race, url: race_like_path(race), method: :post do |f| %>
-            <%= button_tag type: "submit", class: "like-button-form" do %>
-              <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
-            <% end %>
-          <% end %>
-          <%# link_to race_like_path(race) do %>
-          <%# end %>
-        </div>
     </div>
   </div>
   <div class="card-description">
@@ -35,6 +47,5 @@
       <% end %>
      <p class="card-avatar-text"> <%= pluralize(voters.size, "friend") %> </p>
     </div>
-    <div class="card-price"> <%= race.format %> </div>
   </div>
 </div>

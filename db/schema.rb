@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20180327103817) do
     t.index ["user_id"], name: "index_participations_on_user_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
   create_table "races", force: :cascade do |t|
     t.string "name"
     t.string "sport"
@@ -42,14 +51,14 @@ ActiveRecord::Schema.define(version: 20180327103817) do
     t.float "vertical_ascent_run"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.float "latitude"
     t.float "longitude"
-    t.integer "price"
+    t.string "photo"
     t.string "image_race"
     t.string "Swimming_gpx_url"
     t.string "Biking_gpx_url"
     t.string "Running_gpx_url"
+    t.integer "price"
   end
 
   create_table "users", force: :cascade do |t|

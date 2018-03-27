@@ -1,32 +1,36 @@
 class RacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :like]
+  skip_after_action :verify_policy_scoped, only: :index
 
   def index
-    @races = policy_scope(Race.all)
+    if params[:pg_search_documents].present?
+      PgSearch::Multisearch.rebuild(Race)
+      @races = PgSearch.multisearch(params[:pg_search_documents]).map { |doc| doc.searchable }
+    else
+      @races = policy_scope(Race.all)
 
-    filters = {}
-    filters[:sport] = params[:sport] if params[:sport].present?
-    filters[:format] = params[:format] if params[:format].present?
-    @races = @races.where(filters)
-
-    @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
-    @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
-
+      filters = {}
+      filters[:sport] = params[:sport] if params[:sport].present?
+      filters[:format] = params[:format] if params[:format].present?
+      @races = @races.where(filters)
+      @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
+      @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
     # @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
 
-    if params[:address].present? && params[:range].present?
-      @races = @races.near(params[:address], params[:range])
-    elsif params[:address].present?
-      @races = @races.near(params[:address], 500)
-    else
-      @races = @races.near("Bourges", 500)
-    end
+      if params[:address].present? && params[:range].present?
+        @races = @races.near(params[:address], params[:range])
+      elsif params[:address].present?
+        @races = @races.near(params[:address], 500)
+      else
+        @races = @races.near("Bourges", 500)
+      end
 
-    @races = @races.page(params[:page] || 1)
+      @races = @races.page(params[:page] || 1)
+    end
 
     @markers = @races.map do |race|
       next if race.latitude.nil?
-      { lat: race.latitude, lng: race.longitude}
+      { lat: race.latitude, lng: race.longitude, icon: helpers.asset_path("flag.png") }
       # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
     end
     @markers = @markers.compact
