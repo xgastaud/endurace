@@ -1,0 +1,14 @@
+// app/views/races/index.js.erb
+
+function updateRaces(racesHTML, pagesHTML) {
+  const races = document.querySelector('.races');
+  races.insertAdjacentHTML('beforeend', racesHTML);
+
+  const pages = document.querySelector('.pages');
+  pages.innerHTML = pagesHTML;
+}
+
+updateRaces(
+  '<%= j render "races", races: @races %>',
+  '<%= j paginate(@races, remote: true).to_s %>'
+);
