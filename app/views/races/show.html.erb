@@ -42,7 +42,7 @@
         <%= @race.format %>
       </h3>
       <h2>
-        <%= @race.starts_at.strftime("%d-%b-%y") %>
+        <%= "#{@race.starts_at.strftime("%d-%b-%y")} (dans #{(@race.starts_at.to_date - Date.today.to_date).fdiv(1).round(0) } jours)" %>
       </h2>
       <h1>
         <%= @race.name %>
