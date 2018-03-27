@@ -45,7 +45,7 @@ class JoggingPlusScraperService
       html_doc_show.search("#bloc-gauche2 #bloc-info-label").each do |element|
         bloc << element
       end
-      places_total = bloc[1].text
+      places_total = bloc[1].text.match(/([0-9]+\s?[0-9]+)/).nil? ? "" : bloc[1].text.match(/([0-9]+\s?[0-9]+)/)[1].gsub(" ", "").to_i
 
       name = html_doc_show.search(".td-post-title .entry-title").text.strip
       date = html_doc_show.search("#bloc-date-fiche").text.strip
@@ -83,7 +83,7 @@ class JoggingPlusScraperService
   def categories
     if @category == "calendrier-triathlon-france"
       {sport:"Triathlon",
-      format: "Autre"}
+      format: "Triathlon"}
     elsif @category == "/marathons/france"
       {sport: "Running",
        format: "Marathon"}
@@ -92,7 +92,7 @@ class JoggingPlusScraperService
        format: "Semi-marathon"}
     elsif @category == "courses-5-10-15-km/france"
       {sport: "Running",
-       format: "15km et moins"}
+       format: "Course de 15km ou moins"}
     end
   end
 
