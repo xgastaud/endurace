@@ -108,11 +108,36 @@
         <h2>
           Topographie
         </h2>
-        <div class="topo-show-container">
-              <%#= image_tag "https://www.openrunner.com/route/8472387/embed/fr/6e2b354b474e4136736e35456666794254503373786b4c425749614247382f6738585045515763564775343d3a3a45fd8732a00a60ac88a3af11fc24631f", id: "map-pic" %>
-              <iframe width="500px" height="650px" src="https://www.openrunner.com/route/8472387/embed/fr/6e2b354b474e4136736e35456666794254503373786b4c425749614247382f6738585045515763564775343d3a3a45fd8732a00a60ac88a3af11fc24631f" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-            </div>
       </div>
+      <% if @race.sport == "Triathlon" %>
+        <div class="tabs">
+          <a class="tab active" data-target="tab-swim">
+            <h3>Natation</h3>
+            <p>1.9 km</p>
+          </a>
+          <a class="tab" data-target="tab-running">
+            <h3>Running</h3>
+            <p>83 km</p>
+          </a>
+          <a class="tab" data-target="tab-biking">
+            <h3>Velo</h3>
+            <p>21.1 km</p>
+          </a>
+        </div>
+        <div class="topo-sport-container">
+          <div class="topo-show active" id="tab-swim">
+            <iframe class="topo-show-swimming" width="800px" height="650px" src="<%= @race.swimming_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+          </div>
+          <div class="topo-show" id="tab-biking" >
+            <iframe class="topo-show-biking" width="800px" height="650px" src="<%= @race.biking_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+          </div>
+          <div class="topo-show" id="tab-running">
+              <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+          </div>
+        </div>
+      <% elsif @race.distance_run == "Running"%>
+          <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+      <% end %>
     </div>
     <div class="col-xs-12 col-sm-12">
       <div class="section-container">

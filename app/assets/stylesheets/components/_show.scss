@@ -190,9 +190,23 @@ body {
 }
 
 .topo-show-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
 }
 
 #topo-pic {
   width: 100%;
 }
+
+.topo-sport-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 
