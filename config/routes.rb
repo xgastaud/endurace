@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   resources :races, only: [:index, :show] do
     post 'like', to: 'races#like', as: :like
   end
+
+  resources :races do
+    resources :reviews, only: [ :create ]
+  end
+
   get 'privacy', to: 'pages#privacy', as: :privacy
   get 'tos', to: 'pages#tos', as: :tos
   get 'dashboard', to: 'pages#dashboard', as: :dashboard

@@ -153,6 +153,67 @@
         <h2>
           Commentaires
         </h2>
+        <% @race.reviews.each do |review| %>
+          <% if current_user.facebook_picture_url != nil || current_user.first_name != nil || current_user.last_name != nil%>
+
+            <div class="message">
+              <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
+              <div class="message-name">
+                <h3> <%= current_user.first_name current_user.last_name%></h3>
+                <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+              </div>
+              <div class="message-body">
+                 <ul class=“list-inline”>
+                    <% review.score.times  do |i| %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                 </ul>
+                <p>
+                  <%= review.comment %>
+                </p>
+              </div>
+              <div class="message-status">
+                <ul class=“list-inline”>
+                   <% review.score.times  do |i| %>
+                     <i class="fas fa-star size red"></i>
+                   <% end %>
+                   <% (5 - review.score).times  do |i| %>
+                     <i class="fas fa-star size grey"></i>
+                   <% end %>
+                </ul>
+              </div>
+            </div>
+          <% else %>
+            <div class="message">
+              <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
+              <div class="message-name">
+                <h3> <%= current_user.email%></h3>
+                <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+              </div>
+              <div class="message-body">
+                <p> <%= review.comment %> </p>
+              </div>
+              <div class="message-status">
+                 <ul class=“list-inline”>
+                    <% review.score.times  do |i| %>
+                      <i class="fas fa-star size red"></i>
+                    <% end %>
+                    <% (5 - review.score).times  do |i| %>
+                      <i class="fas fa-star size grey"></i>
+                    <% end %>
+                 </ul>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div class="show-form-reviews">
+          <%= simple_form_for [@race, @review] do |f| %>
+            <%= f.input :score %>
+            <%= f.input :comment %>
+            <%= f.submit "ajouter une review", class: "btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
