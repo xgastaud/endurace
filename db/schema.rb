@@ -54,8 +54,11 @@ ActiveRecord::Schema.define(version: 20180327132845) do
     t.float "latitude"
     t.float "longitude"
     t.string "photo"
-    t.integer "price"
     t.string "image_race"
+    t.string "Swimming_gpx_url"
+    t.string "Biking_gpx_url"
+    t.string "Running_gpx_url"
+    t.integer "price"
     t.boolean "published", default: false
   end
 
