@@ -23,10 +23,19 @@ class RacesController < ApplicationController
         @races = @races.near(params[:address], 500)
       else
         @races = @races.near("Bourges", 500)
+        @races = @races.where("available_slots > ?", params[:distance].split.first.to_i) if params[:distance].present?
+        @races = @races.where("available_slots < ?", params[:distance].split.last.to_i) if params[:distance].present?
       end
-
       @races = @races.page(params[:page] || 1)
     end
+
+    @format = params[:format] if params[:format].present?
+    @address = params[:address] if params[:address].present?
+    @range = params[:range] if params[:range].present?
+    @from = params[:from] if params[:from].present?
+    @to = params[:to] if params[:to].present?
+    @minp = params[:distance].split.first.to_i if params[:distance].present?
+    @maxp = params[:distance].split.last.to_i if params[:distance].present?
 
     @markers = @races.map do |race|
       next if race.latitude.nil?
