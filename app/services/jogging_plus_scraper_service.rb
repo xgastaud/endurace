@@ -83,7 +83,7 @@ class JoggingPlusScraperService
   def categories
     if @category == "calendrier-triathlon-france"
       {sport:"Triathlon",
-      format: "Autre"}
+      format: "Triathlon"}
     elsif @category == "/marathons/france"
       {sport: "Running",
        format: "Marathon"}

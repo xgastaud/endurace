@@ -58,6 +58,14 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.input-border {
+  margin: 5px;
+  border: 1px black;
+  border-bottom: 5px !important;
+  box-shadow: 5px !important;
+  border-bottom-color: red !important;
+
+}
 
 .btn-go {
   font-size: 30px;
@@ -87,7 +95,7 @@
   margin-bottom: 5px;
   flex: 0 0 auto;
   width: 190px;
-  // background-color: white;
+  background-color: transparent;
   color: rgb(195, 65, 59);
   border-radius: 4px;
   margin-right: 5px;

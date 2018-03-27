@@ -1,6 +1,5 @@
 function classUpdate() {
   const searchbar = document.querySelector(".searchbar");
-
   searchbar.classList.toggle("active");
 }
 
