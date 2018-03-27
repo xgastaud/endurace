@@ -15,7 +15,7 @@ class RacesController < ApplicationController
       @races = @races.where(filters)
       @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
       @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
-    # @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
+     #@races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
 
       if params[:address].present? && params[:range].present?
         @races = @races.near(params[:address], params[:range])
@@ -24,9 +24,9 @@ class RacesController < ApplicationController
       else
         @races = @races.near("Bourges", 500)
       end
-
-      @races = @races.page(params[:page] || 1)
-    end
+     end
+     @races = params[:page] ? @races.params[:page] : @races
+    # @races = @races.page(params[:page] || 1)
 
     @markers = @races.map do |race|
       next if race.latitude.nil?
