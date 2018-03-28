@@ -41,6 +41,7 @@ body {
   padding-right: 50px;
   margin-left: 5%;
   margin-right: 10%;
+  z-index: 2000;
   // position: absolute;
   // bottom: 80px;
   h1 {
@@ -52,7 +53,7 @@ body {
   }
   h3 {
     font-size: 24px;
-    color: rgb(195, 65, 59);
+    color: $red;
     font-weight: 800;
     margin-top: 5px;
   }
@@ -111,46 +112,49 @@ body {
   // top: 50px;
   // right: 50px;
   color: rgba(255, 255, 255, 1);
+  height: 55px;
 }
 
 .banner-show-btn1 {
   background-color: rgba(255, 255, 255, 0.6);
-  border-color: rgb(195, 65, 59);
+  border-color: $red;
   border-style: solid;
   border-width: 1px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   padding: 5px 5px;
   margin-right: 10px;
   margin-top: 10px;
   border-radius: 5px;
   // flex: 0 0 300px;
   width: 150px;
-  color: rgb(195, 65, 59);
+  height: 100%;
+  color: $red;
   p {
     margin-bottom: 0px;
   }
 }
 
 .banner-show-btn1:hover {
-  background-color: rgba(175, 45, 39, 0.8);
+  background-color: $red;
   color: white;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .banner-show-btn2 {
-  background-color: rgb(145, 15, 9);
-  border-color: rgb(145, 15, 9);
+  background-color: $red;
+  border-color: $red;
   border-style: solid;
   border-width: 2px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   padding: 5px 5px;
   margin-top: 10px;
   margin-right: 10px;
   border-radius: 5px;
   // flex: 0 0 300px;
   width: 300px;
+  height: 100%;
   color: white;
   p {
     margin-bottom: 0px;
@@ -158,7 +162,7 @@ body {
 }
 
 .banner-show-btn2:hover {
-  background-color: rgb(95, 15, 9);
+  background-color: rgb(216, 31, 16);
   font-weight: 900;
 }
 
