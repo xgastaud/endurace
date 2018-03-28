@@ -59,7 +59,10 @@ ActiveRecord::Schema.define(version: 20180328093842) do
     t.string "swimming_gpx_url"
     t.string "biking_gpx_url"
     t.string "running_gpx_url"
+    t.text "review"
+    t.bigint "user_id"
     t.boolean "published", default: false
+    t.index ["user_id"], name: "index_races_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
