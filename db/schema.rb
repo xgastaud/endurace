@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180327132845) do
+ActiveRecord::Schema.define(version: 20180328093842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20180327132845) do
     t.text "description"
     t.string "url"
     t.string "registration_url"
-    t.string "available_slots"
+    t.integer "available_slots"
     t.float "distance_swim"
     t.float "distance_bike"
     t.float "distance_run"
