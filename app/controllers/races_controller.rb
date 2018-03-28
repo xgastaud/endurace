@@ -59,11 +59,11 @@ class RacesController < ApplicationController
     # si pas connecté
     if user_signed_in? == false
     # stocker en session l'id de la race à liker
-    @race = Race.find(params[:race_id])
-    authorize @race
-    session[:liked_race_id] = @race.id
-    # loguer redirect_to new_user_session_path
-    redirect_to new_user_session_path
+      @race = Race.find(params[:race_id])
+      authorize @race
+      session[:liked_race_id] = @race.id
+      # loguer redirect_to new_user_session_path
+      redirect_to new_user_session_path
     # sinon
     else
       @race = Race.find(params[:race_id])
@@ -77,6 +77,8 @@ class RacesController < ApplicationController
       redirect_to stored_location_for(:user)
     end
   end
+
+
 
   # def create
   #   @race = Race.new(product_params)

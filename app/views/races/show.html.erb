@@ -38,9 +38,24 @@
 
   <div class="banner-show-bottom">
     <div class="banner-show-title-box">
-      <h3>
-        <%= @race.format %>
-      </h3>
+      <div class="show-banner-top">
+        <div class="show-format">
+          <h3>
+              <%= @race.format %>
+          </h3>
+        </div>
+        <div class="rating">
+          <ul class=“list-inline”>
+             <% @race.average_rating.times  do |i| %>
+               <i class="fas fa-star size-avg red"></i>
+             <% end %>
+             <% (5 - @race.average_rating).times  do |i| %>
+               <i class="fas fa-star size-avg grey"></i>
+             <% end %>
+          </ul>
+          <p class="show-banner-votes"> (<%= @race.reviews.count %> votes) </p>
+        </div>
+      </div>
       <h2>
         <%= "#{@race.starts_at.strftime("%d-%b-%y")} (dans #{(@race.starts_at.to_date - Date.today.to_date).fdiv(1).round(0) } jours)" %>
       </h2>
@@ -145,77 +160,84 @@
           </div>
         </div>
       <% elsif @race.distance_run == "Running"%>
-          <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+          <iframe class=  "topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
       <% end %>
     </div>
-    <div class="col-xs-12 col-sm-12">
-      <div class="section-container">
-        <h2>
-          Commentaires
-        </h2>
-        <% @race.reviews.each do |review| %>
-          <% if current_user.facebook_picture_url != nil || current_user.first_name != nil || current_user.last_name != nil%>
+     <% if current_user != nil %>
+      <div class="col-xs-12">
+        <div class="section-container">
 
-            <div class="message">
-              <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
-              <div class="message-name">
-                <h3> <%= current_user.first_name current_user.last_name%></h3>
-                <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+          <h2>
+            Commentaires
+          </h2>
+          <% @race.reviews.each do |review| %>
+            <% if current_user.facebook_picture_url != nil || current_user.first_name != nil || current_user.last_name != nil%>
+
+              <div class="message">
+                <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
+                <div class="message-name">
+                  <h3> <%= current_user.first_name current_user.last_name%></h3>
+                  <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+                </div>
+                <div class="message-body">
+                   <ul class=“list-inline”>
+                      <% review.score.times  do |i| %>
+                        <i class="fas fa-star"></i>
+                      <% end %>
+                   </ul>
+                  <p>
+                    <%= review.comment %>
+                  </p>
+                </div>
+                <div class="message-status">
+                  <ul class=“list-inline”>
+                     <% review.score.times  do |i| %>
+                       <i class="fas fa-star size red"></i>
+                     <% end %>
+                     <% (5 - review.score).times  do |i| %>
+                       <i class="fas fa-star size grey"></i>
+                     <% end %>
+                  </ul>
+                </div>
               </div>
-              <div class="message-body">
-                 <ul class=“list-inline”>
-                    <% review.score.times  do |i| %>
-                      <i class="fas fa-star"></i>
-                    <% end %>
-                 </ul>
-                <p>
-                  <%= review.comment %>
-                </p>
+            <% else %>
+              <div class="message">
+                <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
+                <div class="message-name">
+                  <h3> <%= current_user.email%></h3>
+                  <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+                </div>
+                <div class="message-body">
+                  <p> <%= review.comment %> </p>
+                </div>
+                <div class="message-status">
+                   <ul class=“list-inline”>
+                      <% review.score.times  do |i| %>
+                        <i class="fas fa-star size red"></i>
+                      <% end %>
+                      <% (5 - review.score).times  do |i| %>
+                        <i class="fas fa-star size grey"></i>
+                      <% end %>
+                   </ul>
+                </div>
               </div>
-              <div class="message-status">
-                <ul class=“list-inline”>
-                   <% review.score.times  do |i| %>
-                     <i class="fas fa-star size red"></i>
-                   <% end %>
-                   <% (5 - review.score).times  do |i| %>
-                     <i class="fas fa-star size grey"></i>
-                   <% end %>
-                </ul>
+            <% end %>
+          <% end %>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+              <div class="show-form-reviews">
+                <%= simple_form_for [@race, @review] do |f| %>
+                  <%= f.input :score, label: 'Note' %>
+                  <%= f.input :comment, label: 'Commentaire' %>
+                  <%= f.submit "ajouter une review", class: "btn btn-primary" %>
+                <% end %>
               </div>
             </div>
-          <% else %>
-            <div class="message">
-              <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
-              <div class="message-name">
-                <h3> <%= current_user.email%></h3>
-                <p> <%= review.created_at.strftime("%e %b %Y") %></p>
-              </div>
-              <div class="message-body">
-                <p> <%= review.comment %> </p>
-              </div>
-              <div class="message-status">
-                 <ul class=“list-inline”>
-                    <% review.score.times  do |i| %>
-                      <i class="fas fa-star size red"></i>
-                    <% end %>
-                    <% (5 - review.score).times  do |i| %>
-                      <i class="fas fa-star size grey"></i>
-                    <% end %>
-                 </ul>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-
-        <div class="show-form-reviews">
-          <%= simple_form_for [@race, @review] do |f| %>
-            <%= f.input :score %>
-            <%= f.input :comment %>
-            <%= f.submit "ajouter une review", class: "btn btn-primary" %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
+     <% end %>
   </div>
 </div>
 <%#= link_to "Back", href="javascript:history.back()", class: "navbar-wagon-item navbar-wagon-link" %>

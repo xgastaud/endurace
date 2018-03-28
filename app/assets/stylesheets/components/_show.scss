@@ -237,4 +237,13 @@ body {
   margin-right: 10px;
 }
 
+.show-banner-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.show-banner-votes {
+  text-align: right;
+  color: rgba(150,150,150,0.9)
+}
