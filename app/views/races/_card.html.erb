@@ -27,9 +27,10 @@
       <div class="card-name">
         <strong><%= race.name %></strong>
       </div>
-      <%# if user_signed_in? %>
-      <%# end %>
     </div>
+      <div class="card-participants">
+        <%= race.available_slots.empty? ? "" : "#{race.available_slots} participants"  %>
+      </div>
   </div>
   <div class="card-description">
     <div class="card-friends" >
@@ -41,7 +42,7 @@
           <%= image_tag "runner.jpg", class: "card-avatar" %>
         <% end %>
       <% end %>
-     <p class="card-avatar-text"> <%= pluralize(voters.size, "friend") %> </p>
+     <p class="card-avatar-text"> <%= pluralize(voters.size, "ami") %> </p>
     </div>
   </div>
 </div>

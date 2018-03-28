@@ -131,6 +131,7 @@
   line-height: 10px;
   display: flex;
   flex-direction: column;
+}
   .card-sport {
     color: #C0413D;
     font-size: 16px;
@@ -140,8 +141,11 @@
     color: white;
     font-size: 14px;
   }
-}
 
+  .card-participants {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+    }
 
 .card-name {
   color: white;
