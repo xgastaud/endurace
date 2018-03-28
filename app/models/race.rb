@@ -27,4 +27,12 @@ class Race < ApplicationRecord
   def voters_excluding_self(user)
     get_likes.reject { |like| like.voter == user }.map {|like| like.voter }
   end
+
+  def average_rating
+    sum = 0
+    reviews.each do |review|
+      sum += review.score unless review.score.nil?
+    end
+    return sum.fdiv(reviews.count).to_i
+  end
 end

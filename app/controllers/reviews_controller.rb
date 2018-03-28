@@ -11,6 +11,8 @@ class ReviewsController < ApplicationController
       redirect_to race_path(@race)
     end
 
+
+
     private
 
     def review_params
