@@ -10,20 +10,21 @@
   height: 70px;
   padding: 0px 30px;
   display: flex;
-  border-bottom: 4px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
   border-bottom-color: white;
   align-items: center;
   justify-content: space-between;
   color: rgb(195, 65, 59);
   position: relative;
-  z-index: 1;
+  z-index: 2000;
   width: 100%;
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
-  border-radius: 5px;
+  // border-radius: 5px;
 }
 
 /* User Avatar */
@@ -57,11 +58,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: rgba(200,200,200,0.9);
+  color: rgba(255,255,255,0.9);
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: rgba(220,220,220,1);
+  color: rgba(255,255,255,1);
   text-decoration: none;
 }
 

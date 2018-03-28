@@ -1,13 +1,28 @@
 .selectric {
   height: 50px;
-  width: 200px;
+  width: 250px;
+  border-radius: 3px;
+  background-color: white;
 }
 
 .selectric .label {
     display: flex;
     text-align: center;
     color: black;
-    font-family: 'Popins';
+    font-family: 'Cabin';
     font-weight: regular;
-    font-size: 20px;
+    font-size: 26px;
+    color: $red;
+    background-color: white;
+}
+
+.label {
+    display: flex;
+    text-align: center;
+    color: black;
+    font-family: 'Cabin';
+    font-weight: regular;
+    font-size: 26px;
+    color: $red;
+    background-color: white;
 }
