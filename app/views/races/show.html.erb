@@ -160,7 +160,7 @@
           </div>
         </div>
       <% elsif @race.distance_run == "Running"%>
-          <iframe class=  "topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+          <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
       <% end %>
     </div>
      <% if current_user != nil %>
