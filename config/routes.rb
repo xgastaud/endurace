@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :forest do
     post '/actions/publish-all' => 'races#publish_all'
+    post '/actions/unpublish-all' => 'races#unpublish_all'
   end
   mount ForestLiana::Engine => '/forest'
 
