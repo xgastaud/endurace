@@ -15,7 +15,7 @@
   border-bottom-color: white;
   align-items: center;
   justify-content: space-between;
-  color: rgb(195, 65, 59);
+  color: $red;
   position: relative;
   z-index: 2000;
   width: 100%;
@@ -51,18 +51,19 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 10px 20px;
-  background-color: #f4183e;
+  background-color: white;
   border-radius: 3px;
   margin-left: 20px;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: rgba(255,255,255,0.9);
+  color: $red;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: rgba(255,255,255,1);
+  font-weight: 900;
+  color: $red;
   text-decoration: none;
 }
 

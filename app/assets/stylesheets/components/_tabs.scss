@@ -1,19 +1,20 @@
 .tabs {
   background: white;
   display: flex;
-  padding: 10px 10px 0 10px;
+  padding: 0px 0px 0px 0px;
 }
 .tabs a {
   color: white;
   border-style: solid;
   border-width: 1.5px;
-  border-color: #C0413D;
+  border-color: $red;
 }
 .tabs a:hover {
   cursor: pointer;
   text-decoration: none;
   opacity: 0.8;
 }
+
 .tabs h3 {
   font-size: 18px;
   font-weight: bold;
@@ -24,7 +25,7 @@
   margin-bottom: 0;
 }
 .tab {
-  background: #C0413D;
+  background: $red;
   flex: 0 0 33.3333%;
   text-align: center;
   padding: 10px 0;
@@ -37,8 +38,9 @@
 }
 .tab.active {
   background: white;
-  color: #C0413D;
+  color: $red;
 }
+
 
 .topo-sport-container {
   .active {
