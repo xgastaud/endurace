@@ -3,12 +3,13 @@ class RacesController < ApplicationController
   skip_after_action :verify_policy_scoped, only: :index
 
   def index
+
     if params[:pg_search_documents].present?
       PgSearch::Multisearch.rebuild(Race)
       @races = PgSearch.multisearch(params[:pg_search_documents]).map { |doc| doc.searchable }
     else
-      @races = policy_scope(Race.all)
 
+      @races = policy_scope(Race.all)
       filters = {}
       filters[:sport] = params[:sport] if params[:sport].present?
       filters[:format] = params[:format] if params[:format].present?
@@ -23,9 +24,9 @@ class RacesController < ApplicationController
         @races = @races.near(params[:address], 50)
       else
         @races = @races.near("Bourges", 1000)
-        @races = @races.where("available_slots > ?", params[:distance].split.first.to_i) if params[:distance].present?
-        @races = @races.where("available_slots < ?", params[:distance].split.last.to_i) if params[:distance].present?
       end
+      @races = @races.where("available_slots > ?", params[:distance].split(",").first.to_i) if params[:distance].present?
+      @races = @races.where("available_slots < ?", params[:distance].split(",").last.to_i) if params[:distance].present?
       # @races = @races.where(published: true) # only show races that have been published
       # @races = @races.where("starts_at >= ?", Date.today) # only show races in the future
       @races = @races.order(starts_at: :asc)
@@ -33,13 +34,14 @@ class RacesController < ApplicationController
       # @races = @races.page(params[:page] || 1)
     end
 
+
     @format = params[:format] if params[:format].present?
     @address = params[:address] if params[:address].present?
     @range = params[:range] if params[:range].present?
     @from = params[:from] if params[:from].present?
     @to = params[:to] if params[:to].present?
-    @minp = params[:distance].split.first.to_i if params[:distance].present?
-    @maxp = params[:distance].split.last.to_i if params[:distance].present?
+    # @minp = params[:distance].split(",").first.to_i if params[:distance].present?
+    # @maxp = params[:distance].split(",").last.to_i if params[:distance].present?
 
     @markers = @races.map do |race|
       next if race.latitude.nil?
