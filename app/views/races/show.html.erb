@@ -5,34 +5,6 @@
   <!-- 'http://res.cloudinary.com/dpthh89hv/image/upload/v1521554873/endurace/banner_bike.jpg' -->
 
   <div class="banner-show-top">
-    <div class="banner-show-btn-container">
-
-      <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
-        <div class="banner-show-btn2">
-          <i class="far fa-arrow-alt-circle-right color-link2"></i>
-          <p class="dont-wrap">M'inscrire</p>
-        </div>
-      <% end %>
-
-      <%= link_to race_like_path(@race), class: "color-link1" do %>
-        <div class="banner-show-btn1">
-          <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
-            <%= button_tag type: "submit", class: "like-button-form" do %>
-              <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
-              <p class="dont-wrap">Ma liste</p>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-
-      <%= link_to '#' do %>
-        <div class="banner-show-btn1">
-          <i class="far fa-share-square color-link1"></i>
-          <p class="dont-wrap">Partager</p>
-        </div>
-
-      <% end %>
-    </div>
 
   </div>
 
@@ -75,6 +47,34 @@
           <%= pluralize(voters.size, "friend") %>
         </p>
       </div>
+      <div class="banner-show-btn-container">
+
+        <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
+          <div class="banner-show-btn2">
+            <i class="far fa-arrow-alt-circle-right color-link2"></i>
+            <p class="dont-wrap">M'inscrire</p>
+          </div>
+        <% end %>
+
+        <%= link_to race_like_path(@race), class: "color-link1" do %>
+          <div class="banner-show-btn1">
+            <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
+              <%= button_tag type: "submit", class: "like-button-form" do %>
+                <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
+                <p class="dont-wrap">Ma liste</p>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <%= link_to '#' do %>
+          <div class="banner-show-btn1">
+            <i class="far fa-share-square color-link1"></i>
+            <p class="dont-wrap">Partager</p>
+          </div>
+
+        <% end %>
+      </div>
       </div>
     </div>
   </div>
@@ -83,6 +83,15 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="column-container">
+        <div class="description-show">
+          <h2>
+            Description
+          </h2>
+          <p>
+            <%= truncate(@race.description, length: 600, separator: ' ', omission: ' (...)') %>
+          </p>
+        </div>
+          <%= link_to @race.url %>
         <div class="metrics-show">
           <h2>
             Chiffres clés
@@ -104,15 +113,6 @@
               </div>
             </div>
         </div>
-        <div class="description-show">
-          <h2>
-            Description
-          </h2>
-          <p>
-            <%= truncate(@race.description, length: 600, separator: ' ', omission: ' (...)') %>
-          </p>
-        </div>
-          <%= link_to @race.url %>
       </div>
     </div>
       <div class="col-xs-12 col-sm-6">
