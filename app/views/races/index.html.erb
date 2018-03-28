@@ -7,92 +7,52 @@
   <div class="index-container">
 
     <div class="left-container">
-
-
       <div class="card-container">
-        <div class="filters">
-
-
-          <div class="dropdown">
-            <button class="plusdefiltre btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <!-- id="dropdownMenu1" -->
-              Sport
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><%= link_to "Triathlon", races_path(sport: "Triathlon") %></li>
-              <li><%= link_to "Running", races_path(sport: "Running") %></li>
-            </ul>
-          </div>
-          <div class="dropdown">
-            <button class="plusdefiltre btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Format
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><%= link_to "Court", races_path(format: "Triathlon Courte Distance") %></li>
-              <li><%= link_to "Long", races_path(format: "Triathlon Longue Distance") %></li>
-              <li><%= link_to "Kids", races_path(format: "Triathlon Kids") %></li>
-              <li><%= link_to "5km", races_path(format: "5km") %></li>
-              <li><%= link_to "10km", races_path(format: "10km") %></li>
-              <li><%= link_to "20km", races_path(format: "20km") %></li>
-              <li><%= link_to "50km", races_path(format: "50km") %></li>
-              <li><%= link_to "100km", races_path(format: "100km") %></li>
-            </ul>
-          </div>
-
-          <button class="plusdefiltre btn-default dropdown-toggle" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
-            Plus de filtres
-          </button>
-          <div class="collapse" id="collapseExample">
-            <div class="well">
+        <button class="plusdefiltre btn-default dropdown-toggle" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+          Plus de filtres
+        </button>
+        <div class="collapse" id="collapseExample">
+          <div class="well">
+            <div class="filters">
+              <%= form_tag(races_path, method: :get) do %>
+              <div class="form-inputs">
+                <h5>
+                  <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), {prompt: @format.present? ? @format : "Sport", class: 'drop'}%>
+                  <%= select_tag :range, options_for_select([["50km", "50"], ["200km", "200"], ["1000km", "1000"]]), {class: 'drop'}%> de <%= text_field_tag :address, @address, class: "drop", placeholder: @address %>
+                </h5>
+              </div>
+              <div class="form-inputs">
+                <h5>entre le <%= text_field_tag :from, @from, id: "range_start", class: "datepicker drop" %> et le <%= text_field_tag :to, @to, id: "range_end", class: "datepicker drop" %></h5>
+              </div>
               <div class="slider-distance">
-                Distance de course <b>1km</b>
-                <input id="ex2" type="text" class="span2" name="distance" value="" data-slider-min="1" data-slider-max="100" data-slider-step="5" data-slider-value="[10,90]"/>
-                 <b>100km</b>
-               </div>
-
-                 <%#= text_field_tag "test", nil, type: 'text', id: 'ex2',
-                 data: {'id' => 'ex2',
-                        'slider-min' => '10',
-                        'slider-max' => '1000',
-                        'slider-step' => '5',
-                        'slider-value' => '[250,450]' },
-                  class: 'span2' %>
-
-              <div>
-              <%= select_tag :range, options_for_select([["500km", "500"], ["50km", "50"], ["20km", "20"]]), {class: 'drop'}%><%= text_field_tag :address, nil, class: "drop", placeholder: "Ville" %>
+                Participants <b>10</b>
+                <input id="ex2" type="text" class="span2" name="distance" value="@minp, @maxp" data-slider-min="1" data-slider-max="10000" data-slider-step="5" data-slider-value="[1,10000]"/>
+                 <b>10000</b>
               </div>
-              <div class="dropdown">
-                <button class="plusdefiltre btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  Participants
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><%= link_to "De 1 à 200 ", races_path(available_slots: "1..200") %></li>
-                  <li><%= link_to "De 200 à 1000", races_path(available_slots: "201..1000") %></li>
-                  <li><%= link_to "De 1000 à 2000", races_path(available_slots: "1001..2000") %></li>
-                  <li><%= link_to "De 2000 à 20000", races_path(available_slots: "2000..20000") %></li>
-                </ul>
+              <div class="form-inputs">
+                <%= submit_tag "Appliquer les filtres", name: nil, class: 'plusdefiltre' %>
               </div>
-
+              <% end %>
             </div>
           </div>
-
         </div>
-
-        <% @races.each do |race| %>
-          <%= render "races/card", race: race %>
-        <% end %>
-        <hr />
       </div>
-      <div class="pages">
-        <!-- rajoute condition if params de page/ -->
-        <%= paginate @races if params[:page] %>
-        <%= page_entries_info @races if params[:page] %>
+      <div>
+        <p>
+          <%= ( @races.length > 1 || @races.length == 0 ) ? "#{@races.length} résultats" : "#{@races.length} résultats" %>
+        </p>
       </div>
-
-    </div>
-    <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>" data-icon-path="<%= asset_path 'flag.png' %>"></div>
+      <div class="races">
+        <%= render "races", races: @races %>
+      </div>
+      <hr />
+   </div>
+   <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>" data-icon-path="<%= asset_path 'flag.png' %>"></div>
+  </div>
+  <div class="pages">
+    <!-- rajoute condition if params de page/ -->
+    <%= paginate @races if params[:page], remote: true %>
+    <%= page_entries_info @races if params[:page]
+  </div>
   </div>
 </div>

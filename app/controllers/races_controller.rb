@@ -20,13 +20,26 @@ class RacesController < ApplicationController
       if params[:address].present? && params[:range].present?
         @races = @races.near(params[:address], params[:range])
       elsif params[:address].present?
-        @races = @races.near(params[:address], 500)
+        @races = @races.near(params[:address], 50)
       else
-        @races = @races.near("Bourges", 500)
+        @races = @races.near("Bourges", 1000)
+        @races = @races.where("available_slots > ?", params[:distance].split.first.to_i) if params[:distance].present?
+        @races = @races.where("available_slots < ?", params[:distance].split.last.to_i) if params[:distance].present?
       end
-     end
-     @races = params[:page] ? @races.params[:page] : @races
-    # @races = @races.page(params[:page] || 1)
+      # @races = @races.where(published: true) # only show races that have been published
+      # @races = @races.where("starts_at >= ?", Date.today) # only show races in the future
+      @races = @races.order(starts_at: :asc)
+      @races = params[:page] ? @races.params[:page] : @races
+      # @races = @races.page(params[:page] || 1)
+    end
+
+    @format = params[:format] if params[:format].present?
+    @address = params[:address] if params[:address].present?
+    @range = params[:range] if params[:range].present?
+    @from = params[:from] if params[:from].present?
+    @to = params[:to] if params[:to].present?
+    @minp = params[:distance].split.first.to_i if params[:distance].present?
+    @maxp = params[:distance].split.last.to_i if params[:distance].present?
 
     @markers = @races.map do |race|
       next if race.latitude.nil?
@@ -38,6 +51,7 @@ class RacesController < ApplicationController
 
   def show
     # @race = policy_scope(Race.find(params[:id]))
+    @review = Review.new
     @race = Race.find(params[:id])
     authorize @race
   end
@@ -64,20 +78,4 @@ class RacesController < ApplicationController
       redirect_to stored_location_for(:user)
     end
   end
-
-  # def create
-  #   @race = Race.new(product_params)
-  #   @race.user = current_user
-  #   if @race.save
-  #     redirect_to product_path(@race)
-  #   else
-  #     render :new
-  #   end
-  # end
-
-  # private
-
-  #   def product_params
-  #     params.require(:race).permit(:title, :category, :price_per_day, :address, :description, :photo)
-  #   end
 end

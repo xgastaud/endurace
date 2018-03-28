@@ -290,6 +290,7 @@ DEPENDENCIES
   pry-rails
   puma
   pundit
+  rack-cors (~> 1.0, >= 1.0.2)
   rails (= 5.1.5)
   redis
   sass-rails

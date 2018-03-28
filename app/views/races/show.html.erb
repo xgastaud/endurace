@@ -3,17 +3,50 @@
 <br> -->
 <div class="banner-show" style="background-image: url(<%= @race.image_race.nil? ? @race.photo : @race.image_race %>);">
   <!-- 'http://res.cloudinary.com/dpthh89hv/image/upload/v1521554873/endurace/banner_bike.jpg' -->
-  <div class="banner-show-title-box">
-    <h1>
-      <%= @race.name %>
-    </h1>
-    <h2>
-      <%= @race.sport %>
-    </h2>
-    <div class="banner-show-bottom">
+
+  <div class="banner-show-top">
+    <div class="banner-show-btn-container">
+
+      <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
+        <div class="banner-show-btn2">
+          <i class="far fa-arrow-alt-circle-right color-link2"></i>
+          <p class="dont-wrap">M'inscrire</p>
+        </div>
+      <% end %>
+
+      <%= link_to race_like_path(@race), class: "color-link1" do %>
+        <div class="banner-show-btn1">
+          <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
+            <%= button_tag type: "submit", class: "like-button-form" do %>
+              <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
+              <p class="dont-wrap">Ma liste</p>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= link_to '#' do %>
+        <div class="banner-show-btn1">
+          <i class="far fa-share-square color-link1"></i>
+          <p class="dont-wrap">Partager</p>
+        </div>
+
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class="banner-show-bottom">
+    <div class="banner-show-title-box">
       <h3>
         <%= @race.format %>
       </h3>
+      <h2>
+        <%= "#{@race.starts_at.strftime("%d-%b-%y")} (dans #{(@race.starts_at.to_date - Date.today.to_date).fdiv(1).round(0) } jours)" %>
+      </h2>
+      <h1>
+        <%= @race.name %>
+      </h1>
       <div class="show-friends" >
         <% voters = @race.voters_excluding_self(current_user) %>
           <% voters.each do |user| %>
@@ -23,38 +56,12 @@
             <%= image_tag "runner.jpg", class: "show-avatar" %>
           <% end %>
         <% end %>
-        <p class="show-avatar-text"> <%= pluralize(voters.size, "friend") %> </p>
+        <p class="show-avatar-text">
+          <%= pluralize(voters.size, "friend") %>
+        </p>
+      </div>
       </div>
     </div>
-  </div>
-
-  <div class="banner-show-btn-container">
-
-    <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
-      <div class="banner-show-btn2">
-        <i class="far fa-arrow-alt-circle-right color-link2"></i>
-        <p class="dont-wrap">M'inscrire</p>
-      </div>
-    <% end %>
-
-    <%= link_to race_like_path(@race), class: "color-link1" do %>
-      <div class="banner-show-btn1">
-        <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
-          <%= button_tag type: "submit", class: "like-button-form" do %>
-            <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
-            <p class="dont-wrap">Ma liste</p>
-          <% end %>
-        <% end %>
-      </div>
-    <% end %>
-
-    <%= link_to '#' do %>
-      <div class="banner-show-btn1">
-        <i class="far fa-share-square color-link1"></i>
-        <p class="dont-wrap">Partager</p>
-      </div>
-
-    <% end %>
   </div>
 </div>
 <div class="container-show">
@@ -67,16 +74,18 @@
           </h2>
             <div class="metrics-container">
               <div class="metrics-logo-container">
-                <%= image_tag('swim-logo.png', class: "avatar-show") %>
-                <p><%= @race.distance_swim %> km</p>
+                <%= image_tag('swim-logo.png', class: "metrics-logo") %>
+                <p><%= @race.distance_swim.nil? ? "n.c." : "{@race.distance_swim} km"%></p>
               </div>
               <div class="metrics-logo-container">
-                <%= image_tag('bike-logo.png', class: "avatar-show") %>
-                <p><%= @race.distance_bike %> km</p>
+                <%= image_tag('bike-logo.png', class: "metrics-logo") %>
+                <p><%= @race.distance_bike.nil? ? "n.c." : "{@race.distance_bike} km"%></p>
+                <p><%= @race.vertical_ascent_bike.nil? ? "" : "D+ #{@race.vertical_ascent_bike}m" %></p>
               </div>
               <div class="metrics-logo-container">
-                <%= image_tag('run-logo.png', class: "avatar-show") %>
-                <p><%= @race.distance_run %> km</p>
+                <%= image_tag('run-logo.png', class: "metrics-logo") %>
+                <p><%= @race.distance_run.nil? ? "n.c." : "{@race.distance_run} km"%></p>
+                <p><%= @race.vertical_ascent_run.nil? ? "" : "D+ #{@race.vertical_ascent_run}m" %></p>
               </div>
             </div>
         </div>
@@ -88,14 +97,14 @@
             <%= truncate(@race.description, length: 600, separator: ' ', omission: ' (...)') %>
           </p>
         </div>
-        <%= link_to @race.url %>
+          <%= link_to @race.url %>
       </div>
     </div>
       <div class="col-xs-12 col-sm-6">
         <div class="column-container">
           <div class="map-show">
             <h2>
-              Location
+              Lieu
             </h2>
             <div class="map-show-container">
               <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=8&size=575x250&sensor=false&maptype=roadmap&markers=color:red|#{@race.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", id: "map-pic" %>
@@ -108,17 +117,103 @@
         <h2>
           Topographie
         </h2>
-        <div class="topo-show-container">
-              <%#= image_tag "https://www.openrunner.com/route/8472387/embed/fr/6e2b354b474e4136736e35456666794254503373786b4c425749614247382f6738585045515763564775343d3a3a45fd8732a00a60ac88a3af11fc24631f", id: "map-pic" %>
-              <iframe width="500px" height="650px" src="https://www.openrunner.com/route/8472387/embed/fr/6e2b354b474e4136736e35456666794254503373786b4c425749614247382f6738585045515763564775343d3a3a45fd8732a00a60ac88a3af11fc24631f" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-            </div>
       </div>
+      <% if @race.sport == "Triathlon" %>
+        <div class="tabs">
+          <a class="tab active" data-target="tab-swim">
+            <h3>Natation</h3>
+            <p><%= @race.distance_swim.nil? ? "n.c." : "{@race.distance_swim} km"%></p>
+          </a>
+          <a class="tab" data-target="tab-running">
+            <h3>Running</h3>
+            <p><%= @race.distance_bike.nil? ? "n.c." : "{@race.distance_bike} km"%></p>
+          </a>
+          <a class="tab" data-target="tab-biking">
+            <h3>Velo</h3>
+            <p><%= @race.distance_run.nil? ? "n.c." : "{@race.distance_run} km"%></p>
+          </a>
+        </div>
+        <div class="topo-sport-container">
+          <div class="topo-show active" id="tab-swim">
+            <iframe class="topo-show-swimming" width="800px" height="650px" src="<%= @race.swimming_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+          </div>
+          <div class="topo-show" id="tab-biking" >
+            <iframe class="topo-show-biking" width="800px" height="650px" src="<%= @race.biking_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+          </div>
+          <div class="topo-show" id="tab-running">
+              <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+          </div>
+        </div>
+      <% elsif @race.distance_run == "Running"%>
+          <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+      <% end %>
     </div>
     <div class="col-xs-12 col-sm-12">
       <div class="section-container">
         <h2>
           Commentaires
         </h2>
+        <% @race.reviews.each do |review| %>
+          <% if current_user.facebook_picture_url != nil || current_user.first_name != nil || current_user.last_name != nil%>
+
+            <div class="message">
+              <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
+              <div class="message-name">
+                <h3> <%= current_user.first_name current_user.last_name%></h3>
+                <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+              </div>
+              <div class="message-body">
+                 <ul class=“list-inline”>
+                    <% review.score.times  do |i| %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                 </ul>
+                <p>
+                  <%= review.comment %>
+                </p>
+              </div>
+              <div class="message-status">
+                <ul class=“list-inline”>
+                   <% review.score.times  do |i| %>
+                     <i class="fas fa-star size red"></i>
+                   <% end %>
+                   <% (5 - review.score).times  do |i| %>
+                     <i class="fas fa-star size grey"></i>
+                   <% end %>
+                </ul>
+              </div>
+            </div>
+          <% else %>
+            <div class="message">
+              <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
+              <div class="message-name">
+                <h3> <%= current_user.email%></h3>
+                <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+              </div>
+              <div class="message-body">
+                <p> <%= review.comment %> </p>
+              </div>
+              <div class="message-status">
+                 <ul class=“list-inline”>
+                    <% review.score.times  do |i| %>
+                      <i class="fas fa-star size red"></i>
+                    <% end %>
+                    <% (5 - review.score).times  do |i| %>
+                      <i class="fas fa-star size grey"></i>
+                    <% end %>
+                 </ul>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+
+        <div class="show-form-reviews">
+          <%= simple_form_for [@race, @review] do |f| %>
+            <%= f.input :score %>
+            <%= f.input :comment %>
+            <%= f.submit "ajouter une review", class: "btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
