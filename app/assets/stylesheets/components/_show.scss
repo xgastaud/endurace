@@ -3,6 +3,7 @@ body {
 }
 
 .banner-show {
+  position: relative;
   height: calc(80vh - 70px);
   background-size: cover !important;
   background-repeat: no-repeat;
@@ -28,11 +29,12 @@ body {
 }
 
 .banner-show-title-box {
-  display: flex;
+  position: absolute;
   flex-direction: column;
-  background: rgba(0,0,0,.6);
-  // min-height: 100px;
-  color: rgba(255, 255, 255, 1);
+  box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.2);
+  background: white;
+  color: black;
+  bottom: -150px;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 50px;
@@ -42,7 +44,7 @@ body {
   // position: absolute;
   // bottom: 80px;
   h1 {
-    font-size: 50px;
+    font-size: 32px;
     font-weight: 800;
   }
   h2 {
@@ -183,6 +185,7 @@ body {
 }
 
 .column-container{
+  padding-top: 170px;
   a {
     font-size: 14px;
   }
