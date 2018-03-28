@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20180328093842) do
 
   add_foreign_key "participations", "races"
   add_foreign_key "participations", "users"
+  add_foreign_key "races", "users"
   add_foreign_key "reviews", "races"
   add_foreign_key "reviews", "users"
 end
