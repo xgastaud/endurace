@@ -6,7 +6,7 @@
   <div class="navbar-search">
     <div class="searchbar">
       <%= form_tag(races_path, method: :get) do %>
-      <%= text_field_tag :pg_search_documents , nil, class: "drop-searchbar", placeholder: "Marathon / Paris / 25 juillet" %>
+      <%= text_field_tag :pg_search_documents , nil, class: "drop-searchbar", placeholder: "Marathon? Paris? 25 juillet?" %>
       <%= submit_tag "Go", name: nil, class: 'btn-go-searchbar' %>
       <% end %>
     </div>
@@ -14,7 +14,7 @@
   </div>
   <!-- Right Navigation -->
   <div class="navbar-right">
-    <div class="search">
+    <div class="search navbar-wagon-item navbar-wagon-link">
       <i class="fas fa-search" id="search-item"></i>
     </div>
     <div class="navbar-wagon-right hidden-xs hidden-sm">
