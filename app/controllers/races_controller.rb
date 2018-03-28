@@ -15,7 +15,7 @@ class RacesController < ApplicationController
       @races = @races.where(filters)
       @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
       @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
-    # @races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
+     #@races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
 
       if params[:address].present? && params[:range].present?
         @races = @races.near(params[:address], params[:range])
@@ -29,7 +29,8 @@ class RacesController < ApplicationController
       # @races = @races.where(published: true) # only show races that have been published
       # @races = @races.where("starts_at >= ?", Date.today) # only show races in the future
       @races = @races.order(starts_at: :asc)
-      @races = @races.page(params[:page] || 1)
+      @races = params[:page] ? @races.params[:page] : @races
+      # @races = @races.page(params[:page] || 1)
     end
 
     @format = params[:format] if params[:format].present?
@@ -77,22 +78,4 @@ class RacesController < ApplicationController
       redirect_to stored_location_for(:user)
     end
   end
-
-
-
-  # def create
-  #   @race = Race.new(product_params)
-  #   @race.user = current_user
-  #   if @race.save
-  #     redirect_to product_path(@race)
-  #   else
-  #     render :new
-  #   end
-  # end
-
-  # private
-
-  #   def product_params
-  #     params.require(:race).permit(:title, :category, :price_per_day, :address, :description, :photo)
-  #   end
 end

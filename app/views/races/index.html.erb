@@ -46,12 +46,13 @@
         <%= render "races", races: @races %>
       </div>
       <hr />
-    </div>
-    <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>" data-icon-path="<%= asset_path 'flag.png' %>"></div>
+   </div>
+   <div id="map" class="hidden-sm" data-markers="<%= @markers.to_json %>" data-icon-path="<%= asset_path 'flag.png' %>"></div>
   </div>
   <div class="pages">
-    <%= paginate @races, remote: true %>
-    <%= page_entries_info @races %>
+    <!-- rajoute condition if params de page/ -->
+    <%= paginate @races if params[:page], remote: true %>
+    <%= page_entries_info @races if params[:page]
   </div>
   </div>
 </div>
