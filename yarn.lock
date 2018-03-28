@@ -3043,7 +3043,7 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jquery@^3.3.1:
+jquery@^3.1.1, jquery@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
 
@@ -5036,6 +5036,12 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
 
+selectric@^1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/selectric/-/selectric-1.13.0.tgz#7ce8a750078bb6d1c44347216cae5610e2440985"
+  dependencies:
+    jquery "^3.1.1"
+
 selfsigned@^1.9.1:
   version "1.10.2"
   resolved "https://registry.yarnpkg.com/selfsigned/-/selfsigned-1.10.2.tgz#b4449580d99929b65b10a48389301a6592088758"
@@ -5623,6 +5629,10 @@ type-is@~1.6.15, type-is@~1.6.16:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.18"
+
+typed.js@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.6.tgz#4e270f6fbc5e5e94a6c38fa29407c404745a7d61"
 
 typedarray@^0.0.6:
   version "0.0.6"
