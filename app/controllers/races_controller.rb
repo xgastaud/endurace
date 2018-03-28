@@ -30,8 +30,8 @@ class RacesController < ApplicationController
       # @races = @races.where(published: true) # only show races that have been published
       # @races = @races.where("starts_at >= ?", Date.today) # only show races in the future
       @races = @races.order(starts_at: :asc)
-      @races = params[:page] ? @races.params[:page] : @races
-      # @races = @races.page(params[:page] || 1)
+      # @races = params[:page] ? @races : @races.page(params[:page])
+      @races = @races.page(params[:page] || 1)
     end
 
 
@@ -45,8 +45,12 @@ class RacesController < ApplicationController
 
     @markers = @races.map do |race|
       next if race.latitude.nil?
-      { lat: race.latitude, lng: race.longitude, icon: helpers.asset_path("flag.png") }
-      # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        {
+          lat: race.latitude,
+          lng: race.longitude,
+          icon: helpers.asset_path("flag.png"),
+          infoWindow: { content: render_to_string(partial: "/races/map_box", locals: { race: race }) }
+        }
     end
     @markers = @markers.compact
   end
