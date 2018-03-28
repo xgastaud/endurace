@@ -33,6 +33,6 @@ class Race < ApplicationRecord
     reviews.each do |review|
       sum += review.score unless review.score.nil?
     end
-    return sum.fdiv(reviews.count).to_i
+    reviews.count == 0 ? 0 : sum.fdiv(reviews.count).to_i
   end
 end
