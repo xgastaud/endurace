@@ -3,4 +3,5 @@ class Forest::Customer
 
   collection :Race
   action 'Publish all'
+  action 'Unpublish all'
 end
