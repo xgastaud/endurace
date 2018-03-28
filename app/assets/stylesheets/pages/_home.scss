@@ -8,6 +8,7 @@
   padding: 10px;
   padding-top: 80px;
 }
+
 .home-form {
   margin-top: 100px;
   display: flex;
@@ -73,7 +74,7 @@
 .btn-go-home {
   font-size: 30px;
   font-weight: bold;
-  width: 150px;
+  width: 250px;
   background-color: $red;
   color: white;
   border-radius: 3px;
@@ -107,13 +108,24 @@
 }
 .drop {
   flex: 0 0 auto;
-  width: 190px;
+  width: 200px;
   background-color: white;
-  color: rgb(195, 65, 59);
-  border-radius: 4px;
+  color: $red;
+  border-radius: 3px;
   height: 50px;
   border: none;
   cursor: pointer;
+  font-size: 26px;
+}
+
+.select_value {
+  color: $red;
+}
+
+.location {
+  padding-left: 10px;
+  color: $red !important;
+  width: 250px;
 }
 
 .search-address {
