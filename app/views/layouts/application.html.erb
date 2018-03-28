@@ -33,7 +33,6 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= render 'shared/searchbar' %>
     <div class="<%= "placeholder-navbar" unless params[:controller] == "pages" && params[:action] == "home" %>">
       <%= yield %>
     </div>
