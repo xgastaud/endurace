@@ -1,45 +1,42 @@
-
-<div class="homepage-hero-module">
-  <div class="video-container">
-    <div class="filter"></div>
-    <video autoplay loop>
-        <source src='<%= video_path "Keep_Running.mp4"%>' type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
-        <source src='<%= video_path "Keep_Running.webm"%>' type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-    </video>
-    <div class="poster hidden">
-        <img src='<%= video_path "Keep_Running.jpg"%>' alt="">
-    </div>
-  </div>
-</div>
-<div class="banner-absolute-container">
+<div class="banner-absolute-container" style="
+  background-image: url(<%= image_path 'Keep_Running.jpg' %>);
+  background-size: cover;
+  background-position: center;
+">
   <div class="banner">
     <div class="banner-content">
-      <h1>Endurace</h1>
-      <h2>Trouve ta prochaine épreuve</h2>
-
-      <%= form_tag(races_path, method: :get) do %>
-        <div class="form-inputs">
-          <h3>
-            Je cherche un <%= select_tag :sport, options_for_select(Race::FORMATS_SPORTS.keys), {:prompt => 'Triathlon', :class => 'drop'}%> type <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), {prompt: 'Format', class: 'drop'}%>
-          </h3>
-          <h3>
-            à moins de <%= select_tag :range, options_for_select([["50km", "50"], ["200km", "200"], ["1000km", "1000"]]), {class: 'drop'}%> de <%= text_field_tag :address, nil, class: "drop", placeholder: "Ville" %>
-          </h3>
-        </div>
-        <div class="form-inputs">
-          <h3>entre le <%= text_field_tag :from, Date.today, id: "range_start", class: "datepicker drop" %> et le <%= text_field_tag :to, Date.today + 3.months, id: "range_end", class: "datepicker drop" %></h3>
-        </div>
-        <div class="form-inputs">
-          <%= submit_tag "Go", name: nil, class: 'btn-go' %>
-        </div>
-      <% end %>
-      <div class="searchbar">
-        <%= form_tag(races_path, method: :get) do %>
-        <%= text_field_tag :pg_search_documents , nil, class: "drop", placeholder: "Search" %>
-        <div class="form-inputs">
-          <%= submit_tag "Go", name: nil, class: 'btn-go' %>
-        </div>
+      <h1>ENDURACE</h1>
+      <h2>
+        <span id="banner-typed-text"></span>
+      </h2>
+<!--       <div class="home-form"> -->
+        <%= form_tag(races_path, method: :get, class: "home-form") do %>
+          <!-- <div class="input-border"> -->
+            <!-- <div class="form-inputs"> -->
+              <!-- <h3>Je cherche un</h3> -->
+              <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), { class: 'select_value'}%>
+              <!-- <h3>près de </h3> -->
+              <%= text_field_tag :address, nil, class: "drop", placeholder: "Près de" %>
+            <!-- </div> -->
+          <!-- </div> -->
+          <!-- <div class="form-inputs"> -->
+            <!-- <h3>entre le</h3> -->
+            <%= text_field_tag :from, Date.today, placeholder: 'Date de début', id: "range_start", class: "datepicker drop" %>
+            <!-- <h3> et le </h3> -->
+            <%= text_field_tag :to, Date.today + 3.months, placeholder: 'Date de fin', id: "range_end", class: "datepicker drop" %>
+          <!-- </div> -->
+          <div class="form-inputs">
+            <%= submit_tag "Go", name: nil, class: 'btn-go-home' %>
+          </div>
         <% end %>
+        <div class="searchbar">
+          <%= form_tag(races_path, method: :get) do %>
+          <%= text_field_tag :pg_search_documents , nil, class: "drop", placeholder: "Search" %>
+          <div class="form-inputs">
+            <%= submit_tag "Go", name: nil, class: 'btn-go' %>
+          </div>
+          <% end %>
+        </div>
       </div>
       <!-- <div class="index-searchbar">
         <%= link_to "See all adds", races_path %>

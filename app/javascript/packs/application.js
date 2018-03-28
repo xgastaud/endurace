@@ -7,3 +7,7 @@ import { toggleClass } from "../components/searchbar";
 toggleClass();
 
 changeTabs();
+import {niceDropdown} from "../components/selectric";
+niceDropdown();
+import {loadDynamicBannerText} from "../components/under_title";
+loadDynamicBannerText();

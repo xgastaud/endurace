@@ -1,6 +1,7 @@
 .banner-absolute-container {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
+
 }
 .banner {
   color: black;
@@ -22,12 +23,7 @@
   flex-direction: column;
   transform: scale(.7);
 }
-.banner h1 {
-  color: white;
-  font-size: 75px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-}
+
 .banner p {
   font-size: 25px;
   font-weight: lighter;

@@ -16,6 +16,7 @@ gem 'acts_as_votable', '~> 0.11.1'
 gem 'pg_search'
 
 
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.6'
