@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 20180328093842) do
     t.float "vertical_ascent_run"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
     t.float "latitude"
     t.float "longitude"
+    t.string "photo"
     t.integer "price"
     t.string "image_race"
     t.string "swimming_gpx_url"

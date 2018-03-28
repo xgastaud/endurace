@@ -14,22 +14,23 @@
         <div class="collapse" id="collapseExample">
           <div class="well">
             <div class="filters">
-              <%= form_tag(races_path, method: :get) do %>
-              <div class="form-inputs">
-                <h5>
-                  <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), {prompt: @format.present? ? @format : "Sport", class: 'drop'}%>
-                  <%= select_tag :range, options_for_select([["50km", "50"], ["200km", "200"], ["1000km", "1000"]]), {class: 'drop'}%> de <%= text_field_tag :address, @address, class: "drop", placeholder: @address %>
-                </h5>
+              <%= form_tag(races_path, method: :get, :class =>'filter-form') do %>
+              <h4>Mon épreuve</h4>
+              <div class="index-inputs">
+                  <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), {prompt: @format.present? ? @format : "Sport", class: 'index-drop'}%>
+                  <%= select_tag :range, options_for_select([["jusqu'à 50km de", "50"], ["jusqu'à 200km de", "200"], ["jusqu'à 1000km de", "1000"]]), {class: 'index-drop'}%><%= text_field_tag :address, @address, class: "index-drop", placeholder: @address %>
               </div>
-              <div class="form-inputs">
-                <h5>entre le <%= text_field_tag :from, @from, id: "range_start", class: "datepicker drop" %> et le <%= text_field_tag :to, @to, id: "range_end", class: "datepicker drop" %></h5>
+              <h4>Mes disponibilités</h4>
+              <div class="index-inputs">
+                <%= text_field_tag :from, @from, id: "range_start", class: "datepicker index-drop" %><%= text_field_tag :to, @to, id: "range_end", class: "datepicker index-drop" %>
               </div>
+              <h4>Nombre de participants</h4>
               <div class="slider-distance">
-                Participants <b>10</b>
+                <b>10</b>
                 <input id="ex2" type="text" class="span2" name="distance" value="" data-slider-min="10" data-slider-max="40000" data-slider-step="5" data-slider-value="[1,40000]"/>
                  <b>40000</b>
               </div>
-              <div class="form-inputs">
+              <div class="index-inputs">
                 <%= submit_tag "Appliquer les filtres", name: nil, class: 'plusdefiltre' %>
               </div>
               <% end %>
@@ -51,8 +52,8 @@
   </div>
   <div class="pages">
     <!-- rajoute condition if params de page/ -->
-    <%= paginate @races if params[:page], remote: true %>
-    <%= page_entries_info @races if params[:page]
+    <%#= paginate @races if params[:page], (remote: true); %>
+    <%#= page_entries_info @races if params[:page] %>
   </div>
   </div>
 </div>

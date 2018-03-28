@@ -1,42 +1,93 @@
 .slider-distance {
-  color: rgb(195, 65, 59);
+  color: rgb(235, 28, 60);
+  margin: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-selection {
+  color: rgb(235, 28, 60);
+  background-color: rgb(235, 28, 60);
+}
+
+.datepicker {
+  text-align: center !important;
+}
+
+#ex2 {
+  text-align: center !important;
 }
 
 .slider{
   margin: 10px;
   padding: 10px;
   text-align: center;
-  color: rgb(195, 65, 59);
+  color: rgb(235, 28, 60);
+ }
+
+ .filter-form {
+  margin: auto !important;
+  color: rgb(235, 28, 60);
+  text-align: center;
  }
 
  .filters {
   display: flex;
-  flex-direction: row;
   width: 100%;
   flex-wrap: wrap;
   margin-top: 10px;
   padding-right: 25px;
   }
 
+.index-inputs {
+  margin: 10px;
+  padding: 10px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-drop {
+  margin-bottom: 5px;
+  flex: 0 0 auto;
+  width: 190px;
+  color: rgb(235, 28, 60);
+  border-radius: 4px;
+  margin-right: 5px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid rgb(235, 28, 60);
+}
+
 .well {
   display: flex;
   flex-direction: row;
   width: 98%;
   flex-wrap: wrap;
+  background-color: white;
+  color: rgb(235, 28, 60);
+  align-items: center;
+  background-color: #F2F4F7;
 }
 
 .plusdefiltre {
   flex: 0 0 auto;
   width: 98%;
-  background-color: rgb(195, 65, 59);
+  border: 1px solid rgb(195, 65, 59);
   color: white;
+  background-color: rgb(235, 28, 60);
   border-radius: 4px;
   margin-top: 30px;
   height: 50px;
-  border: none;
   text-align: center;
   padding: 0px;
+  box-shadow: 1px 2px 2px #d5d6d8;
 }
+
 
 .collapse {
   width: 100%;
