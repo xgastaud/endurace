@@ -2,20 +2,28 @@
 // .placeholder-navbar {
 //   padding-top: 70px;
 // }
+.navbar-home {
+  background: transparent;
+  .navbar-wagon-link {
+    color: white;
+  }
+  #search-item {
+    color: white;
+  }
+  .navbar-wagon-link:hover {
+    color: white;
+    opacity: 0.9;
+  }
 
+}
 .navbar-wagon {
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.3),0 1px 0 0 rgba(0,0,0,0.03);
-  background: transparent;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: rgba(255,255,255, 0.3);
   align-items: center;
   justify-content: space-between;
-  color: $red;
   position: relative;
   z-index: 2000;
   width: 100%;
@@ -51,19 +59,21 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 10px 20px;
-  background-color: $red;
+  background-color: transparent;
   border-radius: 3px;
   margin-left: 20px;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: white;
+  color: $red;
+  opacity: 0.9;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
   font-weight: 900;
-  color:white;
+  opacity: 0.9;
+  color: $red;
   text-decoration: none;
 }
 

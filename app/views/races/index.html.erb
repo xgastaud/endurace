@@ -40,7 +40,7 @@
       </div>
       <div class= "resultats">
         <p>
-          <%= ( @races.length > 1 || @races.length == 0 ) ? "#{@races.length} résultats : cliquez sur \"Plus de filtres\" pour élargir votre recherche !" : "#{@races.length} résultat : cliquez sur \"Plus de filtres\" pour élargir votre recherche !" %>
+          <%= ( @races.length == 1 || @races.length == 0 ) ? "#{@races.length} résultat : cliquez sur \"Plus de filtres\" pour élargir votre recherche !" : "#{@races.length} résultats" %>
         </p>
       </div>
       <div class="races">
