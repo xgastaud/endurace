@@ -1,7 +1,6 @@
 .message {
   display: flex;
   align-items: center;
-  padding: 20px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
 }
 .message:last-child {
@@ -11,7 +10,6 @@
   flex-grow: 1;
 }
 .message-name {
-  padding-left: 10px;
   min-width: 100px;
 }
 .message-name h3 {
