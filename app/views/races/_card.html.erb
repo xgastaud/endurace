@@ -11,15 +11,25 @@
             <%= race.starts_at.strftime("%d-%b-%y") if race.starts_at %>
           </div>
         </div>
-
-      <div class="card-wishlist">
-        <%= form_for race, url: race_like_path(race), method: :post do |f| %>
-          <%= button_tag type: "submit", class: "like-button-form" do %>
-            <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+      <div class="card-btn-top-right">
+        <div class="card-wishlist">
+          <%= form_for race, url: race_like_path(race), method: :post do |f| %>
+            <%= button_tag type: "submit", class: "like-button-form" do %>
+              <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+            <% end %>
           <% end %>
-        <% end %>
-        <%# link_to race_like_path(race) do %>
-        <%# end %>
+          <%# link_to race_like_path(race) do %>
+          <%# end %>
+        </div>
+        <div class="card-wishlist">
+          <%= form_for race, url: race_like_path(race), method: :post do |f| %>
+            <%= button_tag type: "submit", class: "like-button-form" do %>
+              <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+            <% end %>
+          <% end %>
+          <%# link_to race_like_path(race) do %>
+          <%# end %>
+        </div>
       </div>
 
     </div>
