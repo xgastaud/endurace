@@ -178,20 +178,15 @@
             Commentaires sur les éditions passées
           </h2>
           <% @race.reviews.each do |review| %>
-            <% if current_user.facebook_picture_url != nil || current_user.first_name != nil || current_user.last_name != nil%>
+            <% if review.user.facebook_picture_url != nil and review.user.first_name and nil and review.user.last_name != nil%>
 
               <div class="message">
-                <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
+                <img class="avatar-large" src=" <%= review.user.facebook_picture_url %>">
                 <div class="message-name">
-                  <h3> <%= current_user.first_name %> <%= current_user.last_name%></h3>
+                  <h3> <%= review.user.first_name %> <%= review.user.last_name%></h3>
                   <p> <%= review.created_at.strftime("%e %b %Y") %></p>
                 </div>
                 <div class="message-body">
-                   <ul class="list-inline">
-                      <% review.score.times  do |i| %>
-                        <i class="fas fa-star"></i>
-                      <% end %>
-                   </ul>
                   <p>
                     <%= review.comment %>
                   </p>
@@ -209,9 +204,8 @@
               </div>
             <% else %>
               <div class="message">
-                <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
                 <div class="message-name">
-                  <h3> <%= current_user.email%></h3>
+                  <h3> <%= review.user.email%></h3>
                   <p> <%= review.created_at.strftime("%e %b %Y") %></p>
                 </div>
                 <div class="message-body">
