@@ -11,7 +11,7 @@ class RacesController < ApplicationController
 
       @races = policy_scope(Race.all)
       filters = {}
-      filters[:sport] = params[:sport] if params[:sport].present?
+      # filters[:sport] = params[:sport] if params[:sport].present?
       filters[:format] = params[:format] if params[:format].present?
       @races = @races.where(filters)
       @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?

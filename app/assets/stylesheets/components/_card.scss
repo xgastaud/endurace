@@ -155,9 +155,9 @@
 }
 
 .card-wishlist {
-  color: rgba(200,200,200,0.6);
+  color: $red;
   background-color: rgba(255,255,255,1);
-  padding-top: 2px;
+  margin: 2px 2px 0px 2px;
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -167,8 +167,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
   button {
-    color: #C0413D;
+    color: $red;
     display: flex;
   }
   svg:hover {
@@ -177,8 +178,32 @@
   }
 }
 
+.card-review {
+  color: $red;
+  background-color: rgba(255,255,255,1);
+  margin: 2px 2px 0px 2px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    color: $red;
+    display: flex;
+  }
+  svg:hover {
+  height: 30px;
+  width: 30px;
+  }
+}
 .card-wishlist:hover {
-  background-color: #C0413D;
+  background-color: $red
+  ;
   button {
     color: white;
   }
@@ -190,7 +215,7 @@
   flex-direction: column;
 }
   .card-sport {
-    color: #C0413D;
+    color: $red;
     font-size: 16px;
     font-weight: 700;
   }
@@ -243,7 +268,7 @@
 .card-friends {
   padding: 15px;
   text-align: left;
-  color: #C0413D;
+  color: $red;
   display: flex;
 }
 .card-avatar {
@@ -285,4 +310,8 @@
 .like-button-form {
   background: transparent;
   border: none;
+}
+
+.card-btn-top-right {
+  display: flex;
 }
