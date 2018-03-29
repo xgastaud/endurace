@@ -115,7 +115,9 @@
         <h2>
           Website
         </h2>
+          <% if @race.url != nil %>
           <%= link_to @race.url %>
+          <% end %>
       </div>
     </div>
       <div class="col-xs-12 col-sm-6">
@@ -143,12 +145,12 @@
               <h3>Natation</h3>
               <p><%= @race.distance_swim.nil? ? "n.c." : "{@race.distance_swim} km"%></p>
             </a>
-            <a class="tab" data-target="tab-running">
-              <h3>Running</h3>
-              <p><%= @race.distance_bike.nil? ? "n.c." : "{@race.distance_bike} km"%></p>
-            </a>
             <a class="tab" data-target="tab-biking">
               <h3>Velo</h3>
+              <p><%= @race.distance_bike.nil? ? "n.c." : "{@race.distance_bike} km"%></p>
+            </a>
+            <a class="tab" data-target="tab-running">
+              <h3>Running</h3>
               <p><%= @race.distance_run.nil? ? "n.c." : "{@race.distance_run} km"%></p>
             </a>
           </div>
@@ -228,7 +230,7 @@
               </div>
             <% end %>
           <% end %>
-          <% if current_user.voted_for? @race and @race.starts_at < Date.today %>
+          <% if current_user != nil and current_user.voted_for? @race and @race.starts_at < Date.today %>
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-sm-offset-3">
                 <div class="show-form-reviews">

@@ -12,7 +12,7 @@
           </div>
         </div>
       <div class="card-btn-top-right">
-        <% if current_user.voted_for? race and race.starts_at < Date.today %>
+        <% if current_user != nil and current_user.voted_for? race and race.starts_at < Date.today %>
           <div class="card-review">
             <%= link_to race_path(race, anchor: "show-redirection") do |f| %>
               <%= button_tag type: "submit", class: "like-button-form" do %>
