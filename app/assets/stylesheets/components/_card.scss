@@ -175,6 +175,29 @@
   }
 }
 
+.card-review {
+  color: $red;
+  background-color: rgba(255,255,255,1);
+  margin: 2px 2px 0px 2px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    color: $red;
+    display: flex;
+  }
+  svg:hover {
+  height: 30px;
+  width: 30px;
+  }
+}
 .card-wishlist:hover {
   background-color: $red
   ;

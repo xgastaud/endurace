@@ -12,15 +12,18 @@
           </div>
         </div>
       <div class="card-btn-top-right">
-        <div class="card-wishlist">
-          <%= form_for race, url: race_like_path(race), method: :post do |f| %>
-            <%= button_tag type: "submit", class: "like-button-form" do %>
-              <i class="<%= current_user && current_user.voted_for?(race) ? "fas" : "far" %> fa-heart"></i>
+        <% if current_user.voted_for? race and race.starts_at < Date.today %>
+          <div class="card-review">
+            <%= link_to race_path(race, anchor: "show-redirection") do |f| %>
+              <%= button_tag type: "submit", class: "like-button-form" do %>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHWSURBVDhPzZPPK0RRFMcfQjZ+z7w7Y2LDRiykkObemzGFP2CWLKxspBRLCzsLpWShsSSRlUix8aOUFUox/8Pkx7w3lp7vuR3FeM+PZsGnXu+ec+/9nnPPudf6c3IR3ejacpHN4vCsVJljywM3IofYVRx5ISdcIbfYLA43pAXEDpHhJQmz+3voWI/N8bp8Q3/UsXWHI3TKESqNup3lIkp67e0VEN0vFPUsq5SHH3GFGnFtlcG3A6E1fNN5O97L04ZCUewZw7oLX1FHyAUnHB9kM5CXWF8Vss6SEMRXs/U91Tz1EWR2/NI6XMmmOcqzGGgpjO7Yah6ZzT2FZD+7PvPQomsRcY9NAxqxba4K/ux6u4unCFLCLn+4AdNsGpDFjemwre7YZTlhNQV7nM1gkMUGFneyiY06iQBX8B9RMHZTWdafGlUbm/54Vnc5srl+OwaLXeREPGQWvAONO6frxaY/qFMCmSyZ8RdiBM3xMBgUeSUnpAoSoy67UdWF485i7S27/aHFyPCSHv17sXws0UTFRyk28T+moKZx4YRtNgYBAU1RSYxeBcYzEDhBCfB29STdQ176M5DBMj4PIhkUfNcVepTuJE//DuoqMkuTyH1dsobd/wXLegUm+dVJCS2LsgAAAABJRU5ErkJggg==">
+
+              <% end %>
             <% end %>
-          <% end %>
-          <%# link_to race_like_path(race) do %>
-          <%# end %>
-        </div>
+            <%# link_to race_like_path(race) do %>
+            <%# end %>
+          </div>
+        <% end %>
         <div class="card-wishlist">
           <%= form_for race, url: race_like_path(race), method: :post do |f| %>
             <%= button_tag type: "submit", class: "like-button-form" do %>
