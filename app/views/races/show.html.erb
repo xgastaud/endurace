@@ -48,31 +48,26 @@
         </p>
       </div>
       <div class="banner-show-btn-container">
-
-
-          <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
-            <%= button_tag type: "submit", class: "like-button-form" do %>
-              <div class="banner-show-btn1">
-                <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
-                <p class="dont-wrap">Ma liste</p>
-              </div>
-            <% end %>
+        <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
+          <%= button_tag type: "submit", class: "like-button-form" do %>
+            <div class="banner-show-btn1">
+              <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
+              <p class="dont-wrap">Ma liste</p>
+            </div>
           <% end %>
-
+        <% end %>
         <%= link_to '#' do %>
           <div class="banner-show-btn1">
             <i class="far fa-share-square color-link1"></i>
             <p class="dont-wrap">Partager</p>
           </div>
         <% end %>
-
         <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
           <div class="banner-show-btn2">
             <i class="far fa-arrow-alt-circle-right color-link2"></i>
             <p class="dont-wrap">M'inscrire</p>
           </div>
         <% end %>
-
       </div>
       </div>
     </div>
@@ -110,13 +105,13 @@
           <p>
             <%= truncate(@race.description, length: 2000, separator: ' ', omission: ' (...)') %>
           </p>
-        </div>
         <h2>
           Website
         </h2>
           <% if @race.url != nil %>
           <%= link_to @race.url %>
           <% end %>
+        </div>
       <% if current_user != nil %>
         <!-- <div class="col-xs-12"> -->
           <div class="section-container">
@@ -190,7 +185,7 @@
       </div>
     </div>
       <div class="col-xs-12 col-sm-6">
-        <div class="column-container-map">
+        <div class="column-container">
           <div class="map-show">
             <h2>
               Lieu

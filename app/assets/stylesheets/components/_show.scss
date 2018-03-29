@@ -179,7 +179,7 @@ body {
   h2 {
     font-size: 18px;
     font-weight: 600;
-    margin-top: 12.5px;
+    margin-top: 40px;
     color: $red;
   }
   p {
@@ -196,18 +196,18 @@ body {
 
 .column-container{
   padding-top: 200px;
-  margin: 0px 20px;
+  margin: 0px 30px;
   a {
     font-size: 14px;
   }
 }
 
-.column-container-map{
-  padding-top: 40px;
-  a {
-    font-size: 14px;
-  }
-}
+// .column-container-map{
+//   padding-top: 40px;
+//   a {
+//     font-size: 14px;
+//   }
+// }
 
 .metrics-container {
   display: flex;
