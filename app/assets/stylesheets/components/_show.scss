@@ -35,8 +35,8 @@ body {
   background: white;
   color: black;
   bottom: -150px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: 50px;
   padding-right: 50px;
   margin-left: 5%;
@@ -174,7 +174,7 @@ body {
   h2 {
     font-size: 18px;
     font-weight: 600;
-    color: rgb(195, 65, 59)
+    color: $red;
   }
   p {
     font-size: 14px;
@@ -197,6 +197,8 @@ body {
 
 .metrics-container {
   display: flex;
+  justify-content: space-between;
+  padding: 10px 90px 0px 90px;
 }
 
 .metrics-logo-container {
@@ -253,4 +255,9 @@ body {
 .show-banner-votes {
   text-align: right;
   color: rgba(150,150,150,0.9)
+}
+
+.description-show {
+  text-align: justify;
+
 }
