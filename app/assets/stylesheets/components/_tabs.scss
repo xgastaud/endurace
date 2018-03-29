@@ -1,7 +1,14 @@
+.tabs-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .tabs {
   background: white;
   display: flex;
   padding: 0px 0px 0px 0px;
+  flex-direction: column;
+  width: 20%;
 }
 .tabs a {
   color: white;
@@ -26,15 +33,15 @@
 }
 .tab {
   background: $red;
-  flex: 0 0 33.3333%;
+  flex: 0 0 10%;
   text-align: center;
   padding: 10px 0;
 }
 .tab:first-child {
-  border-radius: 5px 0 0 0;
+  border-radius: 5px 5px 0 0;
 }
 .tab:last-child {
-  border-radius: 0 5px 0 0;
+  border-radius: 0 0 5px 5px;
 }
 .tab.active {
   background: white;
@@ -43,10 +50,19 @@
 
 
 .topo-sport-container {
+  // border-style: solid;
+  // border-width: 2px;
+  // border-color: $red;
+  // margin-left: -2px !important;
+  width: 90%;
   .active {
-    display: block!important;
+    opacity: 1;
+    z-index: 2000;
+    position: inherit;
   }
   & > div {
-    display: none;
+    opacity: 0;
+    z-index: 1;
+    position: absolute;
   }
 }
