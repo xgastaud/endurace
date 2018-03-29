@@ -183,11 +183,11 @@
               <div class="message">
                 <img class="avatar-large" src=" <%= current_user.facebook_picture_url %>">
                 <div class="message-name">
-                  <h3> <%= current_user.first_name current_user.last_name%></h3>
+                  <h3> <%= current_user.first_name %> <%= current_user.last_name%></h3>
                   <p> <%= review.created_at.strftime("%e %b %Y") %></p>
                 </div>
                 <div class="message-body">
-                   <ul class=“list-inline”>
+                   <ul class="list-inline">
                       <% review.score.times  do |i| %>
                         <i class="fas fa-star"></i>
                       <% end %>
