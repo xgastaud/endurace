@@ -49,14 +49,7 @@
       </div>
       <div class="banner-show-btn-container">
 
-        <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
-          <div class="banner-show-btn2">
-            <i class="far fa-arrow-alt-circle-right color-link2"></i>
-            <p class="dont-wrap">M'inscrire</p>
-          </div>
-        <% end %>
 
-        <%#= link_to race_like_path(@race), class: "color-link1" do %>
           <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
             <%= button_tag type: "submit", class: "like-button-form" do %>
               <div class="banner-show-btn1">
@@ -65,15 +58,21 @@
               </div>
             <% end %>
           <% end %>
-        <%# end %>
 
         <%= link_to '#' do %>
           <div class="banner-show-btn1">
             <i class="far fa-share-square color-link1"></i>
             <p class="dont-wrap">Partager</p>
           </div>
-
         <% end %>
+
+        <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
+          <div class="banner-show-btn2">
+            <i class="far fa-arrow-alt-circle-right color-link2"></i>
+            <p class="dont-wrap">M'inscrire</p>
+          </div>
+        <% end %>
+
       </div>
       </div>
     </div>
@@ -89,16 +88,16 @@
           </h2>
             <div class="metrics-container">
               <div class="metrics-logo-container">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPSSURBVGhD7ZhdSBRRFMe3D6JvKt25M2oa0UNYL30QmnvvDc3HoAiJKIKC6imil74MInqKiKQPqMCKegmRXqQnMaIoSCgoeomC6qUwrXRnRonS7X/H4+7sziz7oZbB/cFhZmfOOfece8/9mI1oNBqNRqPRaP4vEpGmGT+q5CL6+f/RE5XzHcaPO6bogSQck3f2V8YW0+upDyVwAtI7mkBKbFN0kNrUpbdk4wJKoC8zAb/YjO8gk6mFl4AhTuZKwCc9/RU1S8j83+MlYIrmAhJIis3EbXKTF4nq6lmDVl1l35INC+nR+Ck0Advkv4LPxIhtyM3kMis2qzVg3wpxxuxwfRo3Y5JUisNmcpPDxFd/UNkEc6HbtcS2uBWrQwDDQR3+PmGtm0uuA7gV9eXw8TFo53XOb3TETlItHJTEpzDH6cI7bSPWQCYesLsWpovn50klAJK4H2bjk7ht1DNSzx9Vp6onQhyqIR/GSLW7plxP6mmo/QN6tJ/47eDP4mtJLQlKJxo+iuliG+IwmRQGeulBmiMmfiKYm3FLriSVrNhmbLffNuWDv0xE5ExS81BzIEw3U9B2K5kUBvXsZUz0J3BybrCML6VXOUlEItNQdg8zg/GEiWOk5qFGNlQvILyFTP4eKINGNPwuLCCM7GB/VK4gVa+Mkdz3MF2/qMWETCYftfoggbawQDKkS40amUWQyNEQnaQg+RfqQErqk4eqe8yLI0jCDgskVJjYR+ZUiuJKQGdU3hRS1kWDyR9DY68yGs8tKKeBsoYScuMRN7nAgnBDzS+1JKOcDqjSo9eTAxIoxbJ5i3bg8GBzCQ6e5K543JKNZU5UmvQzb1AG012TH0SPfgsNrgBRvU5uiwc9+RnO4pA99CgnakOD3XN/MOMRlYjN6lYNGqLWKRNrhphcNlJRM4eayw8M69WUU942ZMSW06sA6vMVOpey7fYTKd4uz8Rb3N9Tc8QtlxUURnYcJvcioR+eA+zcuF7279xqNVG7NBL4MtbQRMpoVfDXCPwRRqcb9+9wHQrq8WcqKXUap9CCOKXcgvENKCeP4MoQp99DavXwO5wA6UFb110mtmQ7BHpLOZOrHUvuR4LtiCG1pGOlg/2ZzNUuDbXbwqgFBgNJwwkQdMoHBHAxbglezKam5oxt8V2onMcpv15ypxNVcjapBRlhjfOwnm9H43dhHPhTIZeoIwiuXWjsVNhpdzzQ904HxFvy0dZZepUb9dnpWrGtMFRfihfQwzcxvPh+4G24b6VRbLZN2aRKYtI3MOAasgYx3FFXeqTRaDQajUaj0WQjEvkDZk6r1lQ+facAAAAASUVORK5CYII=">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPSSURBVGhD7ZhdSBRRFMe3D6JvKt25M2oa0UNYL30QmnvvDc3HoAiJKIKC6imil74MInqKiKQPqMCKegmRXqQnMaIoSCgoeomC6qUwrXRnRonS7X/H4+7sziz7oZbB/cFhZmfOOfece8/9mI1oNBqNRqPRaP4vEpGmGT+q5CL6+f/RE5XzHcaPO6bogSQck3f2V8YW0+upDyVwAtI7mkBKbFN0kNrUpbdk4wJKoC8zAb/YjO8gk6mFl4AhTuZKwCc9/RU1S8j83+MlYIrmAhJIis3EbXKTF4nq6lmDVl1l35INC+nR+Ck0Advkv4LPxIhtyM3kMis2qzVg3wpxxuxwfRo3Y5JUisNmcpPDxFd/UNkEc6HbtcS2uBWrQwDDQR3+PmGtm0uuA7gV9eXw8TFo53XOb3TETlItHJTEpzDH6cI7bSPWQCYesLsWpovn50klAJK4H2bjk7ht1DNSzx9Vp6onQhyqIR/GSLW7plxP6mmo/QN6tJ/47eDP4mtJLQlKJxo+iuliG+IwmRQGeulBmiMmfiKYm3FLriSVrNhmbLffNuWDv0xE5ExS81BzIEw3U9B2K5kUBvXsZUz0J3BybrCML6VXOUlEItNQdg8zg/GEiWOk5qFGNlQvILyFTP4eKINGNPwuLCCM7GB/VK4gVa+Mkdz3MF2/qMWETCYftfoggbawQDKkS40amUWQyNEQnaQg+RfqQErqk4eqe8yLI0jCDgskVJjYR+ZUiuJKQGdU3hRS1kWDyR9DY68yGs8tKKeBsoYScuMRN7nAgnBDzS+1JKOcDqjSo9eTAxIoxbJ5i3bg8GBzCQ6e5K543JKNZU5UmvQzb1AG012TH0SPfgsNrgBRvU5uiwc9+RnO4pA99CgnakOD3XN/MOMRlYjN6lYNGqLWKRNrhphcNlJRM4eayw8M69WUU942ZMSW06sA6vMVOpey7fYTKd4uz8Rb3N9Tc8QtlxUURnYcJvcioR+eA+zcuF7279xqNVG7NBL4MtbQRMpoVfDXCPwRRqcb9+9wHQrq8WcqKXUap9CCOKXcgvENKCeP4MoQp99DavXwO5wA6UFb110mtmQ7BHpLOZOrHUvuR4LtiCG1pGOlg/2ZzNUuDbXbwqgFBgNJwwkQdMoHBHAxbglezKam5oxt8V2onMcpv15ypxNVcjapBRlhjfOwnm9H43dhHPhTIZeoIwiuXWjsVNhpdzzQ904HxFvy0dZZepUb9dnpWrGtMFRfihfQwzcxvPh+4G24b6VRbLZN2aRKYtI3MOAasgYx3FFXeqTRaDQajUaj0WQjEvkDZk6r1lQ+facAAAAASUVORK5CYII=", class="metrics-logo">
                 <p><%= @race.distance_swim.nil? ? "n.c." : "#{@race.distance_swim} km"%></p>
               </div>
               <div class="metrics-logo-container">
-                <img src="data:image/png;base64,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">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAaASURBVGhD7VlpbFRVFB73fQPm3TcVrQtqrFGjRIR27n2AosY1RtG4RJRo4pI0bjHGBCWKSGLkhxLDEnBJ/KMYNaA/gBARFwT0Bz8koiIaNxahnTevRcWO3znvvDfvTe+0M7W0JemXnMzM2e45dzl3mcwwhjGMAwulTOZg+XrgoZQbe7Sv9EzfNT8UXVMqutovKrPUd/IXiMrQx+6TLj8BSWwIE0gT+J34vFpUhzYQ7MLKBFKkzO620eNHiPrQxK4R445HInutCSTIV6ZVTIYmAqXH2QKvJN/VS8Rk8LE96x0rX2MUc/piW+CVhCKwSEwGB11jrjoC0+K5otJ7OCilN/uOmSJiloNfSAZtJeXdIyYDj2BkcwOmxBeVQSGxv0CTRI0W+8xKnSTBx4+lRu9IUR9YBI43HtPhV1tgTMrsaMt6Y0i3lJl6CPaNt2165AMjeD47HWgUHX1vLZUIwX9XcPNZssFufhBG6RbYfYgkv0UCX9KULOS8Uex0IFHKjD0MAc7rHnB1QsDraFcXF4MPX01w0JNrbMH2RlgDH9D0EleDByqhmAY/24KslZDMHHE3OPAd7zbMazoPWQOsJOiup7VhleX0w51O/gwb7de1UnD1TZjjXbagbATd5V1qyjFUrZDQLzadngj2y/ZLGUbPbrE1aCMEsSi5Dqikwr7NptsTwc9j4qJ/QKdRW0OVFI6YniFmKWBUJtPmaLOrRtCfL+b9Az56uOZfW2MRQf43kpgmJlZgH7kZC32fzd5KKn+tmPYfEOgya2NCkG8tuOZcUa+KwNE3IOHV6O2N1Qj+VmE63i4m/YsOd1IjGumx7EIeYH+ZLiZDF3TEoA3NlkSa9Ft0iRKzoQtaC6BeqpDeEuTyY8VkcMA9j5KJz6ZqPdvRoE9BsCvsSYSESrXXV95EMbGCnoPoClBsMBe1jzJndY0ef5SI+gbaTdHwLOrJVDAoqeBvwPxvrWyETrEF13sA062YtEkS7N8X9RTaG5rPgV96iNie0ucSrVf4rjeV/It6baAKEd/qiHB/QCNfw+Em/G5PNPJTe1Y3i1mMtuykM2G/NrZPkjLviBqDRgDJzUby/0Q6VETQ3nr4+Aaf5SuBMp8GJ3ujxbRnINjHqddDQ/1u4JpLkj3Bx/WcvhIN8+2PGgqUuU7EMThAul9EQZTpaVGBDi5VyiwlPve8MnOpE0TM2Dmy+TjENA2+trGea36LLmVVQTU9nDq8494lbCvCntTPh8Fpn9aPiGKAvzqUlynImRtFTHvRbOZjxAOVv1TYVlBC0A/3Lly+6LeI0qADGQ0pKWIje1DYvQI288Mg9UphxQA/Nd+JaC2QjDZLmk7o6c7ekohQamo6HPo4QfMIPivsNIo57z5p7DNh1QQZ+j/IlqahsLnSib+Y0HhHdHhEEkuYr/RLbFAjitmWCzEyOB5p31rRIFzOjfXhKICg5rAtpoqwMFLexCiBiJDIRpKFa0PvJF6n0qezQR3A1PqYbG1rkxIJXz2yniusmkGLPwxUfyQsOt0+xP4ShDZeI1lHruVU+b2VlesEbJ8Rn3HhiMHzFQu97loN0PM/B4YSLSz0mn5VGksm8ijJoqdStPk5K9cJeqkRn/OEVQaGazcJ6RYnrJrR4ZgJ7FiZNcIif90eIzBt+ZWRFnzI05tYuU74bv4R9me761NvkrCQy7cIq2bQbs6OlXldWDQiu8JgEyTTlt6BEcQ+Xvx9eA5CrG+Qv8DV9wurDAx7WNNd84qwagaC/oRs0cCt9Nt3JivxVSYsblYWRHuMn9N3CKsmcJVU5k+ypbUm7DLaG/Jn8zrBTk3fhd0rAsdczwG5+vdoWtIxIk4gJr2CDQSYHncKf0s9o4IOf8HmLwUIX2YlPuNMcIRdFb5qOQ824fEdC1DYDPBWhQ2GFI1WBDnCRJvbe7TZiagqsDfhaiwnD+wnwu4O2mCguE4a3oayeoWIUqAgMLzTocd/CUD3TRHFoF5GhzwJ2QJ8XiPsFDqVdxr87CAf0FlrO+YQwjVFB8vwnaCmk4e8kMS9iey/QjCzKHBaXPicC4fy7ysnsaCW3qwGGdXv2RefgPXKomOeQmJ3o+1W8BbjOxcOktdzfEKPe4eSAYy7nZViUnpz8gD4f7Cn0TsRQb8ICqxtMaE44LIlJvWBEsJmdxmczEDg2OCwhpR5gq6sfdk4ewNNIV4HOBBipBfS6FOH0rOpqAxjGMPoEzKZ/wBbjEZoLu0BVQAAAABJRU5ErkJggg==", class="metrics-logo">
                 <p><%= @race.distance_bike.nil? ? "n.c." : "#{@race.distance_bike} km"%></p>
                 <p><%= @race.vertical_ascent_bike.nil? ? "" : "D+ #{@race.vertical_ascent_bike}m" %></p>
               </div>
               <div class="metrics-logo-container">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARZSURBVGhD7VhZiNRYFI2Oy4wfrl15qbax3RBsxnGgQVqtl2iruCDIKH4ogn75JQ44MzoffgqO4o8oCoKIgh+KP+6ouCOICCo4fomgM7ig2NWVpMqNLs9NbrWp5HW50JVOSR041PLOTc59774l0eqo4ztENjV7gmPIw2DWNuQH2zDvOkKu4ebagC2snx1hvnYMsxihkDtYlnzA8I1IAgG6utXG0uQin545RmW+nHIny5MLV8hpavNByqMsTy6clGVgYnepE/CJyb+N5fGj2Gz9WNSW/8A/K8IW8owqAaK3gmExYGl86Gpq+wkGdsHAe1uYeaw612jlyRlymdvUPpplZXBHW00YlUfRJMwuWzd/Z1l8sPXML1hG/w0bChK9/z80x2DyD6fR+pVDtc7GOaOQ/D/Q3KOk8P14zshY3BwPiprWj3oOJgth45Xozw15JJuyJvKl+g623i4q1fiXECX4Fglt5kvGD8ewFsDA84gx6mmaF2lT4vt2aB6GNSpiVFfypeMDDG7wSyNkxpDPnLScz7Ju0PyB/mZYX0bMHZbHg6LWOtBbkUJGYPSULabrLCtDZ2NmEkrwTTgmSLQfYnk8wOTuj9J5GTBQQGLradKzJAKU14WgaRVt3ZrL8vhASyPtESilE6jtKfy3EjC4QmW8jEJeJ+3rEXOHFTVrgBeYJJAxlNxTpfkAMartpMfnlpxhLvWCkwSY3BU2HaEwr5KWNkX8zqEML3nBSYGbzrSi9D5EjIeIs9Qs0mPktnq/sRqidFu8i/Q1aEFAmdwKm1bwIulhPIWRsEv/I/YgdUSYTmrmVDrPeTeJA27aXBsw2yNzaStDenw2qJZ0NeXz2EYMPfqf2kSQ8jzLPSBmn1qnoJB7OKx6cBpkWnnzEDtTcgaHeKDDI+bHO5U2QmFu4rDq4dXIaUNpwioNMFFGT+jhi0O6gZL8DSN1Ge23lcQxB9zeNXHBYA6pLlAmZ1UJlBGbYLapbSSHJAe0I6M3V9P3vDG7+YvmiZAPSOtdIClAEn9i+N/mdXM6/abeRhkc+GyZ0c4feFrsUxT0zHhsfo5vTmZdXS7hJiytpsT/94PmFczhzDaPQ6qDjmZreM6QJp1OeyLMK0638mhpDhRbWgahjP7GiLlRnU+MzLvSLt/rcERmMW6C84/65pWIOXKHEuBLeSgIaywMn1TpfVbpZRx68LH6hpWJuHyl3ZdOuKrFgOYUS3oP3tuRr3wzUiLi1vFlegR0uyNx1XqPBUMHwzf7HDEaeys9LZYAbeQtPD2wcXPvgnZQHAc2+nVNE1pNmD+HVWs/zCzk0Iqg16mfVjnuACzTdCpgSW0Ac2RyMAmf8iE31w5sI7Mqkkjcr4N6A9hTdkQS6cu3jd8KmL4USQR7FjfXBmhFw4h0hBNxR81oZEltoCDkuHAS4Aturh3Qk2A4EexXp7m5duCXlnmlOwn/mL+Im2sLxXTrEMyTv5DA7qrt5nXUUYcCmvYR+O0Yx75oqOIAAAAASUVORK5CYII=">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARZSURBVGhD7VhZiNRYFI2Oy4wfrl15qbax3RBsxnGgQVqtl2iruCDIKH4ogn75JQ44MzoffgqO4o8oCoKIgh+KP+6ouCOICCo4fomgM7ig2NWVpMqNLs9NbrWp5HW50JVOSR041PLOTc59774l0eqo4ztENjV7gmPIw2DWNuQH2zDvOkKu4ebagC2snx1hvnYMsxihkDtYlnzA8I1IAgG6utXG0uQin545RmW+nHIny5MLV8hpavNByqMsTy6clGVgYnepE/CJyb+N5fGj2Gz9WNSW/8A/K8IW8owqAaK3gmExYGl86Gpq+wkGdsHAe1uYeaw612jlyRlymdvUPpplZXBHW00YlUfRJMwuWzd/Z1l8sPXML1hG/w0bChK9/z80x2DyD6fR+pVDtc7GOaOQ/D/Q3KOk8P14zshY3BwPiprWj3oOJgth45Xozw15JJuyJvKl+g623i4q1fiXECX4Fglt5kvGD8ewFsDA84gx6mmaF2lT4vt2aB6GNSpiVFfypeMDDG7wSyNkxpDPnLScz7Ju0PyB/mZYX0bMHZbHg6LWOtBbkUJGYPSULabrLCtDZ2NmEkrwTTgmSLQfYnk8wOTuj9J5GTBQQGLradKzJAKU14WgaRVt3ZrL8vhASyPtESilE6jtKfy3EjC4QmW8jEJeJ+3rEXOHFTVrgBeYJJAxlNxTpfkAMartpMfnlpxhLvWCkwSY3BU2HaEwr5KWNkX8zqEML3nBSYGbzrSi9D5EjIeIs9Qs0mPktnq/sRqidFu8i/Q1aEFAmdwKm1bwIulhPIWRsEv/I/YgdUSYTmrmVDrPeTeJA27aXBsw2yNzaStDenw2qJZ0NeXz2EYMPfqf2kSQ8jzLPSBmn1qnoJB7OKx6cBpkWnnzEDtTcgaHeKDDI+bHO5U2QmFu4rDq4dXIaUNpwioNMFFGT+jhi0O6gZL8DSN1Ge23lcQxB9zeNXHBYA6pLlAmZ1UJlBGbYLapbSSHJAe0I6M3V9P3vDG7+YvmiZAPSOtdIClAEn9i+N/mdXM6/abeRhkc+GyZ0c4feFrsUxT0zHhsfo5vTmZdXS7hJiytpsT/94PmFczhzDaPQ6qDjmZreM6QJp1OeyLMK0638mhpDhRbWgahjP7GiLlRnU+MzLvSLt/rcERmMW6C84/65pWIOXKHEuBLeSgIaywMn1TpfVbpZRx68LH6hpWJuHyl3ZdOuKrFgOYUS3oP3tuRr3wzUiLi1vFlegR0uyNx1XqPBUMHwzf7HDEaeys9LZYAbeQtPD2wcXPvgnZQHAc2+nVNE1pNmD+HVWs/zCzk0Iqg16mfVjnuACzTdCpgSW0Ac2RyMAmf8iE31w5sI7Mqkkjcr4N6A9hTdkQS6cu3jd8KmL4USQR7FjfXBmhFw4h0hBNxR81oZEltoCDkuHAS4Aturh3Qk2A4EexXp7m5duCXlnmlOwn/mL+Im2sLxXTrEMyTv5DA7qrt5nXUUYcCmvYR+O0Yx75oqOIAAAAASUVORK5CYII=", class="metrics-logo">
                 <p><%= @race.distance_run.nil? ? "n.c." : "#{@race.distance_run} km"%></p>
                 <p><%= @race.vertical_ascent_run.nil? ? "" : "D+ #{@race.vertical_ascent_run}m" %></p>
               </div>
@@ -109,7 +108,7 @@
             Description
           </h2>
           <p>
-            <%= truncate(@race.description, length: 600, separator: ' ', omission: ' (...)') %>
+            <%= truncate(@race.description, length: 2000, separator: ' ', omission: ' (...)') %>
           </p>
         </div>
         <h2>
@@ -118,6 +117,76 @@
           <% if @race.url != nil %>
           <%= link_to @race.url %>
           <% end %>
+      <% if current_user != nil %>
+        <!-- <div class="col-xs-12"> -->
+          <div class="section-container">
+
+            <h2 id="show-redirection">
+              Commentaires sur les éditions passées
+            </h2>
+            <% @race.reviews.each do |review| %>
+              <% if review.user.facebook_picture_url != nil and review.user.first_name and nil and review.user.last_name != nil%>
+
+                <div class="message">
+                  <img class="avatar-large" src=" <%= review.user.facebook_picture_url %>">
+                  <div class="message-name">
+                    <h3> <%= review.user.first_name %> <%= review.user.last_name%></h3>
+                    <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+                  </div>
+                  <div class="message-body">
+                    <p>
+                      <%= review.comment %>
+                    </p>
+                  </div>
+                  <div class="message-status">
+                    <ul class=“list-inline”>
+                       <% review.score.times  do |i| %>
+                         <i class="fas fa-star size red"></i>
+                       <% end %>
+                       <% (5 - review.score).times  do |i| %>
+                         <i class="fas fa-star size grey"></i>
+                       <% end %>
+                    </ul>
+                  </div>
+                </div>
+              <% else %>
+                <div class="message">
+                  <div class="message-name">
+                    <h3> <%= review.user.email%></h3>
+                    <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+                  </div>
+                  <div class="message-body">
+                    <p> <%= review.comment %> </p>
+                  </div>
+                  <div class="message-status">
+                     <ul class=“list-inline”>
+                        <% review.score.times  do |i| %>
+                          <i class="fas fa-star size red"></i>
+                        <% end %>
+                        <% (5 - review.score).times  do |i| %>
+                          <i class="fas fa-star size grey"></i>
+                        <% end %>
+                     </ul>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+            <% if current_user != nil and current_user.voted_for? @race and @race.starts_at < Date.today %>
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                  <div class="show-form-reviews">
+                    <%= simple_form_for [@race, @review] do |f| %>
+                      <%= f.input :score, label: 'Note', collection: 1..5 %>
+                      <%= f.input :comment, label: 'Commentaire' %>
+                      <%= f.submit "ajouter une review", class: "banner-show-btn2" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <!-- </div> -->
+      <% end %>
       </div>
     </div>
       <div class="col-xs-12 col-sm-6">
@@ -130,116 +199,48 @@
               <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=8&size=575x250&sensor=false&maptype=roadmap&markers=color:red|#{@race.address}&key=#{ENV['GOOGLE_API_BROWSER_KEY']}", id: "map-pic" %>
             </div>
           </div>
-        </div>
-      </div>
-    <% if @race.running_gpx_url != nil %>
-      <div class="col-xs-12 col-sm-12">
-        <div class="section-container">
-          <h2>
-            Topographie
-          </h2>
-        </div>
-        <% if @race.sport == "Triathlon" %>
-          <div class="tabs">
-            <a class="tab active" data-target="tab-swim">
-              <h3>Natation</h3>
-              <p><%= @race.distance_swim.nil? ? "n.c." : "{@race.distance_swim} km"%></p>
-            </a>
-            <a class="tab" data-target="tab-biking">
-              <h3>Velo</h3>
-              <p><%= @race.distance_bike.nil? ? "n.c." : "{@race.distance_bike} km"%></p>
-            </a>
-            <a class="tab" data-target="tab-running">
-              <h3>Running</h3>
-              <p><%= @race.distance_run.nil? ? "n.c." : "{@race.distance_run} km"%></p>
-            </a>
-          </div>
-          <div class="topo-sport-container">
-            <div class="topo-show active" id="tab-swim">
-              <iframe class="topo-show-swimming" width="800px" height="650px" src="<%= @race.swimming_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-            </div>
-            <div class="topo-show" id="tab-biking" >
-              <iframe class="topo-show-biking" width="800px" height="650px" src="<%= @race.biking_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-            </div>
-            <div class="topo-show" id="tab-running">
-                <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-            </div>
-          </div>
-        <% elsif @race.distance_run == "Running"%>
-            <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-        <% end %>
-      </div>
-    <% end %>
-     <% if current_user != nil %>
-      <div class="col-xs-12">
-        <div class="section-container">
-
-          <h2 id="show-redirection">
-            Commentaires sur les éditions passées
-          </h2>
-          <% @race.reviews.each do |review| %>
-            <% if review.user.facebook_picture_url != nil and review.user.first_name and nil and review.user.last_name != nil%>
-
-              <div class="message">
-                <img class="avatar-large" src=" <%= review.user.facebook_picture_url %>">
-                <div class="message-name">
-                  <h3> <%= review.user.first_name %> <%= review.user.last_name%></h3>
-                  <p> <%= review.created_at.strftime("%e %b %Y") %></p>
+            <% if @race.running_gpx_url != nil %>
+              <!-- <div class="col-xs-12 col-sm-12"> -->
+                <div class="section-container">
+                  <h2>
+                    Topographie
+                  </h2>
                 </div>
-                <div class="message-body">
-                  <p>
-                    <%= review.comment %>
-                  </p>
-                </div>
-                <div class="message-status">
-                  <ul class=“list-inline”>
-                     <% review.score.times  do |i| %>
-                       <i class="fas fa-star size red"></i>
-                     <% end %>
-                     <% (5 - review.score).times  do |i| %>
-                       <i class="fas fa-star size grey"></i>
-                     <% end %>
-                  </ul>
-                </div>
-              </div>
-            <% else %>
-              <div class="message">
-                <div class="message-name">
-                  <h3> <%= review.user.email%></h3>
-                  <p> <%= review.created_at.strftime("%e %b %Y") %></p>
-                </div>
-                <div class="message-body">
-                  <p> <%= review.comment %> </p>
-                </div>
-                <div class="message-status">
-                   <ul class=“list-inline”>
-                      <% review.score.times  do |i| %>
-                        <i class="fas fa-star size red"></i>
-                      <% end %>
-                      <% (5 - review.score).times  do |i| %>
-                        <i class="fas fa-star size grey"></i>
-                      <% end %>
-                   </ul>
-                </div>
-              </div>
+                <% if @race.sport == "Triathlon" %>
+                  <div class="tabs-container">
+                    <div class="tabs">
+                      <a class="tab active" data-target="tab-swim">
+                        <h3>Natation</h3>
+                        <p><%= @race.distance_swim.nil? ? "n.c." : "#{@race.distance_swim} km"%></p>
+                      </a>
+                      <a class="tab" data-target="tab-biking">
+                        <h3>Velo</h3>
+                        <p><%= @race.distance_bike.nil? ? "n.c." : "#{@race.distance_bike} km"%></p>
+                      </a>
+                      <a class="tab" data-target="tab-running">
+                        <h3>Running</h3>
+                        <p><%= @race.distance_run.nil? ? "n.c." : "#{@race.distance_run} km"%></p>
+                      </a>
+                    </div>
+                    <div class="topo-sport-container">
+                      <div class="topo-show active" id="tab-swim">
+                        <iframe class="topo-show-swimming" width="450px" height="580px" src="<%= @race.swimming_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+                      </div>
+                      <div class="topo-show" id="tab-biking" >
+                        <iframe class="topo-show-biking" width="500px" height="650px" src="<%= @race.biking_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+                      </div>
+                      <div class="topo-show" id="tab-running">
+                          <iframe class="topo-show-running" width="500px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+                      </div>
+                    </div>
+                  </div>
+                <% elsif @race.distance_run == "Running"%>
+                    <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+                <% end %>
+              <!-- </div> -->
             <% end %>
-          <% end %>
-          <% if current_user != nil and current_user.voted_for? @race and @race.starts_at < Date.today %>
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <div class="show-form-reviews">
-                  <%= simple_form_for [@race, @review] do |f| %>
-                    <%= f.input :score, label: 'Note', collection: 1..5 %>
-                    <%= f.input :comment, label: 'Commentaire' %>
-                    <%= f.submit "ajouter une review", class: "banner-show-btn2" %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
         </div>
       </div>
-     <% end %>
   </div>
 </div>
 <%#= link_to "Back", href="javascript:history.back()", class: "navbar-wagon-item navbar-wagon-link" %>

@@ -41,6 +41,7 @@ body {
   padding-right: 50px;
   margin-left: 5%;
   margin-right: 10%;
+  min-width: 60%;
   z-index: 2000;
   // position: absolute;
   // bottom: 80px;
@@ -167,7 +168,7 @@ body {
 }
 
 .container-show {
- padding: 0px 40px;
+ padding: 0px 60px;
  h1 {
     font-size: 24px;
   }
@@ -183,13 +184,14 @@ body {
 
 .section-container {
   margin-top: 20px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: gray;
+  // border-top-style: solid;
+  // border-top-width: 1px;
+  // border-top-color: gray;
 }
 
 .column-container{
-  padding-top: 170px;
+  padding-top: 200px;
+  margin: 0px 20px;
   a {
     font-size: 14px;
   }
@@ -198,7 +200,7 @@ body {
 .metrics-container {
   display: flex;
   justify-content: space-between;
-  padding: 10px 90px 0px 90px;
+  padding: 10px 40px 0px 0px;
 }
 
 .metrics-logo-container {
@@ -212,10 +214,6 @@ body {
 }
 
 .metrics-logo {
-  background-color: gray;
-  height: 50px;
-  width: 50px;
-  border-radius: 5px;
   margin-bottom: 10px;
 }
 
@@ -240,9 +238,8 @@ body {
 .topo-sport-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 30px;
-  margin-left: 10px;
+  justify-content: flex-start;
+  margin-left: 20px;
   margin-right: 10px;
 }
 
