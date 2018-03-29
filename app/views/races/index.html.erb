@@ -17,8 +17,8 @@
               <%= form_tag(races_path, method: :get, :class =>'filter-form') do %>
               <h4>Mon épreuve</h4>
               <div class="index-inputs">
-                  <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), {prompt: @format.present? ? @format : "Sport", class: 'index-drop'}%>
-                  <%= select_tag :range, options_for_select([["jusqu'à 50km de", "50"], ["jusqu'à 200km de", "200"], ["jusqu'à 1000km de", "1000"]]), {class: 'index-drop'}%><%= text_field_tag :address, @address, class: "index-drop", placeholder: @address %>
+                  <%= select_tag :format, options_for_select(Race::FORMATS_SPORTS.values.flatten), {prompt: @format, class: 'index-drop'}%>
+                  <%= select_tag :range, options_for_select([["jusqu'à 50km de", "50"], ["jusqu'à 200km de", "200"], ["jusqu'à 1000km de", "1000"]], @range), {class: 'index-drop'} %><%= text_field_tag :address, @address, class: "index-drop", placeholder: @address %>
               </div>
               <h4>Mes disponibilités</h4>
               <div class="index-inputs">
@@ -38,9 +38,9 @@
           </div>
         </div>
       </div>
-      <div>
+      <div class= "resultats">
         <p>
-          <%= ( @races.length > 1 || @races.length == 0 ) ? "#{@races.length} résultats" : "#{@races.length} résultats" %>
+          <%= ( @races.length > 1 || @races.length == 0 ) ? "#{@races.length} résultats : cliquez sur \"Plus de filtres\" pour élargir votre recherche !" : "#{@races.length} résultat : cliquez sur \"Plus de filtres\" pour élargir votre recherche !" %>
         </p>
       </div>
       <div class="races">

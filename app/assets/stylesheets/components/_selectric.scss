@@ -1,8 +1,16 @@
 .selectric {
-  height: 50px !important;
-  width: 250px !important;
+  height: 70px !important;
+  width: 350px !important;
   border-radius: 3px !important;
   background-color: white !important;
+  // margin-bottom: 20px !important;
+  > .label {
+    height: 100% !important;
+    line-height: 60px !important;
+  }
+  > .button {
+    height: 100% !important;
+  }
 }
 
 .selectric .label {

@@ -6,22 +6,42 @@
   height: 100vh;
   align-items: center;
   padding: 10px;
-  padding-top: 80px;
+  padding-top: 35px;
 }
 
 .home-form {
-  margin-top: 100px;
+  margin-top: 110px;
   display: flex;
   align-items: center;
   text-align: center;
+  // height: 30px;
+  .datepicker {
+    margin: 0;
+  }
+  .selectric-wrapper {
+    flex: 0 0 auto;
+    margin-right: 5px;
+  }
+  .drop {
+    flex: 0 0 auto;
+    margin-right: 5px;
+  }
+  .btn-go-home {
+    flex: 0 0 auto;
+    margin-bottom: 0;
+  }
+  > input {
+    height: 70px;
+  }
 }
 
 .banner h1 {
   color: white;
-  font-size: 180px;
+  font-size: 150px;
   font-weight: 900;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   font-family: 'Poppins';
+  margin-bottom: 40px;
 }
 
 .banner h2 {
@@ -58,12 +78,12 @@
   width: 100%;
 }
 
-.form-inputs {
-  color: black;
-  align-items: center;
-  display: flex;
-  height: 70px;
-}
+// .form-inputs {
+//   color: black;
+//   align-items: center;
+//   display: flex;
+//   height: 70px;
+// }
 // .input-border {
 //   margin: 5px;
 //   border: 1px black;
@@ -71,6 +91,12 @@
 //   box-shadow: 5px !important;
 //   border-bottom-color: red !important;
 // }
+
+.datepicker{
+  margin: -3px;
+  border: black !important;
+}
+
 .btn-go-home {
   font-size: 30px;
   font-weight: bold;
@@ -81,7 +107,9 @@
   padding-top: 5px;
   padding-bottom: 5px;
   border: none;
+  margin-bottom: 20px;
 }
+
 .btn-go {
   font-size: 30px;
   font-weight: bold;
@@ -108,7 +136,8 @@
 }
 .drop {
   flex: 0 0 auto;
-  width: 200px;
+  width: 20%;
+  height: 30px;
   background-color: white;
   color: $red;
   border-radius: 3px;
@@ -116,6 +145,9 @@
   border: none;
   cursor: pointer;
   font-size: 26px;
+  // margin-right: 5px;
+  // margin-left: 5px;
+  // margin-bottom: 20px;
 }
 
 .select_value {
