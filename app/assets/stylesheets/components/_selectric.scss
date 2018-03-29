@@ -1,28 +1,43 @@
 .selectric {
-  height: 50px;
-  width: 250px;
-  border-radius: 3px;
-  background-color: white;
+  height: 50px !important;
+  width: 250px !important;
+  border-radius: 3px !important;
+  background-color: white !important;
 }
 
 .selectric .label {
-    display: flex;
-    text-align: center;
-    color: black;
-    font-family: 'Cabin';
-    font-weight: regular;
-    font-size: 26px;
-    color: $red;
-    background-color: white;
+    display: flex !important;
+    text-align: center !important;
+    // color: black !important;
+    font-family: 'Cabin' !important;
+    font-weight: regular !important;
+    font-size: 26px !important;
+    color: $red !important;
+    background-color: white !important;
 }
 
-.label {
-    display: flex;
-    text-align: center;
-    color: black;
-    font-family: 'Cabin';
-    font-weight: regular;
-    font-size: 26px;
-    color: $red;
-    background-color: white;
+.selectric-scroll li {
+  font-family: 'Cabin' !important;
+  font-weight: regular !important;
+  font-size: 26px !important;
+  color: $red !important;
+  background-color: white !important;
+  text-align: left !important;
+  padding-left: 30px;
+  &.selected.highlighted {
+  font-family: 'Cabin' !important;
+  font-weight: regular !important;
+  font-size: 26px !important;
+  color: $red !important;
+  background-color: white !important;
+  text-align: left !important;
+  }
 }
+
+// li.selected.highlighted {
+//     font-family: 'Cabin' !important;
+//     font-weight: regular !important;
+//     font-size: 26px !important;
+//     color: $red !important;
+//     background-color: white !important;
+// }
