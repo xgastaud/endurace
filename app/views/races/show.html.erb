@@ -130,48 +130,50 @@
           </div>
         </div>
       </div>
-    <div class="col-xs-12 col-sm-12">
-      <div class="section-container">
-        <h2>
-          Topographie
-        </h2>
+    <% if @race.running_gpx_url != nil %>
+      <div class="col-xs-12 col-sm-12">
+        <div class="section-container">
+          <h2>
+            Topographie
+          </h2>
+        </div>
+        <% if @race.sport == "Triathlon" %>
+          <div class="tabs">
+            <a class="tab active" data-target="tab-swim">
+              <h3>Natation</h3>
+              <p><%= @race.distance_swim.nil? ? "n.c." : "{@race.distance_swim} km"%></p>
+            </a>
+            <a class="tab" data-target="tab-running">
+              <h3>Running</h3>
+              <p><%= @race.distance_bike.nil? ? "n.c." : "{@race.distance_bike} km"%></p>
+            </a>
+            <a class="tab" data-target="tab-biking">
+              <h3>Velo</h3>
+              <p><%= @race.distance_run.nil? ? "n.c." : "{@race.distance_run} km"%></p>
+            </a>
+          </div>
+          <div class="topo-sport-container">
+            <div class="topo-show active" id="tab-swim">
+              <iframe class="topo-show-swimming" width="800px" height="650px" src="<%= @race.swimming_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+            </div>
+            <div class="topo-show" id="tab-biking" >
+              <iframe class="topo-show-biking" width="800px" height="650px" src="<%= @race.biking_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+            </div>
+            <div class="topo-show" id="tab-running">
+                <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+            </div>
+          </div>
+        <% elsif @race.distance_run == "Running"%>
+            <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
+        <% end %>
       </div>
-      <% if @race.sport == "Triathlon" %>
-        <div class="tabs">
-          <a class="tab active" data-target="tab-swim">
-            <h3>Natation</h3>
-            <p><%= @race.distance_swim.nil? ? "n.c." : "{@race.distance_swim} km"%></p>
-          </a>
-          <a class="tab" data-target="tab-running">
-            <h3>Running</h3>
-            <p><%= @race.distance_bike.nil? ? "n.c." : "{@race.distance_bike} km"%></p>
-          </a>
-          <a class="tab" data-target="tab-biking">
-            <h3>Velo</h3>
-            <p><%= @race.distance_run.nil? ? "n.c." : "{@race.distance_run} km"%></p>
-          </a>
-        </div>
-        <div class="topo-sport-container">
-          <div class="topo-show active" id="tab-swim">
-            <iframe class="topo-show-swimming" width="800px" height="650px" src="<%= @race.swimming_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-          </div>
-          <div class="topo-show" id="tab-biking" >
-            <iframe class="topo-show-biking" width="800px" height="650px" src="<%= @race.biking_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-          </div>
-          <div class="topo-show" id="tab-running">
-              <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-          </div>
-        </div>
-      <% elsif @race.distance_run == "Running"%>
-          <iframe class="topo-show-running" width="800px" height="650px" src="<%= @race.running_gpx_url %>" id: "topo-pic" frameborder="0" allowfullscreen ></iframe>
-      <% end %>
-    </div>
+    <% end %>
      <% if current_user != nil %>
       <div class="col-xs-12">
         <div class="section-container">
 
-          <h2>
-            Commentaires
+          <h2 id="show-redirection">
+            Commentaires sur les éditions passées
           </h2>
           <% @race.reviews.each do |review| %>
             <% if current_user.facebook_picture_url != nil || current_user.first_name != nil || current_user.last_name != nil%>
@@ -226,17 +228,19 @@
               </div>
             <% end %>
           <% end %>
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-              <div class="show-form-reviews">
-                <%= simple_form_for [@race, @review] do |f| %>
-                  <%= f.input :score, label: 'Note', collection: 1..5 %>
-                  <%= f.input :comment, label: 'Commentaire' %>
-                  <%= f.submit "ajouter une review", class: "btn btn-primary" %>
-                <% end %>
+          <% if current_user.voted_for? @race and @race.starts_at < Date.today %>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <div class="show-form-reviews">
+                  <%= simple_form_for [@race, @review] do |f| %>
+                    <%= f.input :score, label: 'Note', collection: 1..5 %>
+                    <%= f.input :comment, label: 'Commentaire' %>
+                    <%= f.submit "ajouter une review", class: "banner-show-btn2" %>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
      <% end %>
