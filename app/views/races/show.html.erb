@@ -122,7 +122,7 @@
               Commentaires sur les éditions passées
             </h2>
             <% @race.reviews.each do |review| %>
-              <% if review.user.facebook_picture_url != nil and review.user.first_name and nil and review.user.last_name != nil%>
+              <% if review.user.facebook_picture_url != nil and review.user.first_name != nil and review.user.last_name != nil%>
 
                 <div class="message">
                   <img class="avatar-large" src=" <%= review.user.facebook_picture_url %>">
