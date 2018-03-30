@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @wishlist = current_user.find_voted_items
+    @past_wishlist = current_user.find_voted_items.select {|item| item.starts_at < Date.today}
+    @incoming_wishlist = current_user.find_voted_items.select {|item| item.starts_at > Date.today}
   end
 end
