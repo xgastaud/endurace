@@ -81,7 +81,11 @@ class RacesController < ApplicationController
       else
         @race.liked_by(current_user)
       end
-      redirect_to stored_location_for(:user)
+      respond_to do |format|
+        format.html { redirect_to stored_location_for(:user) }
+        format.js
+      end
+
     end
   end
 end
