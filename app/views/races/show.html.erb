@@ -1,4 +1,6 @@
-<% content_for :meta_image, @race.photo %>
+<% content_for :meta_image, @race.image_race %>
+<% content_for :meta_title, @race.name %>
+<% content_for :meta_description, truncate(@race.description, length: 140, separator: ' ', omission: ' (...)') %>
 <!-- <h1>Races#show</h1>
 <p>Find me in app/views/races/show.html.erb</p>
 <br> -->
