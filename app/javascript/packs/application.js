@@ -11,3 +11,5 @@ import {niceDropdown} from "../components/selectric";
 niceDropdown();
 import {loadDynamicBannerText} from "../components/under_title";
 loadDynamicBannerText();
+import { addToMyWishList } from '../components/wishlist';
+addToMyWishList();

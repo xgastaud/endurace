@@ -1,3 +1,4 @@
+<% content_for :meta_image, @race.photo %>
 <!-- <h1>Races#show</h1>
 <p>Find me in app/views/races/show.html.erb</p>
 <br> -->
@@ -48,22 +49,23 @@
         </p>
       </div>
       <div class="banner-show-btn-container">
-        <%= form_for @race, url: race_like_path(@race), method: :post do |f| %>
-          <%= button_tag type: "submit", class: "like-button-form" do %>
-            <div class="banner-show-btn1">
-              <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
-              <p class="dont-wrap">Ma liste</p>
-            </div>
-          <% end %>
+        <div class="banner-show-btn1" id='ma-liste' data-form-id='edit_race_<%= @race.id %>'>
+          <i class="<%= current_user && current_user.voted_for?(@race) ? "fas" : "far" %> fa-heart color-link"></i>
+          <p class="dont-wrap">Ma liste</p>
+        </div>
+        <%= form_for @race, url: race_like_path(@race), method: :post, html: { class: 'hidden' } do |f| %>
+          <%= button_tag type: "submit", class: "like-button-form" %>
         <% end %>
-        <%= link_to '#' do %>
+
+        <a onclick="window.open('http://www.facebook.com/sharer.php?u=<%= request.original_url %>','newwindow','width=600,height=700');return false;">
           <div class="banner-show-btn1">
             <i class="far fa-share-square color-link1"></i>
-            <p class="dont-wrap">Partager</p>
+            <p>Partager</p>
           </div>
-        <% end %>
+        </a>
+
         <%= link_to @race.registration_url.nil? ? @race.url : @race.registration_url, target: "_blank", class: "no-underline-link" do %>
-          <div class="banner-show-btn2">
+          <div class="banner-show-btn3">
             <i class="far fa-arrow-alt-circle-right color-link2"></i>
             <p class="dont-wrap">M'inscrire</p>
           </div>
@@ -173,7 +175,7 @@
                     <%= simple_form_for [@race, @review] do |f| %>
                       <%= f.input :score, label: 'Note', collection: 1..5 %>
                       <%= f.input :comment, label: 'Commentaire' %>
-                      <%= f.submit "ajouter une review", class: "banner-show-btn2" %>
+                      <%= f.submit "ajouter une review", class: "banner-show-btn3" %>
                     <% end %>
                   </div>
                 </div>
