@@ -1,0 +1,6 @@
+function whishlist() {
+  const card = document.querySelector("[data-race-id='<%= @race.id%>']");
+  card.outerHTML = "<%= j render 'races/card', race: @race %>";
+}
+
+whishlist();
