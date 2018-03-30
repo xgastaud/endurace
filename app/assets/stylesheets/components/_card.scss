@@ -329,6 +329,9 @@
 .like-button-form {
   background: transparent;
   border: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .card-btn-top-right {

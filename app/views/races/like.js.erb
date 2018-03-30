@@ -3,4 +3,13 @@ function whishlist() {
   card.outerHTML = "<%= j render 'races/card', race: @race %>";
 }
 
-whishlist();
+function removeCard() {
+  const card = document.querySelector("[data-race-id='<%= @race.id%>']");
+  card.remove();
+}
+
+<% if request.referer.include?('dashboard') %>
+  removeCard();
+<% else %>
+  whishlist();
+<% end %>
