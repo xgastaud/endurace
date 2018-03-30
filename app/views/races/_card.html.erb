@@ -55,7 +55,7 @@
           <%= image_tag "runner.jpg", class: "card-avatar" %>
         <% end %>
       <% end %>
-     <p class="card-avatar-text"> <%= pluralize(voters.size, "ami") %> </p>
+     <p class="card-avatar-text"> <%= voters.size < 2 ? "#{voters.size} ami" : "#{voters.size} amis" %> </p>
     </div>
   </div>
 </div>
