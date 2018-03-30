@@ -5,5 +5,5 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 // flatpickr(".datepicker", {})
 
 flatpickr("#range_start", {
-  mode: "range"
+  mode: "range",
 })
