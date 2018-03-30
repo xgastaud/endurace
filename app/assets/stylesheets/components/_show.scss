@@ -32,7 +32,8 @@ body {
   position: absolute;
   flex-direction: column;
   display: flex;
-  box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.2);
+  // box-shadow: 0px 30px 50px rgba(0, 0, 0, 0.2); // old
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
   background: white;
   color: black;
   bottom: -150px;
