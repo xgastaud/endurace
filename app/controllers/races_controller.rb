@@ -14,8 +14,8 @@ class RacesController < ApplicationController
       # filters[:sport] = params[:sport] if params[:sport].present?
       filters[:format] = params[:format] if params[:format].present?
       @races = @races.where(filters)
-      @races = @races.where("starts_at > ?", params[:from]) if params[:from].present?
-      @races = @races.where("starts_at < ?", params[:to]) if params[:to].present?
+      @races = @races.where("starts_at > ?", params[:from].split(" ").first) if params[:from].present?
+      @races = @races.where("starts_at < ?", params[:from].split(" ").last) if params[:from].present?
      #@races = @races.near(params[:address] || "Bourges", params[:range] || 500) if params[:address].present?
 
       if params[:address].present? && params[:range].present?
@@ -39,7 +39,6 @@ class RacesController < ApplicationController
     @address = params[:address] if params[:address].present?
     @range = params[:range] if params[:range].present?
     @from = params[:from] if params[:from].present?
-    @to = params[:to] if params[:to].present?
     # @minp = params[:distance].split(",").first.to_i if params[:distance].present?
     # @maxp = params[:distance].split(",").last.to_i if params[:distance].present?
 
