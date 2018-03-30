@@ -98,7 +98,7 @@
 }
 
 #range_start{
-  width: 400px;
+  width: 350px;
 }
 
 
@@ -141,7 +141,7 @@
 }
 .drop {
   flex: 0 0 auto;
-  width: 20%;
+  width: 350px;
   height: 30px;
   background-color: white;
   color: $red;
@@ -150,6 +150,7 @@
   border: none;
   cursor: pointer;
   font-size: 26px;
+  text-align: center;
   // margin-right: 5px;
   // margin-left: 5px;
   // margin-bottom: 20px;
@@ -162,7 +163,8 @@
 .location {
   padding-left: 10px;
   color: $red !important;
-  width: 250px;
+  width: 350px;
+  text-align: center;
 }
 
 .search-address {
