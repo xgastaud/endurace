@@ -47,7 +47,7 @@
           <% end %>
         <% end %>
         <p class="show-avatar-text">
-          <%= pluralize(voters.size, "friend") %>
+          <%= voters.size < 2 ? "#{voters.size} ami" : "#{voters.size} amis" %>
         </p>
       </div>
       <div class="banner-show-btn-container">
