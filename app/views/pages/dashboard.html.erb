@@ -1,10 +1,16 @@
 <div class="container-dashboard">
-  <div class="dashboard-title"> <strong><span>Ma liste de courses (<%= current_user.find_voted_items.count %>)</span></strong></div>
-    <div class="card-container-dashboard">
-    <% current_user.find_voted_items.each do |race| %>
-      <%= render "races/card", race: race %>
-    <% end %>
-  </div>
+    <div class="dashboard-title"> <strong><span>Mon historique de courses (<%= @past_wishlist.count %>)</span></strong></div>
+      <div class="card-container-dashboard">
+      <% @past_wishlist.each do |race| %>
+          <%= render "races/card", race: race %>
+      <% end %>
+    </div>
+    <div class="dashboard-title"> <strong><span>Ma liste de courses (<%= @incoming_wishlist.count %>)</span></strong></div>
+      <div class="card-container-dashboard">
+      <% @incoming_wishlist.each do |race| %>
+          <%= render "races/card", race: race %>
+      <% end %>
+    </div>
 </div>
 
 
