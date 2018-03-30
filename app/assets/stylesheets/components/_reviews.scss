@@ -36,12 +36,15 @@
   color: rgba(0,0,0,0.9);
 }
 .message-body p {
-  font-size: 18px;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 30px !important;
   margin: 6px 0;
 }
 .message-status {
   font-size: 14px;
   font-weight: bold;
+  min-width: 170px !important;
 }
 .status.accepted {
   color: #04A366;
